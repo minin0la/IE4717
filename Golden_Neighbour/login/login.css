@@ -1,0 +1,183 @@
+#goldenhead;
+{
+	position: absolute;
+	height:0px;
+	font-size: 100%;
+	padding: 10px;
+	background-color: black;
+	width: 90%;
+
+}
+header
+{
+	background-color:black
+}
+body
+{
+	font-family: Verdan, Arial, sans-serif;
+	background-color: black;
+	min-width: 800px;	
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	box-shadow: 7px 7px 5px black;
+}
+
+footer
+{
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	font-style: italic;
+	text-align: center;	
+	padding-top: 20px;
+	clear: both;
+	line-height: 1.5;
+}
+
+#wrapper
+{
+	width: auto;
+	height: auto;
+	position: relative;
+	padding-top: 0px;
+}
+
+/* Header */
+
+.parent 
+{
+	margin: 0rem;
+	padding: 1rem 1rem;
+	background-color: black;
+}
+
+.button-link /* . ==> class from the hyperlink*/
+{
+	display: inline-block; 
+	padding: 15px 20px; /* Box 8 */
+	color: #ffffff; /* White */
+	text-decoration:none; /* Remove the default unerline on the link */
+	cursor: pointer;
+}
+
+#right-header-button-link
+{
+	position:absolute;
+	right: 140px;
+	display: inline-block;
+	padding: 10px 20px; /* Box 8 */
+	color: #ffffff; 
+}
+
+#left-header-button-link
+{
+	position:absolute;
+	left: 150px;
+	display: inline-block;
+	padding: 20px; /* Box 8 */
+	color: #ffffff;
+	padding: 6px 18px; 
+}
+
+.my-profile-button-link
+{
+	position:absolute;
+	right: 10px;
+	display: inline-block;
+	padding: 6px 18px; /* Box 8 */
+	background-color: #0077b6;
+	color: #ffffff;
+	text-decoration:none; /* Remove the default unerline on the link */
+	border: none; /* Remove the default border */
+	border-radius: 5px; /* Rounded corner */
+	transition: 0.5s;
+}
+
+.my-profile-button-link:hover
+{
+	background-color: green;
+}
+
+
+/* End of Header */
+
+
+/* Login Page */
+.login-container 
+{
+    width: 320px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: grey;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 
+{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group 
+{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label 
+{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] 
+{
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button-container 
+{
+    text-align: center;
+}
+
+.login-button,
+.signup-button 
+{
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.forgot-password-button 
+{
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button:hover,
+.forgot-password-button:hover,
+.signup-button:hover
+{
+    background-color: #2980b9;
+	transition: 0.5s
+}

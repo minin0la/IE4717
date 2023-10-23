@@ -1,0 +1,101 @@
+#goldenhead;
+{
+	position: absolute;
+	height:0px;
+	font-size: 100%;
+	padding: 10px;
+	background-color: black;
+	width: 90%;
+
+}
+
+body
+{
+	font-family: Verdan, Arial, sans-serif;
+	background-color: grey;
+	min-width: 800px;	
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	box-shadow: 7px 7px 5px black;
+}
+
+footer
+{
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	font-style: italic;
+	text-align: center;	
+	padding: 60px 60px;
+	clear: both;
+}
+
+#wrapper
+{
+	width: auto;
+	height: auto;
+	position: relative;
+	padding-top: 0px;
+}
+
+.button-link /* . ==> class from the hyperlink*/
+{
+	display: inline-block; 
+	padding: 15px 20px; /* Box 8 */
+	color: #ffffff; /* White */
+	text-decoration:none; /* Remove the default unerline on the link */
+	cursor: pointer;
+}
+
+#right-header-button-link
+{
+	position:absolute;
+	right: 140px;
+	display: inline-block;
+	padding: 10px 20px; /* Box 8 */
+	color: #ffffff;
+}
+
+#left-header-button-link
+{
+	position:absolute;
+	left: 150px;
+	display: inline-block;
+	padding: 20px; /* Box 8 */
+	color: #ffffff;
+}
+
+.my-profile-button-link
+{
+	position:absolute;
+	right: 10px;
+	display: inline-block;
+	padding: 10px 20px; /* Box 8 */
+	background-color: #0077b6;
+	color: #ffffff;
+	text-decoration:none; /* Remove the default unerline on the link */
+	border: none; /* Remove the default border */
+	border-radius: 5px; /* Rounded corner */
+	transition: 0.5s;
+}
+
+.my-profile-button-link:hover
+{
+	background-color: green;
+}
+
+.parent 
+{
+	border: 1rem solid green;
+	margin: 1rem;
+	padding: 1rem 1rem;
+	text-align: center;
+}
+
+.division
+{
+	display: inline-block;
+	border: 1px solid white;
+	padding: 1rem 1em;
+}
