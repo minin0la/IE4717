@@ -1,0 +1,197 @@
+#goldenhead;
+{
+	position: absolute;
+	height:0px;
+	font-size: 100%;
+	padding: 10px;
+	background-color: black;
+	width: 90%;
+
+}
+header
+{
+	background-color:black
+}
+body
+{
+	font-family: Verdan, Arial, sans-serif;
+	background-color: black;
+	min-width: 800px;	
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	box-shadow: 7px 7px 5px black;
+	color:white;
+}
+
+
+footer
+{
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	font-style: italic;
+	text-align: center;	
+	padding-top: 20px;
+	clear: both;
+	line-height: 1.5;
+}
+
+#wrapper
+{
+	width: auto;
+	height: auto;
+	position: relative;
+	padding-top: 0px;
+}
+
+.button-link /* . ==> class from the hyperlink*/
+{
+	display: inline-block; 
+	padding: 15px 20px; /* Box 8 */
+	color: #ffffff; /* White */
+	text-decoration:none; /* Remove the default unerline on the link */
+	cursor: pointer;
+}
+
+#right-header-button-link
+{
+	position:absolute;
+	right: 140px;
+	display: inline-block;
+	padding: 10px 20px; /* Box 8 */
+	color: #ffffff; 
+}
+
+#left-header-button-link
+{
+	position:absolute;
+	left: 150px;
+	display: inline-block;
+	padding: 20px; /* Box 8 */
+	color: #ffffff;
+	padding: 6px 18px; 
+}
+
+.my-profile-button-link
+{
+	position:absolute;
+	right: 10px;
+	display: inline-block;
+	padding: 6px 18px; /* Box 8 */
+	background-color: #0077b6;
+	color: #ffffff;
+	text-decoration:none; /* Remove the default unerline on the link */
+	border: none; /* Remove the default border */
+	border-radius: 5px; /* Rounded corner */
+	transition: 0.5s;
+}
+
+.my-profile-button-link:hover
+{
+	background-color: green;
+}
+
+#parent 
+{
+	width: 100%;
+	background-color:yellow;
+}
+
+#timing
+{
+	margin-top: 40px;
+	width: 100%;
+	background-color:blue;
+	min-height: 80px;
+}
+
+.clear::after
+{
+	Content:"";
+	display: block;
+	clear: both;
+}
+
+.left
+{
+	float:left;
+	width:35%;
+	min-height: 800px;
+	background-color: red;
+	margin-top: 20px;
+	text-align:center;
+	line-height:650px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right
+{
+	float:right;
+	width: 65%;
+	min-height: 800px;
+	background-color: green;
+	margin-top: 20px;
+	text-indent:20px;
+}
+
+.selection_date
+{
+	float:left;
+	width:8%;
+	min-height: 50px;
+	background-color: red;
+	margin-top: 20px;
+	font-size:20px;
+	font-family: Arial;
+}
+
+.selection_format
+{
+	float:left;
+	width: 92%;
+	min-height: 50px;
+	background-color: green;
+	margin-top: 20px;
+	font-size:20px;
+	font-family: Arial;
+}
+
+h1
+{
+	text-align: left;
+	color:yellow;
+}
+
+.indented-video 
+{
+    text-indent: 20px; /* Adjust the indentation as needed */
+    padding: 10px;
+}
+
+.parent 
+{
+	
+	
+}
+
+.nineam-slot, .twelvepm-slot, .threepm-slot, .fivepm-slot, .sevenpm-slot, .ninepm-slot, .elevenpm-slot 
+{
+	margin-left: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	
+	background-color:goldenrod;
+	color:black;
+	border:none;
+	border-radius: 5px; /* Rounded corner */
+}
+
+.nineam-slot:hover, .twelvepm-slot:hover, .threepm-slot:hover, .fivepm-slot:hover, .sevenpm-slot:hover, .ninepm-slot:hover, .elevenpm-slot:hover
+{
+	background-color: #005b8f;
+}
