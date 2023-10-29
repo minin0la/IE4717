@@ -21,13 +21,13 @@ session_start();
 		<!-- Header -->
 		<header>
 			<div id="goldenhead">
-				<img src="../Logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
+				<img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
 					; "height:115px" ;>
 				<div id="left-header-button-link">
 					<a href="#movie" class="button-link"> Movies</a>
 				</div>
 				<!-- <div id="right-header-button-link">
-					<a href="../login/login.html" class="button-link"> Login </a>
+					<a href="../login/index.html" class="button-link"> Login </a>
 				</div>
 				<div class="my-profile-button-link">
 					<a href="../signup/signup.html" class="button-link">Sign Up</a>
@@ -38,12 +38,12 @@ session_start();
 					echo "<a href='../scripts/php/auth/logout.php' class='button-link'>Logout</a>";
 					echo "</div>";
 					echo "<div class='my-profile-button-link'>";
-					echo "<a href='../profilepage/profilepage.php' class='button-link'>My Profile</a>";
+					echo "<a href='../profilepage/index.php' class='button-link'>My Profile</a>";
 					echo "</div>";
 				} else {
 					echo "
 					<div id='right-header-button-link'>
-					<a href='../login/login.html' class='button-link'> Login </a>
+					<a href='../login/index.html' class='button-link'> Login </a>
 					</div>
 					<div class='my-profile-button-link'>
 						<a href='../signup/signup.html' class='button-link'>Sign Up</a>
@@ -96,7 +96,7 @@ session_start();
 					echo "<option value='option2'>3D</option>";
 					echo "</select>";
 					echo "</p>";
-					echo "<a href='../details/details.php?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
+					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
 					echo "</div>";
 					$count++;
 					if ($count > 3) {
@@ -186,7 +186,8 @@ session_start();
 	</div>
 	<!-- Footer -->
 	<footer>
-		<img src="../Logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:150px" ; "height:150px" ;>
+		<img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:150px"
+			; "height:150px" ;>
 		<hr>
 		<p>&copy;2023 Privacy-Terms </p>
 	</footer>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['email'])) {
-	header("Location: ../login/login.html");
+	header("Location: ../login/index.html");
 }
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ if (!isset($_SESSION['email'])) {
 		<!-- Header -->
 		<header>
 			<div id="goldenhead">
-				<img src="../Logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
+				<img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
 					; "height:115px" ;>
 				<div id="left-header-button-link">
 					<a href="../homepage/#movie" class="button-link"> Movies</a>
@@ -30,7 +30,7 @@ if (!isset($_SESSION['email'])) {
 					<a href="../cart/cart.html" class="button-link"> Cart </a>
 				</div>
 				<div class="my-profile-button-link">
-					<a href="profilepage.php" class="button-link">My Profile</a>
+					<a href="index.php" class="button-link">My Profile</a>
 				</div>
 			</div>
 		</header>
@@ -61,7 +61,8 @@ if (!isset($_SESSION['email'])) {
 
 	<!-- Footer -->
 	<footer>
-		<img src="../Logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:150px" ; "height:150px" ;>
+		<img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:150px"
+			; "height:150px" ;>
 		<hr>
 		<p>&copy;2023 Privacy-Terms </p>
 	</footer>
