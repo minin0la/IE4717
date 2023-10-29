@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+	
+	<link rel="stylesheet" href="details.css">
+	<script src="function.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+	<!-- Header -->
+	<header>
+	<div id="goldenhead">
+		<img 
+			src="../Logo/bird.png" 
+			alt="Golden_Neighbour_logo" 
+			class="logo"
+			style="width:125px"; "height:115px";	
+		>
+		<div id="left-header-button-link">
+		<a 
+			href="../homepage/#movie"
+			class="button-link"
+		> Movies</a></div>
+
+	<div id="right-header-button-link">
+		<a 
+			href="../login/login.html"
+			class="button-link"
+		> Login </a></div>
+	<div class="my-profile-button-link">
+		<a 
+			href="../signup/signup.html"
+			class="button-link"
+		>Sign Up</a></div>
+	</div>
+	</header>
+	
+	<div id="parent" class="clearfix">
+	<!--feature -->
+		<div class="left">
+			<img
+				src="../movie/barbie.webp" 
+				alt="barbie" 	
+				class="Movie"
+				style="width:400px height:0px"
+			>	
+		</div>
+		
+		<div class="right">
+		<h1><label class="movie-name">Movie Name</label></h1>
+		
+		<div id="parent"><h2>Details</h2>
+		<p><label class="Cast">Cast: </label> <label class="release-date">Release Date:</label></p>
+		<p><label class="director">Director:</label> <label class="running-time">Running Time:</label></p>
+		<p><label class=""genre:>Genre:</label> <label class=""language>Language:</label> </p> 
+		<p><label class=""Film Classification>Film Classification:</label></p>
+		
+		</div>
+		<h2>Description</h2>
+		<label class="Description"></label>
+		
+		<div class="indented-video">
+		<label class="movie-description"></label>
+		<video width="720" height="400" controls class="mp-player">
+            <source src="../movie/barbie.mp4" type="video/mp4">
+		</video>
+		</div>
+		
+		</div>
+	</div>
+	<h1>Showtime</h1>
+	<div id="parent" class="clearfix">
+		<div class="selection_date">
+			<label for="selectBox">Select Date:</label><br>
+				<select id="selectBox">
+				<option value="option1">Digital</option>
+				<option value="option2">3D</option>
+			</select>
+		</div>
+
+		<div class="selection_format">
+			<label for="selectBox">Select Movie Format:</label><br>
+				<select id="selectBox">
+				<option value="option1">Digital</option>
+				<option value="option2">3D</option>
+			</select>
+		</div>
+	</div>
+	<div class="parent">
+		<a
+			href="../seating/seating.html"
+			class="nineam-slot"><button>9am</button></a>
+		<a
+			href="../seating/seating.html"
+			class="twelvepm-slot"><button>12pm</button></a>
+		<a
+			href="../seating/seating.html"
+			class="threepm-slot"><button>3pm</button></a>
+		<a
+			href="../seating/seating.html"
+			class="fivepm-slot"><button>5pm</button></a>
+		<a
+			href="../seating/seating.html"
+			class="sevenpm-slot"><button>7pm</button></a>
+		<a
+			href="../seating/seating.html"
+			class="ninepm-slot"><button>9pm</button></a>
+		<a
+			href="../seating/seating.html"
+			class="elevenpm-slot"><button>11pm</button></a>
+   </div>
+	
+
+	<!-- Footer -->
+	<footer>	
+		<img 
+			src="../Logo/bird.png" 
+			alt="Golden_Neighbour_logo" 
+			class="logo"
+			style="width:150px"; "height:150px"; 
+		>
+		<hr>
+	<p>&copy;2023  Privacy-Terms </p>
+	</footer>
+	</div>
+</body>
+</html>

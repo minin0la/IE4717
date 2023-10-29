@@ -1,0 +1,299 @@
+#goldenhead;
+{
+	position: absolute;
+	height:0px;
+	font-size: 100%;
+	padding: 10px;
+	background-color: black;
+	width: 90%;
+
+}
+header
+{
+	background-color:black;
+}
+body
+{
+	font-family: Verdan, Arial, sans-serif;
+	background-image: url(../movie/galaxy.jpg);
+	min-width: 800px;	
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	box-shadow: 7px 7px 5px black;
+}
+
+footer
+{
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	font-style: italic;
+	text-align: center;	
+	padding-top: 20px;
+	clear: both;
+	line-height: 1.5;
+}
+
+#wrapper
+{
+	width: auto;
+	height: auto;
+	position: relative;
+	padding-top: 0px;
+}
+
+/* Header */
+
+.parent 
+{
+	margin: 0rem;
+	padding: 1rem 1rem;
+	background-color: black;
+}
+
+.button-link /* . ==> class from the hyperlink*/
+{
+	display: inline-block; 
+	padding: 15px 20px; /* Box 8 */
+	color: #ffffff; /* White */
+	text-decoration:none; /* Remove the default unerline on the link */
+	cursor: pointer;
+}
+
+#right-header-button-link
+{
+	margin-top: 5px;
+	position:absolute;
+	right: 140px;
+	display: inline-block;
+	padding: 10px 20px; /* Box 8 */
+	color: #ffffff; 
+}
+
+#left-header-button-link
+{
+	margin-top: 5px;
+	position:absolute;
+	left: 150px;
+	display: inline-block;
+	padding: 20px; /* Box 8 */
+	color: #ffffff;
+	padding: 6px 18px; 
+}
+
+.my-profile-button-link
+{
+	margin-top: 5px;
+	position:absolute;
+	right: 10px;
+	display: inline-block;
+	padding: 6px 18px; /* Box 8 */
+	background-color: #0077b6;
+	color: #ffffff;
+	text-decoration:none; /* Remove the default unerline on the link */
+	border: none; /* Remove the default border */
+	border-radius: 5px; /* Rounded corner */
+	transition: 0.5s;
+}
+
+.my-profile-button-link:hover
+{
+	background-color: green;
+}
+
+
+/* End of Header */
+
+
+/* My Profile */
+.cart-info {
+    padding: 20px;
+	background-color: red;
+	color: white;
+	border: 1em solid grey;
+	line-height: 50px;
+}
+
+
+.profile-header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.paynow-button
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+
+
+	
+	background-color: black;
+	text-decoration:none;
+	border:none;
+	color: white;
+	border-radius: 5px; /* Rounded corner */
+}
+
+.paynow-button:hover
+{
+	background-color: #005b8f;
+}
+
+.profile-info p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.profile-details {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+
+.booking-history {
+    padding: 20px;
+	background-color: black;
+	color: white;
+	border: 1em solid grey;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 16px;
+}
+
+h1
+{
+	text-align: left;
+	color: white;
+	text-indent: 10px;
+	
+	border: 1px red solid;
+	background-color: black;
+	margin: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#movieheader
+{
+	text-align:left;
+	background-color:green;
+}
+
+/* Divide into two parts */
+.movieheader
+{
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.cartid
+{
+	float:right;
+	width:25%;
+	font-size: 15px;
+}
+
+#dateheader
+{
+	text-align:left;
+	background-color:purple;
+}
+
+
+.dateheader
+{
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+#timeheader
+{
+	background-color:blue;
+}
+
+.timeheader
+{
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+#transaction-border
+{
+	min-height: 200px;
+	text-align:left;
+	background-color:grey;
+}
+
+.selected-seats
+{
+	float:left;
+	width:60%;
+    font-size: 15px;
+}
+
+#selected-seats
+{
+	background-color:red;
+}
+.qty
+{
+	float:right;
+	width:10%;
+	font-size: 15px;
+}
+
+#qty
+{
+	background-color:blue;
+}
+
+.ticket-price
+{
+	float:right;
+	width:25%;
+	font-size: 15px;
+}
+
+#ticket-price
+{
+	background-color:purple;
+}
+
+.action-buttons
+{
+	float:right;
+}
+
+.total-price
+{
+	padding-right: 100px;
+	padding-bottom: 20px;
+}
