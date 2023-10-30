@@ -117,6 +117,21 @@ session_start();
 			<div class="parent">
 				<div id="movie">
 					<!-- Movies -->
+					<?php
+					foreach (range(0, 4) as $i) {
+
+						$count = 0;
+						foreach ($result_array as $movie) {
+							if ($count < 3) {
+								$count++;
+								continue;
+							}
+							echo "<div class='division'>";
+							echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
+							echo "<p>{$movie['title']}";
+						}
+					}
+					?>
 					<div class='division'>
 						<img src="../movie/wonka.webp" alt="wonka" class="Movie" style="width:250px" ; "height:115px" ;>
 						<p> Wonka
@@ -168,6 +183,73 @@ session_start();
 					<div class='division'>
 						<img src="../movie/the_marvel.webp" alt="the marvel 
 				class=" Movie" style="width:250px" ; "height:115px" ;>
+						<p> Marvel Studio: The Marvel*
+							<br> Rating: 4.7/5
+							<br> Film Classification:
+							<br>
+
+							<label for="selectBox">Movie Format:</label>
+							<select id="selectBox">
+								<option value="option1">Digital</option>
+								<option value="option2">3D</option>
+							</select>
+						</p>
+						<a href="mission_impossible.html" class="buy_button">Buy Ticket</a>
+					</div>
+				</div>
+				<div id="movie">
+					<!-- Movies -->
+					<div class='division'>
+						<img src="../movie/wonka.webp" alt="wonka" class="Movie" style="width:250px" ; "height:115px" ;>
+						<p> Wonka
+							<br> Rating: 4.7/5
+							<br> Film Classification:
+							<br>
+
+							<label for="selectBox">Movie Format:</label>
+							<select id="selectBox">
+								<option value="option1">Digital</option>
+								<option value="option2">3D</option>
+							</select>
+						</p>
+						<a href="oppenheimer.html" class="buy_button">Buy Ticket</a>
+					</div>
+
+					<div class='division'>
+						<img src="../movie/hopeless.jpg" alt="hopeless" class="Movie" style="width:250px"
+							; "height:115px" ;>
+						<p> Hopeless
+							<br> Rating: 4.7/5
+							<br> Film Classification:
+							<br>
+
+							<label for="selectBox">Movie Format:</label>
+							<select id="selectBox">
+								<option value="option1">Digital</option>
+								<option value="option2">3D</option>
+							</select>
+						</p>
+						<a href="mission_impossible.html" class="buy_button">Buy Ticket</a>
+					</div>
+					<div class='division'>
+						<img src="../movie/the_nun_2.webp" alt="equalizer3" class="Movie" style="width:250px"
+							; "height:115px" ;>
+						<p> The Nun II
+							<br> Rating: 4.7/5
+							<br> Film Classification:
+							<br>
+
+							<label for="selectBox">Movie Format:</label>
+							<select id="selectBox">
+								<option value="option1">Digital</option>
+								<option value="option2">3D</option>
+							</select>
+						</p>
+						<a href="equalizer3.html" class="buy_button">Buy Ticket</a>
+					</div>
+					<div class='division'>
+						<img src="../movie/the_marvel.webp" alt="the marvel 
+						class=" Movie" style="width:250px" ; "height:115px" ;>
 						<p> Marvel Studio: The Marvel*
 							<br> Rating: 4.7/5
 							<br> Film Classification:
