@@ -18,7 +18,7 @@ $hashed_password = password_hash($password, PASSWORD_ARGON2I);
 $sql = "INSERT INTO users (email, password) VALUES ('$email', '$hashed_password')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Registration successful. <a href='../../../login/login.html'>Login here</a>";
+    echo "Registration successful. <a href='../../../login/index.html'>Login here</a>";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

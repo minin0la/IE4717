@@ -21,14 +21,14 @@ include "..\scripts\php\getMovies.php"
 		<!-- Header -->
 		<header>
 			<div id="goldenhead">
-				<img src="../Logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
+				<img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
 					; "height:115px" ;>
 				<div id="left-header-button-link">
 					<a href="../homepage/#movie" class="button-link"> Movies</a>
 				</div>
 
 				<div id="right-header-button-link">
-					<a href="../login/login.html" class="button-link"> Login </a>
+					<a href="../login/index.html" class="button-link"> Login </a>
 				</div>
 				<div class="my-profile-button-link">
 					<a href="../signup/signup.html" class="button-link">Sign Up</a>
@@ -122,7 +122,8 @@ include "..\scripts\php\getMovies.php"
 
 		<!-- Footer -->
 		<footer>
-			<img src="../Logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:150px" ; "height:150px" ;>
+			<img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:150px"
+				; "height:150px" ;>
 			<hr>
 			<p>&copy;2023 Privacy-Terms </p>
 		</footer>
