@@ -41,7 +41,7 @@ if (!isset($_SESSION['email'])) {
 		<div class="profile-header">
 			<h1>My Profile</h1>
 			<div class="action-buttons">
-				<button id="change-password-button">Change Password</button>
+				<a href="" id="change-password-button">Change Password</a>
 				<!-- <button id="logout-button">Logout</button> -->
 				<a href="../scripts/php/auth/logout.php">Logout</a>
 			</div>
