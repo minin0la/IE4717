@@ -57,19 +57,22 @@ session_start();
 
 	<div id="wrapper">
 		<div class="parent">
+			<?php
+			shuffle($result_array);
+
+			?>
 			<!--feature -->
 			<h1>Feature Movie</h1>
 			<div class="left">
-				<h1><Strong> Barbie </Strong></h1>
+				<?php echo "<h1><Strong>{$result_array[4]['title']}</Strong></h1>" ?>
 
-				<p><strong>To live in Barbie Land is to be a perfect being in a perfect place.
-						Unless you have a full-on existential crisis. Or you’re a Ken.</strong></p>
+				<!-- <?php echo "<p><strong>{$result_array[4]['movie_description']}</strong></p>" ?> -->
 
-				<a href="barbie.html" class="buy_button">Buy Ticket</a>
+				<?php echo "<a href='../details?id={$result_array[4]['id']}' class='buy_button'>Buy Ticket</a>" ?>
 			</div>
 
 			<div class="right">
-				<img src="../movie/barbie.webp" alt="barbie" class="Movie" style="width:300px">
+				<?php echo "<img src='../src/img/movie_posters/{$result_array[4]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
 			</div>
 		</div>
 	</div>
@@ -82,7 +85,6 @@ session_start();
 				<?php
 				$count = 0;
 				//shuffle $result_array
-				shuffle($result_array);
 				foreach ($result_array as $movie) {
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";

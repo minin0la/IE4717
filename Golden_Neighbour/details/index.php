@@ -47,7 +47,7 @@ include "..\scripts\php\getMovies.php"
 			?>
 			<!--feature -->
 			<div class="left">
-				<img src="../movie/barbie.webp" alt="barbie" class="Movie" style="width:400px; height:0px">
+				<?php echo "<img src='../src/img/movie_posters/{$matchingMovies['id']}.jpg' alt='barbie' class='Movie' style='width:400px;'>" ?>
 			</div>
 
 			<div class="right">
