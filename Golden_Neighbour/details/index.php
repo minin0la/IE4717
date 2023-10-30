@@ -94,11 +94,17 @@ include "..\scripts\php\getMovies.php"
 		<h1>Showtime</h1>
 		<div id="parent" class="clearfix">
 			<div class="selection_date">
-				<label for="selectBox">Select Date:</label><br>
-				<select id="selectBox">
-					<option value="option1">Digital</option>
-					<option value="option2">3D</option>
-				</select>
+			<?php
+   				$startDate = new DateTime();
+    			$endDate = new DateTime('-20 days');
+    
+    			while ($startDate <= $endDate) {
+       			$dateValue = $startDate->format('Y-m-d');
+       			$dateText = $startDate->format('Y-m-d');
+        		echo "<option value='$dateValue'>$dateText</option>";
+        		$startDate->modify('-1 day');
+   				 }
+    		?>
 			</div>
 
 			<div class="selection_format">
