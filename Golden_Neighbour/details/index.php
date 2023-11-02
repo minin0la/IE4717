@@ -115,15 +115,12 @@ include "..\scripts\php\getMovies.php"
 				</select>
 			</div>
 		</div>
-		<div class="parent">
-			<a href="../seating/seating.html" class="nineam-slot"><button>9am</button></a>
-			<a href="../seating/seating.html" class="twelvepm-slot"><button>12pm</button></a>
-			<a href="../seating/seating.html" class="threepm-slot"><button>3pm</button></a>
-			<a href="../seating/seating.html" class="fivepm-slot"><button>5pm</button></a>
-			<a href="../seating/seating.html" class="sevenpm-slot"><button>7pm</button></a>
-			<a href="../seating/seating.html" class="ninepm-slot"><button>9pm</button></a>
-			<a href="../seating/seating.html" class="elevenpm-slot"><button>11pm</button></a>
-		</div>
+		<div class="timing-container">
+		<a
+			href="../seating?id={$timing['id']}"
+			class="timing-button"><button></button>
+		</a>
+   		</div>
 
 
 		<!-- Footer -->
