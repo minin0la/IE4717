@@ -176,3 +176,19 @@ footer
 .card p {
     font-size: 16px;
 }
+
+.logout-button, .change-password-button
+{
+	padding: 6px 18px; /* Box 8 */
+	background-color: #0077b6;
+	color: #ffffff;
+	text-decoration:none; /* Remove the default unerline on the link */
+	border: none; /* Remove the default border */
+	border-radius: 5px; /* Rounded corner */
+	transition: 0.5s;
+}
+
+.logout-button, .change-password-button
+{
+	background-color: purple;
+}
