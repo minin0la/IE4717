@@ -1,22 +1,11 @@
-#goldenhead
-{
-	position: absolute;
-	height:0px;
-	font-size: 100%;
-	padding: 10px;
-	background-color: black;
-	width: 90%;
-
-}
 header
 {
-	background-color:black;
+	background-color:black
 }
 body
 {
 	font-family: Verdan, Arial, sans-serif;
-	background-color: green;
-	background-image: url(../movie/galaxy.jpg);
+	background-color: black;
 	min-width: 800px;	
 	width: 90%;
 	margin: auto;
@@ -64,7 +53,6 @@ footer
 
 #right-header-button-link
 {
-	margin-top: 5px;
 	position:absolute;
 	right: 140px;
 	display: inline-block;
@@ -74,7 +62,6 @@ footer
 
 #left-header-button-link
 {
-	margin-top: 5px;
 	position:absolute;
 	left: 150px;
 	display: inline-block;
@@ -85,7 +72,6 @@ footer
 
 .my-profile-button-link
 {
-	margin-top: 5px;
 	position:absolute;
 	right: 10px;
 	display: inline-block;
@@ -107,88 +93,81 @@ footer
 /* End of Header */
 
 
-/* My Profile */
-.profile-info {
-    text-align: center;
+/* Login Page */
+.panel-container 
+{
+    width: 100%;
+    margin: 0 auto;
     padding: 20px;
-	background-color: black;
-	color: white;
-	border: 1em solid grey;
+    background-color: grey;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-.profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.profile-header h1 {
+h1 
+{
     font-size: 24px;
-    margin: 0;
+    margin-bottom: 20px;
 }
 
-.action-buttons button {
-    margin-left: 10px;
+.form-group 
+{   
+    width: 500px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label 
+{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input
+{
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button-container 
+{
+    text-align: center;
+}
+
+.login-button,
+.signup-button 
+{
+    padding: 10px 20px;
+    font-size: 18px;
     background-color: #3498db;
     color: #fff;
     border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.forgot-password-button 
+{
+    margin-top: 10px;
     padding: 10px 20px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.action-buttons button:hover {
+.login-button:hover,
+.forgot-password-button:hover,
+.signup-button:hover
+{
     background-color: #2980b9;
-}
-
-.profile-info p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.profile-details {
-    text-align: left;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-
-.booking-history {
-    padding: 20px;
-	background-color: black;
-	color: white;
-	border: 1em solid grey;
-}
-
-.card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.card h2 {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.card p {
-    font-size: 16px;
-}
-
-.logout-button, .change-password-button
-{
-	padding: 6px 18px; /* Box 8 */
-	background-color: #0077b6;
-	color: #ffffff;
-	text-decoration:none; /* Remove the default unerline on the link */
-	border: none; /* Remove the default border */
-	border-radius: 5px; /* Rounded corner */
-	transition: 0.5s;
-}
-
-.logout-button, .change-password-button
-{
-	background-color: purple;
+	transition: 0.5s
 }
