@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./seating.css">
+	<script src="./seating.js"></script>
+    <title>Seat Selection</title>
+</head>
+<body>
+<div id="wrapper">
+	<!-- Header -->
+	<header>
+	<div id="goldenhead">
+		<img 
+			src="../Logo/bird.png" 
+			alt="Golden_Neighbour_logo" 
+			class="logo"
+			style="width:125px"; "height:115px";	
+		>
+		<div id="left-header-button-link">
+		<a 
+			href="../homepage/	#movie"
+			class="button-link"
+		> Movies</a></div>
+
+	<div id="right-header-button-link">
+		<a 
+			href="../login/login.html"
+			class="button-link"
+		> Login </a></div>
+	<div class="my-profile-button-link">
+		<a 
+			href="../signup/signup.html"
+			class="button-link"
+		>Sign Up</a></div>
+	</div>
+	</header>
+
+<!-- Booking Details -->
+<div class="moviedetails">
+<h2>Movie Details</h2>
+<div id="parent" class="clearfix">
+	<div class="left">
+        <img src="../movie/cobweb.jpg" alt="Movie Poster">
+    </div>
+	<div class="right">
+        <h1>Seat Selection</h1>
+        <!-- Seat selection grid will be dynamically generated here -->
+        <div class="seat-map"></div>
+
+        <!-- Display the number of selected seats and price -->
+        <div class="selection-info">
+            <p>Total Seats Chosen: <span id="total-selected-seats">0</span></p>
+            <p>Total Price: $<span id="total-price">0</span></p>
+        </div>
+	<div id="button-shifting">
+        <!-- Continue button -->
+        <button id="addtocart-button" disabled>Add to Cart</button>
+		<button id="paynow-button" disabled	>Pay Now</button>
+	</div>
+    </div>
+</div>
+</div>
+
+<div class="moviedetails">
+
+</div>
+
+<!-- Footer -->
+	<footer>	
+		<img 
+			src="../Logo/bird.png" 
+			alt="Golden_Neighbour_logo" 
+			class="logo"
+			style="width:150px"; "height:150px"; 
+		>
+		<hr>
+	<p>&copy;2023  Privacy-Terms </p>
+	</footer>
+</div>
+</body>
+</html>
