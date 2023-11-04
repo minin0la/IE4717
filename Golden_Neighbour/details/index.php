@@ -94,17 +94,17 @@ include "..\scripts\php\getMovies.php"
 		<h1>Showtime</h1>
 		<div id="parent" class="clearfix">
 			<div class="selection_date">
-			<?php
-   				$startDate = new DateTime();
-    			$endDate = new DateTime('-20 days');
-    
-    			while ($startDate <= $endDate) {
-       			$dateValue = $startDate->format('Y-m-d');
-       			$dateText = $startDate->format('Y-m-d');
-        		echo "<option value='$dateValue'>$dateText</option>";
-        		$startDate->modify('-1 day');
-   				 }
-    		?>
+				<?php
+				$startDate = new DateTime();
+				$endDate = new DateTime('-20 days');
+
+				while ($startDate <= $endDate) {
+					$dateValue = $startDate->format('Y-m-d');
+					$dateText = $startDate->format('Y-m-d');
+					echo "<option value='$dateValue'>$dateText</option>";
+					$startDate->modify('-1 day');
+				}
+				?>
 			</div>
 
 			<div class="selection_format">
@@ -115,13 +115,15 @@ include "..\scripts\php\getMovies.php"
 				</select>
 			</div>
 		</div>
-		<div class="timing-container">
-		<a
-			href="../seating?id={$timing['id']}"
-			class="timing-button"><button></button>
-		</a>
-   		</div>
-
+		<div class="parent">
+			<a href="../seating/seating.html" class="nineam-slot"><button>9am</button></a>
+			<a href="../seating/seating.html" class="twelvepm-slot"><button>12pm</button></a>
+			<a href="../seating/seating.html" class="threepm-slot"><button>3pm</button></a>
+			<a href="../seating/seating.html" class="fivepm-slot"><button>5pm</button></a>
+			<a href="../seating/seating.html" class="sevenpm-slot"><button>7pm</button></a>
+			<a href="../seating/seating.html" class="ninepm-slot"><button>9pm</button></a>
+			<a href="../seating/seating.html" class="elevenpm-slot"><button>11pm</button></a>
+		</div>
 
 		<!-- Footer -->
 		<footer>
