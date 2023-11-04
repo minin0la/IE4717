@@ -1,5 +1,5 @@
 <?php
-include "..\scripts\php\getMovies.php";
+include "..\scripts\php\movies\getMovies.php";
 session_start();
 ?>
 
