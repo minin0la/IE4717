@@ -1,6 +1,7 @@
 <?php
-include "..\scripts\php\getMovies.php"
-	?>
+include "..\scripts\php\movies\getMovies.php";
+include "..\scripts\php\movies\getShowtime.php";
+?>
 
 
 <!DOCTYPE html>
@@ -116,14 +117,23 @@ include "..\scripts\php\getMovies.php"
 			</div>
 		</div>
 		<div class="parent">
-			<a href="../seating/seating.html" class="nineam-slot"><button>9am</button></a>
-			<a href="../seating/seating.html" class="twelvepm-slot"><button>12pm</button></a>
-			<a href="../seating/seating.html" class="threepm-slot"><button>3pm</button></a>
-			<a href="../seating/seating.html" class="fivepm-slot"><button>5pm</button></a>
-			<a href="../seating/seating.html" class="sevenpm-slot"><button>7pm</button></a>
-			<a href="../seating/seating.html" class="ninepm-slot"><button>9pm</button></a>
-			<a href="../seating/seating.html" class="elevenpm-slot"><button>11pm</button></a>
+			<?php
+			foreach ($showtime_array as $showtime) {
+				if ($showtime['movie_id'] == $_GET['id']) {
+					$matchingShowtime = $showtime;
+				}
+				echo "<a href='../seating/?showtime_id={$matchingShowtime['showtime_id']}&movie_id={$matchingShowtime['movie_id']}' class='slot'><button>{$matchingShowtime['start_time']}</button></a>";
+			}
+
+			?>
 		</div>
+		<!-- <a href="../seating/seating.html" class="nineam-slot"><button>9am</button></a>
+		<a href="../seating/seating.html" class="twelvepm-slot"><button>12pm</button></a>
+		<a href="../seating/seating.html" class="threepm-slot"><button>3pm</button></a>
+		<a href="../seating/seating.html" class="fivepm-slot"><button>5pm</button></a>
+		<a href="../seating/seating.html" class="sevenpm-slot"><button>7pm</button></a>
+		<a href="../seating/seating.html" class="ninepm-slot"><button>9pm</button></a>
+		<a href="../seating/seating.html" class="elevenpm-slot"><button>11pm</button></a> -->
 
 		<!-- Footer -->
 		<footer>

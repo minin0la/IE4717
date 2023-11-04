@@ -171,13 +171,26 @@ h1
     padding: 10px;
 }
 
-.parent 
+/* .parent 
 {
 	
 	
-}
+} */
 
 .nineam-slot, .twelvepm-slot, .threepm-slot, .fivepm-slot, .sevenpm-slot, .ninepm-slot, .elevenpm-slot 
+{
+	margin-left: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	
+	background-color:goldenrod;
+	color:black;
+	border:none;
+	border-radius: 5px; /* Rounded corner */
+}
+.slot 
 {
 	margin-left: 10px;
 	padding-left: 10px;
