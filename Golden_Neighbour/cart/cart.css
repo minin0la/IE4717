@@ -109,9 +109,8 @@ footer
 /* My Profile */
 .cart-info {
     padding: 20px;
-	background-color: red;
+	background-color: grey;
 	color: white;
-	border: 1em solid grey;
 	line-height: 50px;
 }
 
@@ -183,7 +182,6 @@ h1
 	color: white;
 	text-indent: 10px;
 	
-	border: 1px red solid;
 	background-color: black;
 	margin: 0px;
 	padding-top: 20px;
@@ -192,7 +190,6 @@ h1
 #movieheader
 {
 	text-align:left;
-	background-color:green;
 }
 
 /* Divide into two parts */
@@ -216,7 +213,6 @@ h1
 #dateheader
 {
 	text-align:left;
-	background-color:purple;
 }
 
 
@@ -232,7 +228,7 @@ h1
 
 #timeheader
 {
-	background-color:blue;
+	
 }
 
 .timeheader
@@ -289,11 +285,28 @@ h1
 
 .action-buttons
 {
-	float:right;
+	
+	background-color: grey;
 }
 
 .total-price
 {
+	float:right;
 	padding-right: 100px;
-	padding-bottom: 20px;
+	color: black;
+}
+
+.close-box {
+	float: right;
+	cursor: pointer;
+}
+
+#movie-cart
+{
+	background-color: grey;
+	border: 5px solid black;
+}
+#final-pricing
+{
+	margin-bottom: 10px;
 }

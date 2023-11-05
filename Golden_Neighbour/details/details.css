@@ -95,7 +95,6 @@ footer
 #parent 
 {
 	width: 100%;
-	background-color:yellow;
 }
 
 #timing
@@ -118,7 +117,6 @@ footer
 	float:left;
 	width:35%;
 	min-height: 800px;
-	background-color: red;
 	margin-top: 20px;
 	text-align:center;
 	line-height:650px;
@@ -132,7 +130,6 @@ footer
 	float:right;
 	width: 65%;
 	min-height: 800px;
-	background-color: green;
 	margin-top: 20px;
 	text-indent:20px;
 }
@@ -142,7 +139,6 @@ footer
 	float:left;
 	width:8%;
 	min-height: 50px;
-	background-color: red;
 	margin-top: 20px;
 	font-size:20px;
 	font-family: Arial;
@@ -153,7 +149,6 @@ footer
 	float:left;
 	width: 92%;
 	min-height: 50px;
-	background-color: green;
 	margin-top: 20px;
 	font-size:20px;
 	font-family: Arial;
@@ -162,7 +157,7 @@ footer
 h1
 {
 	text-align: left;
-	color:yellow;
+	color:white;
 }
 
 .indented-video 
@@ -171,26 +166,13 @@ h1
     padding: 10px;
 }
 
-/* .parent 
+.parent 
 {
 	
 	
-} */
+}
 
 .nineam-slot, .twelvepm-slot, .threepm-slot, .fivepm-slot, .sevenpm-slot, .ninepm-slot, .elevenpm-slot 
-{
-	margin-left: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	
-	background-color:goldenrod;
-	color:black;
-	border:none;
-	border-radius: 5px; /* Rounded corner */
-}
-.slot 
 {
 	margin-left: 10px;
 	padding-left: 10px;
