@@ -16,7 +16,7 @@ body
 {
 	font-family: Verdan, Arial, sans-serif;
 	background-color: green;
-	background-image: url(../movie/galaxy.jpg);
+	background-image: url(../src/img/logo/galaxy.jpg);
 	min-width: 800px;	
 	width: 90%;
 	margin: auto;
@@ -111,9 +111,10 @@ footer
 .profile-info {
     text-align: center;
     padding: 20px;
-	background-color: black;
+	background-color: grey;
 	color: white;
-	border: 1em solid grey;
+	border: 1em solid beige;
+	border-radius: 5px; /* Rounded corner */
 }
 
 .profile-header {
@@ -156,9 +157,10 @@ footer
 
 .booking-history {
     padding: 20px;
-	background-color: black;
+	background-color: grey;
 	color: white;
-	border: 1em solid grey;
+	border: 1em solid beige;
+	border-radius: 5px; /* Rounded corner */
 }
 
 .card {
@@ -188,7 +190,7 @@ footer
 	transition: 0.5s;
 }
 
-.logout-button, .change-password-button
+.logout-button:hover, .change-password-button:hover
 {
 	background-color: purple;
 }
