@@ -39,22 +39,22 @@ include "..\scripts\php\movies\getMovies.php"
     <div class="parent">
         <div class="panel-container">
             <h1>Add Movies</h1>
-            <form action="../scripts/php/auth/authentication.php" method="post">
+            <form action="../scripts/php/auth/authentication.php" method="post" class="two-column-form">
                 <div class="form-group">
                     <label for="title">Movie Title:</label>
                     <input id="title" name="title" required />
                 </div>
                 <div class="form-group">
-                    <label for="title">Director:</label>
-                    <input id="title" name="title" required />
+                    <label for="director">Director:</label>
+                    <input id="director" name="director" required />
                 </div>
                 <div class="form-group">
-                    <label for="title">Cast:</label>
-                    <input id="title" name="title" required />
+                    <label for="cast">Cast:</label>
+                    <input id="cast" name="cast" required />
                 </div>
                 <div class="form-group">
-                    <label for="title">Runtime (Minutes):</label>
-                    <input id="title" name="title" required />
+                    <label for="runtime">Runtime (Minutes):</label>
+                    <input id="runtime" name="runtime" required />
                 </div>
                 <div class="form-group">
                     <label for="title">Rating:</label>
@@ -105,10 +105,12 @@ include "..\scripts\php\movies\getMovies.php"
                     <option value="6">Hall 6</option>
                     </select>
                 </div>
-
-                <label for="image">Select an image:</label>
+            
+                <div>
+                <label for="image">Upload Movie Poster</label>
                 <input type="file" name="image" id="image">
-                <br>
+                </div>
+            
                 <div class="button-container">
                     <button type="submit" class="login-button">Add</button>
                 </div>
@@ -119,28 +121,45 @@ include "..\scripts\php\movies\getMovies.php"
         <div class="panel-container">
             <h1>Edit Movies</h1>
             <?php
-            foreach ($result_array as $movie) {
+foreach ($result_array as $movie) {
+    echo '<div class="movie-entry">';
+    echo '<form method="post" action="../scripts/php/deleteMovie.php" class="movie-info">';
+    
+    // Movie Title on the left
+    echo '<div class="movie-title">';
+    echo '<p>' . $movie['title'] . '</p>';
+    echo '</div>';
+    
+    // Delete button on the right
+    echo '<div class="delete-button">';
+    echo '<button type="submit" name="movie_id" value="' . $movie['id'] . '" class="link-button">Delete</button>';
+    echo '</div>';
+    
+    echo '</form>';
+    
+    // Venue selection form
+    echo '<form action="process_form.php" method="post" class="two-column-form">';
+    
+    // Venue selection
+    echo '<div class="form-group">';
+    echo '<label for="venue">Venue:</label>';
+    echo '<select id="venue" name="venue" required>';
+    echo '<option value="1">Hall 1</option>';
+    echo '<option value="2">Hall 2</option>';
+    echo '<option value="3">Hall 3</option>';
+    echo '<option value="4">Hall 4</option>';
+    echo '<option value="5">Hall 5</option>';
+    echo '<option value="6">Hall 6</option>';
+    echo '</select>';
+    echo '</div>';
+    
+    echo '</form>';
+    echo '</div>';
+}
+?>
 
-                echo '<form method="post" action="../scripts/php/deleteMovie.php" class="inline">
-  <p>' . $movie['title'] . '</p>
-  <button type="submit" name="movie_id" value="' . $movie['id'] . '" class="link-button">Delete
-  </button>
-  <form action="process_form.php" method="post">
-  <label for="venue">Venue:</label>
-  <select id="venue" name="venue" required>
-      <option value="1">Hall 1</option>
-      <option value="2">Hall 2</option>
-      <option value="3">Hall 3</option>
-      <option value="4">Hall 4</option>
-      <option value="5">Hall 5</option>
-      <option value="6">Hall 6</option>
-  </select>
-  <br>
-</form>';
 
-                // echo "<p>{$movie['title']}</p> <a href='../scripts/php/deleteMovie.php?movie_id={$movie['id']}'>Delete</a> <br>";
-            }
-            ?>
+
             <h1></h1>
         </div>
     </div>
