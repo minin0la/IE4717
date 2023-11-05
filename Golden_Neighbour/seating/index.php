@@ -125,8 +125,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               foreach ($available_seats as $row) {
                 echo " <div class='seat-row'>";
                 foreach ($row as $seat) {
-                  $checked = in_array($seat, $_SESSION["selected_seats"]) ? "selected" : "";
-                  echo "<div class='seat $checked' data-seat='$seat' onclick='toggleSeat(this)' style='text-indent: 0px'>$seat</div>";
+                  // $checked = in_array($seat, $_SESSION["selected_seats"]) ? "selected" : "";
+                  echo "<div class='seat' data-seat='$seat' onclick='toggleSeat(this)' style='text-indent: 0px'>$seat</div>";
                 }
                 echo "</div>";
               }
