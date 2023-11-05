@@ -131,7 +131,6 @@ footer
 	width: 65%;
 	min-height: 800px;
 	margin-top: 20px;
-	text-indent:20px;
 }
 
 .selection_date
@@ -166,12 +165,6 @@ h1
     padding: 10px;
 }
 
-.parent 
-{
-	
-	
-}
-
 .nineam-slot, .twelvepm-slot, .threepm-slot, .fivepm-slot, .sevenpm-slot, .ninepm-slot, .elevenpm-slot 
 {
 	margin-left: 10px;
@@ -186,7 +179,34 @@ h1
 	border-radius: 5px; /* Rounded corner */
 }
 
-.nineam-slot:hover, .twelvepm-slot:hover, .threepm-slot:hover, .fivepm-slot:hover, .sevenpm-slot:hover, .ninepm-slot:hover, .elevenpm-slot:hover
-{
-	background-color: #005b8f;
+.selection_container {
+	display: flex;
+	align-items: center;
+	border: 1px solid #000; /* Add your border styles here */
+	padding: 10px; /* Add padding as needed */
+  }
+  
+  .selection_date, .selection_format {
+	margin-right: 20px;
+  }
+  
+  .Description
+  {
+	
+  }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+}
+
+.form-group {
+    padding: 10px; /* Adjust the padding value as needed */
+    text-align: left;
 }

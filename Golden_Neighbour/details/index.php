@@ -14,7 +14,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 	<title>Movie Details</title>
 
 	<link rel="stylesheet" href="details.css">
-	<script src="function.js"></script>
+	<script src="details.js"></script>
 </head>
 
 <body>
@@ -36,6 +36,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 				</div>
 			</div>
 		</header>
+	</div>
 
 		<div id="parent" class="clearfix">
 			<?php
@@ -55,67 +56,70 @@ include "..\scripts\php\showtimes\getShowtime.php";
 				<h1><label class="movie-name">
 						<?php echo "{$matchingMovies['title']}" ?>
 					</label></h1>
-
-				<div id="parent">
 					<h2>Details</h2>
-					<p><label class="Cast">Cast:
-							<?php echo "{$matchingMovies['cast']}" ?>
-						</label> <label class="release-date">Release Date:
-							<?php echo "{$matchingMovies['release_date']}" ?>
-						</label></p>
-					<p><label class="director">Director:
-							<?php echo "{$matchingMovies['director']}" ?>
-						</label> <label class="running-time">Running Time:
-							<?php echo "{$matchingMovies['runtime_minutes']}" ?>
-						</label></p>
-					<p><label class="" genre:>Genre:
-							<?php echo "{$matchingMovies['genre']}" ?>
-						</label> <label class="" language>Language:
-							<?php echo "{$matchingMovies['movie_language']}" ?>
-						</label> </p>
-					<p><label class="" Film Classification>Film Classification:
-							<?php echo "{$matchingMovies['file_classification']}" ?>
-						</label></p>
-
+				<div class="container">
+					<div class="column">
+						<div class="form-group">Cast:
+								<?php echo "{$matchingMovies['cast']}" ?>						
+						</div>
+						<div class="form-group">Release Date:
+								<?php echo "{$matchingMovies['release_date']}" ?>						
+						</div>
+						<div class="form-group">Director:
+								<?php echo "{$matchingMovies['director']}" ?>					
+						</div>
+						<div class="form-group">Running Time:
+								<?php echo "{$matchingMovies['runtime_minutes']}" ?>					
+						</div>
+					</div>
+					<div class="column">
+						<div class="form-group">Genre:
+								<?php echo "{$matchingMovies['genre']}" ?>					
+						</div>
+						<div class="form-group">Language:
+								<?php echo "{$matchingMovies['movie_language']}" ?>					
+						</div>
+						<div class="form-group">Film Classification:
+								<?php echo "{$matchingMovies['file_classification']}" ?>					
+						</div>
+					</div>
 				</div>
-				<h2>Description</h2>
-				<label class="Description">
-					<?php echo "{$matchingMovies['movie_description']}" ?>
-				</label>
+				
+					<h2>Description</h2>
+				<div class="form-group">
+						<label class="Description">
+						<?php echo "{$matchingMovies['movie_description']}" ?>
+					</label>
+					</div>
 
-				<div class="indented-video">
-					<label class="movie-description"></label>
-					<video width="720" height="400" controls class="mp-player">
-						<source src="../movie/barbie.mp4" type="video/mp4">
-					</video>
+					<div class="indented-video">
+						<label class="movie-description"></label>
+							<video width="720" height="400" controls class="mp-player">
+							<source src="../movie/barbie.mp4" type="video/mp4">
+							</video>
+					</div>		
+				</div>
+			</div>
+			<h1>Showtime</h1>
+			<div class="selection_container">
+				<div class="selection_date">
+					<label for="selectDate">Select Date:</label>
+					<select id="selectDate">
+					<!-- JavaScript will populate the dates here -->
+					</select>
 				</div>
 
-			</div>
-		</div>
-		<h1>Showtime</h1>
-		<div id="parent" class="clearfix">
-			<div class="selection_date">
-				<?php
-				$startDate = new DateTime();
-				$endDate = new DateTime('-20 days');
-
-				while ($startDate <= $endDate) {
-					$dateValue = $startDate->format('Y-m-d');
-					$dateText = $startDate->format('Y-m-d');
-					echo "<option value='$dateValue'>$dateText</option>";
-					$startDate->modify('-1 day');
-				}
-				?>
-			</div>
-
-			<div class="selection_format">
-				<label for="selectBox">Select Movie Format:</label><br>
-				<select id="selectBox">
+				<div class="selection_format">
+					<label for="selectFormat">Select Movie Format:</label>
+					<select id="selectFormat">
 					<option value="option1">Digital</option>
 					<option value="option2">3D</option>
-				</select>
+					</select>
+				</div>
 			</div>
 		</div>
+
+
 		<div class="parent">
 			<?php
 			foreach ($showtime_array as $showtime) {
@@ -142,7 +146,6 @@ include "..\scripts\php\showtimes\getShowtime.php";
 			<hr>
 			<p>&copy;2023 Privacy-Terms </p>
 		</footer>
-	</div>
 </body>
 
 </html>
