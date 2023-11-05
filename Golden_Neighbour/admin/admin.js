@@ -1,4 +1,5 @@
-<script>
+{
+  /* <script>
 document.getElementById("languages").addEventListener("change", function() {
     var otherLanguageInput = document.getElementById("otherLanguage");
     if (this.value === "other") {
@@ -20,4 +21,8 @@ document.getElementById("genre").addEventListener("change", function() {
         otherGenreInput.required = false;
     }
 });
-</script>
+</script> */
+}
+function submitForm(movieId) {
+  document.querySelector(`.venue-${movieId}`).submit();
+}
