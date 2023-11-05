@@ -91,13 +91,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="left-header-button-link">
           <a href="../homepage/#movie" class="button-link"> Movies</a>
         </div>
-
-        <div id="right-header-button-link">
-          <a href="../login/login.html" class="button-link"> Login </a>
-        </div>
-        <div class="my-profile-button-link">
-          <a href="../signup/signup.html" class="button-link">Sign Up</a>
-        </div>
+        <?php
+        if (isset($_SESSION['email'])) {
+          echo "<div id='right-header-button-link'>";
+          echo "<a href='../scripts/php/auth/logout.php' class='button-link'>Logout</a>";
+          echo "</div>";
+          echo "<div class='my-profile-button-link'>";
+          echo "<a href='../profilepage/index.php' class='button-link'>My Profile</a>";
+          echo "</div>";
+        } else {
+          echo "
+					<div id='right-header-button-link'>
+					<a href='../login/index.html' class='button-link'> Login </a>
+					</div>
+					<div class='my-profile-button-link'>
+						<a href='../signup/signup.html' class='button-link'>Sign Up</a>
+					</div>
+					";
+        }
+        ?>
       </div>
     </header>
 
