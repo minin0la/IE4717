@@ -116,6 +116,10 @@ h1
     width: 500px;
     text-align: left;
     margin-bottom: 20px;
+	
+	flex-basis: 50%; /* Each field takes up 50% of the available space */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 label 
@@ -170,4 +174,40 @@ input
 {
     background-color: #2980b9;
 	transition: 0.5s
+}
+
+.two-column-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.movie-info {
+    display: flex;
+    align-items: center;
+}
+
+.movie-title {
+    flex-grow: 1; /* Expands to fill available space */
+	font-size: 20px;
+}
+
+.link-button {
+    margin-left: 10px; /* Adds space between title and button */
+	background-color: black;
+	text-decoration:none;
+	border:none;
+	color: white;
+	border-radius: 5px; /* Rounded corner */
+}
+
+.link-button:hover {
+
+    background-color: red;
 }
