@@ -4,7 +4,7 @@ if (!isset($_SESSION['email'])) {
   header("Location: ../login/index.html");
 }
 include "..\scripts\php\movies\getMovies.php";
-include "..\scripts\php\movies\getShowtime.php";
+include "..\scripts\php\showtimes\getShowtime.php";
 ?>
 
 <?php

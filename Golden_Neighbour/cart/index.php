@@ -46,7 +46,10 @@ include "..\scripts\php\movies\getMovies.php";
 			// $quantity = count($cart['selected_seat']);
 			echo '
 		<div class="cart-info">
-		<span class="close-box" onclick="removeMovie(this)">X</span>
+		<span class="close-box" onclick="deleteCart(' . $cart['cart_id'] . ')">X</span>
+		<form id="deleteCart-' . $cart['cart_id'] . '" action="../scripts/php/cart/deleteCart.php" method="post">
+        <input type="hidden" id="cart_id" name="cart_id" value="' . $cart['cart_id'] . ' ">
+    </form>
 		<div id="movieheader">
 			<label class="movieheader">Movie Title: ' . $cart['movie_title'] . '</label>
 			<label class="cartid">Cart ID: ' . $cart['cart_id'] . '</label>
