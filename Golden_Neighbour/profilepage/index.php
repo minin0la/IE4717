@@ -27,7 +27,7 @@ if (!isset($_SESSION['email'])) {
 				</div>
 
 				<div id="right-header-button-link">
-					<a href="../cart/cart.html" class="button-link"> Cart </a>
+					<a href="../cart" class="button-link"> Cart </a>
 				</div>
 				<div class="my-profile-button-link">
 					<a href="index.php" class="button-link">My Profile</a>

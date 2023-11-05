@@ -29,10 +29,10 @@ include "..\scripts\php\movies\getMovies.php";
 				</div>
 
 				<div id="right-header-button-link">
-					<a href="../cart/cart.html" class="button-link"> Cart </a>
+					<a href="../cart" class="button-link"> Cart </a>
 				</div>
 				<div class="my-profile-button-link">
-					<a href="../signup/signup.html" class="button-link">My Profile</a>
+					<a href="../profilepage/index.php" class="button-link">My Profile</a>
 				</div>
 			</div>
 		</header>
@@ -40,11 +40,13 @@ include "..\scripts\php\movies\getMovies.php";
 
 	<!-- Profile Page -->
 	<h1> Your Cart </h1>
-	<?php
-	foreach ($cart_array as $cart) {
-		// $quantity = count($cart['selected_seat']);
-		echo '
+	<ul id="movie-cart">
+		<?php
+		foreach ($cart_array as $cart) {
+			// $quantity = count($cart['selected_seat']);
+			echo '
 		<div class="cart-info">
+		<span class="close-box" onclick="removeMovie(this)">X</span>
 		<div id="movieheader">
 			<label class="movieheader">Movie Title: ' . $cart['movie_title'] . '</label>
 			<label class="cartid">Cart ID: ' . $cart['cart_id'] . '</label>
@@ -75,15 +77,18 @@ include "..\scripts\php\movies\getMovies.php";
 
 		</div>
 
-		<div class="action-buttons">
+		<div id="final-pricing" class="clearfix">
 			<label class="total-price">Total: $' . $cart['price'] . '</label>
+			</div>
+			<div class="action-button" class="clearfix">
 			<button class="paynow-button">Pay Now</button>
-		</div>
+			</div>
+
 	</div>
 		';
-	}
-	?>
-
+		}
+		?>
+	</ul>
 
 	<!-- Footer -->
 	<footer>
