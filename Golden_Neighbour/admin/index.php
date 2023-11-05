@@ -10,6 +10,7 @@ include "..\scripts\php\movies\getMovies.php"
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./adminpage.css" />
     <script src="./login.js"></script>
+    <script src="admin.js"></script>
     <title>Login Page</title>
 </head>
 
@@ -61,18 +62,41 @@ include "..\scripts\php\movies\getMovies.php"
                 </div>
                 <div class="form-group">
                     <label for="title">Language:</label>
-                    <select id="genre" name="genre" required></select>
+                    <select id="genre" name="genre" required>
+                    <select id="languages" name="lanuguages" required>
+                    <option value="English">English</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="other">Other</option>
+                    </select>
+                <input type="text" id="otherLanguage" name="otherLanguage" style="display: none;" placeholder="Enter other language">
 
                 </div>
                 <div class="form-group">
                     <label for="title">Classification:</label>
-                    <select id="genre" name="genre" required></select>
-
+                    <select id="genre" name="genre" required>
+                    <option value="G">G (General Audience)</option>
+                    <option value="PG">PG (Parental Guidance Suggested)</option>
+                    <option value="PG-13">PG-13 (Parents Strongly Cautioned)</option>
+                    <option value="R">R (Restricted)</option>
+                    <option value="NC-17">NC-17 (Adults Only)</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="Genre">Genre:</label>
-                    <select id="genre" name="genre" required></select>
+                    <select id="genre" name="genre" required>
+                    <option value="action">Action</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option>
+                    <option value="horror">Horror</option>
+                    <option value="sci-fi">Science Fiction</option>
+                    <option value="other">Other</option>
+                    </select>
+                <input type="text" id="otherGenre" name="otherGenre" style="display: none;" placeholder="Enter other Genre">
                 </div>
+                <label for="image">Select an image:</label>
+                <input type="file" name="image" id="image">
+                <br>
                 <div class="button-container">
                     <button type="submit" class="login-button">Add</button>
                 </div>
