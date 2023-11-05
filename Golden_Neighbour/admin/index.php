@@ -61,8 +61,7 @@ include "..\scripts\php\movies\getMovies.php"
                     <input type="number" id="title" name="title" required />
                 </div>
                 <div class="form-group">
-                    <label for="title">Language:</label>
-                    <select id="genre" name="genre" required>
+                    <label for="languages">Language:</label>
                     <select id="languages" name="lanuguages" required>
                     <option value="English">English</option>
                     <option value="Korean">Korean</option>
@@ -74,7 +73,7 @@ include "..\scripts\php\movies\getMovies.php"
                 </div>
                 <div class="form-group">
                     <label for="title">Classification:</label>
-                    <select id="genre" name="genre" required>
+                    <select id="title" name="title" required>
                     <option value="G">G (General Audience)</option>
                     <option value="PG">PG (Parental Guidance Suggested)</option>
                     <option value="PG-13">PG-13 (Parents Strongly Cautioned)</option>
@@ -94,6 +93,19 @@ include "..\scripts\php\movies\getMovies.php"
                     </select>
                 <input type="text" id="otherGenre" name="otherGenre" style="display: none;" placeholder="Enter other Genre">
                 </div>
+
+                <div class="form-group">
+                    <label for="Venue">Venue:</label>
+                    <select id="venue" name="venue" required>
+                    <option value="1">Hall 1</option>
+                    <option value="2">Hall 2</option>
+                    <option value="3">Hall 3</option>
+                    <option value="4">Hall 4</option>
+                    <option value="5">Hall 5</option>
+                    <option value="6">Hall 6</option>
+                    </select>
+                </div>
+
                 <label for="image">Select an image:</label>
                 <input type="file" name="image" id="image">
                 <br>
@@ -113,6 +125,17 @@ include "..\scripts\php\movies\getMovies.php"
   <p>' . $movie['title'] . '</p>
   <button type="submit" name="movie_id" value="' . $movie['id'] . '" class="link-button">Delete
   </button>
+  <form action="process_form.php" method="post">
+  <label for="venue">Venue:</label>
+  <select id="venue" name="venue" required>
+      <option value="1">Hall 1</option>
+      <option value="2">Hall 2</option>
+      <option value="3">Hall 3</option>
+      <option value="4">Hall 4</option>
+      <option value="5">Hall 5</option>
+      <option value="6">Hall 6</option>
+  </select>
+  <br>
 </form>';
 
                 // echo "<p>{$movie['title']}</p> <a href='../scripts/php/deleteMovie.php?movie_id={$movie['id']}'>Delete</a> <br>";
