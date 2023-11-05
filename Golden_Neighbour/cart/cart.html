@@ -40,7 +40,9 @@
 
 <!-- Profile Page -->
 <h1> Your Cart </h1>
+<ul id="movie-cart">
 	<div class="cart-info" >
+		<span class="close-box" onclick="removeMovie(this)">X</span>
         <div id="movieheader">
 		<label class="movieheader">Movie Title:</label>
 		<label class="cartid">Cart ID:</label>
@@ -69,12 +71,16 @@
 		</div>
         
         </div>
-		
-		<div class="action-buttons">
+	</ul>
+		<div id="final-pricing" class="clearfix">
 			<label class="total-price">Total: $</label>
+		</div>
+
+		<div class="action-button" class="clearfix">
 			<button class="paynow-button">Pay Now</button>
-        </div>
+		</div>
 	</div>
+	
   
 
 
