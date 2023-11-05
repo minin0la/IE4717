@@ -5,7 +5,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT id, title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, flim_classification FROM movies";
+$sql = "SELECT id, title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, file_classification FROM movies";
 $result = mysqli_query($conn, $sql);
 
 if ($result === FALSE) {
