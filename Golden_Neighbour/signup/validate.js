@@ -40,7 +40,7 @@ emailContent.addEventListener('blur', (event) => {
     } else if (isValidEmail(emailContent.value)) {
       errorEmail.textContent = ''
     } else {
-      errorEmail.textContent = 'Your email contains invalid symbols!'
+      errorEmail.textContent = 'Your email contains invalid symbols or wrong email address! (e.g.@gmail.com)'
     }
   })
 
