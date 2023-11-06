@@ -15,7 +15,7 @@ header
 body
 {
 	font-family: Verdan, Arial, sans-serif;
-	background-image: url(../movie/galaxy.jpg);
+	background-image: url(../src/img/logo/galaxy.jpg);
 	min-width: 800px;	
 	width: 90%;
 	margin: auto;
@@ -134,11 +134,12 @@ footer
 	border:none;
 	color: white;
 	border-radius: 5px; /* Rounded corner */
+	transition: 0.5s;
 }
 
 .paynow-button:hover
 {
-	background-color: #005b8f;
+	background-color: green;
 }
 
 .profile-info p {
@@ -182,7 +183,7 @@ h1
 	color: white;
 	text-indent: 10px;
 	
-	background-color: black;
+	
 	margin: 0px;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -304,7 +305,9 @@ h1
 #movie-cart
 {
 	background-color: grey;
-	border: 5px solid black;
+	color: white;
+	border: 1em solid beige;
+	border-radius: 5px; /* Rounded corner */
 }
 #final-pricing
 {

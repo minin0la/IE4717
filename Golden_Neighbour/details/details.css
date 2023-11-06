@@ -15,13 +15,14 @@ header
 body
 {
 	font-family: Verdan, Arial, sans-serif;
-	background-color: black;
+	background-image: url(../src/img/logo/galaxy.jpg);
 	min-width: 800px;	
 	width: 90%;
 	margin: auto;
 	margin-top: 10px;
 	box-shadow: 7px 7px 5px black;
 	color:white;
+
 }
 
 

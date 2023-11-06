@@ -16,7 +16,7 @@ header
 body
 {
 	font-family: Verdan, Arial, sans-serif;
-	background-image: url(../movie/galaxy.jpg);
+	background-image: url(../src/img/logo/galaxy.jpg);
 	background-repeat: no-repeat;
 	background-color:black;
 	min-width: 800px;	
@@ -195,8 +195,7 @@ h2
 
 .moviedetails
 {
-	background-color:black;
-	background: grey;
+	margin-top: 30px;
 }
 
 .selection-info
