@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="signup.css" />
+    <!-- Scripts -->
+	  <script defer src="validate.js"></script>
     <title>Sign Up Page</title>
   </head>
   <body>
@@ -30,6 +32,19 @@
       <div class="signup-container">
         <h1>Sign Up</h1>
         <form action="../scripts/php/auth/register.php" method="post">
+
+          <div class="form-group">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" onkeypress="isValidName(this.value)" required />
+            <span class="error" id="first-error-name"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" onkeypress="isValidName(this.value)" required />
+            <span class="error" id="last-error-name"></span>
+          </div>
+
           <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required />
