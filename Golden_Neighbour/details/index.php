@@ -38,65 +38,66 @@ include "..\scripts\php\showtimes\getShowtime.php";
 		</header>
 	</div>
 
-	<div id="parent" class="clearfix">
-		<?php
+	<div class="parent">
+		<div id="movie">
+			<?php
 
-		foreach ($result_array as $movie) {
-			if ($movie['id'] == $_GET['id']) {
-				$matchingMovies = $movie;
+			foreach ($result_array as $movie) {
+				if ($movie['id'] == $_GET['id']) {
+					$matchingMovies = $movie;
+				}
 			}
-		}
-		?>
-		<!--feature -->
-		<div class="left">
-			<?php echo "<img src='../src/img/movie_posters/{$matchingMovies['id']}.jpg' alt='barbie' class='Movie' style='width:400px;'>" ?>
-		</div>
-
-		<div class="right">
-			<h1><label class="movie-name">
-					<?php echo "{$matchingMovies['title']}" ?>
-				</label></h1>
-			<h2>Details</h2>
-			<div class="container">
-				<div class="column">
-					<div class="form-group">Cast:
-						<?php echo "{$matchingMovies['cast']}" ?>
-					</div>
-					<div class="form-group">Release Date:
-						<?php echo "{$matchingMovies['release_date']}" ?>
-					</div>
-					<div class="form-group">Director:
-						<?php echo "{$matchingMovies['director']}" ?>
-					</div>
-					<div class="form-group">Running Time:
-						<?php echo "{$matchingMovies['runtime_minutes']}" ?>
-					</div>
-				</div>
-				<div class="column">
-					<div class="form-group">Genre:
-						<?php echo "{$matchingMovies['genre']}" ?>
-					</div>
-					<div class="form-group">Language:
-						<?php echo "{$matchingMovies['movie_language']}" ?>
-					</div>
-					<div class="form-group">Film Classification:
-						<?php echo "{$matchingMovies['flim_classification']}" ?>
-					</div>
-				</div>
+			?>
+			<!--feature -->
+			<div class="left">
+				<?php echo "<img src='../src/img/movie_posters/{$matchingMovies['id']}.jpg' alt='barbie' class='Movie' style='width:400px;'>" ?>
 			</div>
 
-			<h2>Description</h2>
-			<div class="form-group">
-				<label class="Description">
-					<?php echo "{$matchingMovies['movie_description']}" ?>
-				</label>
-			</div>
+			<div class="right">
+				<h1><label class="movie-name">
+						<?php echo "{$matchingMovies['title']}" ?>
+					</label></h1>
+				<h2>Details</h2>
+				<div class="container">
+					<div class="column">
+						<div class="form-group">Cast:
+							<?php echo "{$matchingMovies['cast']}" ?>
+						</div>
+						<div class="form-group">Release Date:
+							<?php echo "{$matchingMovies['release_date']}" ?>
+						</div>
+						<div class="form-group">Director:
+							<?php echo "{$matchingMovies['director']}" ?>
+						</div>
+						<div class="form-group">Running Time:
+							<?php echo "{$matchingMovies['runtime_minutes']}" ?>
+						</div>
+					</div>
+					<div class="column">
+						<div class="form-group">Genre:
+							<?php echo "{$matchingMovies['genre']}" ?>
+						</div>
+						<div class="form-group">Language:
+							<?php echo "{$matchingMovies['movie_language']}" ?>
+						</div>
+						<div class="form-group">Film Classification:
+							<?php echo "{$matchingMovies['flim_classification']}" ?>
+						</div>
+					</div>
+				</div>
 
-			<div class="indented-video">
-				<label class="movie-description"></label>
-				<video width="720" height="400" controls class="mp-player">
+				<h2>Description</h2>
+				<div class="form-group">
+					<label class="Description">
+						<?php echo "{$matchingMovies['movie_description']}" ?>
+					</label>
+				</div>
+
+				<div class="video-container">
+					<video class="video" controls class="mp-player">
 					<source src="../movie/barbie.mp4" type="video/mp4">
-				</video>
+					</video>
+     		</div>
 			</div>
 		</div>
 	</div>
