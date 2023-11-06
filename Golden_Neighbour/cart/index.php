@@ -48,7 +48,7 @@ include "..\scripts\php\movies\getMovies.php";
 		<div class="cart-info">
 		<span class="close-box" onclick="deleteCart(' . $cart['cart_id'] . ')">X</span>
 		<form id="deleteCart-' . $cart['cart_id'] . '" action="../scripts/php/cart/deleteCart.php" method="post">
-        <input type="hidden" id="cart_id" name="cart_id" value="' . $cart['cart_id'] . ' ">
+        <input type="hidden" id="cart_id" name="cart_id" value="' . $cart['cart_id'] . '">
     </form>
 		<div id="movieheader">
 			<label class="movieheader">Movie Title: ' . $cart['movie_title'] . '</label>
@@ -84,7 +84,18 @@ include "..\scripts\php\movies\getMovies.php";
 			<label class="total-price">Total: $' . $cart['price'] . '</label>
 			</div>
 			<div class="action-button" class="clearfix">
-			<button class="paynow-button">Pay Now</button>
+			<form action="../scripts/php/payments/payments.php" method="post">
+			<input type="hidden" id="cart_id" name="cart_id" value="' . $cart['cart_id'] . '">
+			<input type="hidden" id="movie_title" name="movie_title" value="' . $cart['movie_title'] . '">
+			<input type="hidden" id="theater_id" name="theater_id" value="' . $cart['theater_id'] . '">
+			<input type="hidden" id="selected_seat" name="selected_seat" value="' . $cart['selected_seat'] . '">
+			<input type="hidden" id="email" name="email" value="' . $cart['email'] . '">
+			<input type="hidden" id="movie_date" name="movie_date" value="' . $cart['movie_date'] . '">
+			<input type="hidden" id="movie_time" name="movie_time" value="' . $cart['movie_time'] . '">
+			<input type="hidden" id="qty" name="qty" value="' . $cart['qty'] . '">
+			<input type="hidden" id="price" name="price" value="' . $cart['price'] . '">
+			<button type="submit" class="paynow-button">Pay Now</button>
+			</form>
 			</div>
 
 	</div>

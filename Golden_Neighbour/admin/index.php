@@ -161,25 +161,31 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 echo '</form>';
 
                 // Venue selection form
-                echo '<form action="process_form.php" method="post" class="two-column-form">';
+                echo '<form action="../scripts/php/showtimes/fillShowtime.php" method="post" class="venue-' . $movie['id'] . '">';
 
                 // Venue selection
                 echo '<div class="form-group">';
+                echo '<label for="date">Start Date:</label>';
+                echo '<input type="date" id="showtime_date" name="showtime_date" value="' . date('Y-m-d') . '"required>';
+                echo '<label for="showtime_date_count">How many days? :</label>';
+                echo '<input type="number" id="showtime_date_count" name="showtime_date_count" value="1" required>';
                 echo '<label for="venue">Venue:</label>';
-                echo '<select id="venue" name="venue" required>';
-                echo '<option value="None" selected>Unassigned</option>';
-                foreach ($unassigned_theaters as $theater_id) {
-                    echo '<option value="' . $theater_id . '">Hall ' . $theater_id . '</option>';
+                echo '<select id="venue" name="venue" onchange="submitForm(' . $movie['id'] . ')">';
+                // echo '<option value="None" selected>Unassigned</option>';
+                if ($movie['assigned_cinema'] != 0) {
+                    echo '<option value="' . $movie['assigned_cinema'] . '" selected>Hall ' . $movie['assigned_cinema'] . '</option>';
+                    echo '<option value="None">Unassigned</option>';
+                } else {
+                    echo '<option value="None" selected>Unassigned</option>';
+                    foreach ($unassigned_theaters as $theater_id) {
+                        echo '<option value="' . $theater_id . '">Hall ' . $theater_id . '</option>';
+                    }
                 }
-                // echo '<option value="1">Hall 1</option>';
-                // echo '<option value="2">Hall 2</option>';
-                // echo '<option value="3">Hall 3</option>';
-                // echo '<option value="4">Hall 4</option>';
-                // echo '<option value="5">Hall 5</option>';
-                // echo '<option value="6">Hall 6</option>';
                 echo '</select>';
                 echo '</div>';
-
+                echo '<input type="hidden" id="movie_id" name="movie_id" value="' . $movie['id'] . '">';
+                echo '<input type="hidden" id="movie_title" name="movie_title" value="' . $movie['title'] . '">';
+                echo '<input type="hidden" id="runtime_minutes" name="runtime_minutes" value="' . $movie['runtime_minutes'] . '">';
                 echo '</form>';
                 echo '</div>';
             }
