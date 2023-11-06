@@ -108,7 +108,7 @@ session_start();
 						}
 					}
 					echo " ({$movie['rating']}/5)";
-					echo "<br> Film Classification: {$movie['file_classification']}";
+					echo "<br> Film Classification: {$movie['flim_classification']}";
 					echo "<br>";
 					echo "<label for='selectBox'>Movie Format:</label>";
 					echo "<select id='selectBox'>";
@@ -151,7 +151,7 @@ session_start();
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
 					echo "<br> Rating: {$movie['rating']}/5";
-					echo "<br> Film Classification: {$movie['file_classification']}";
+					echo "<br> Film Classification: {$movie['flim_classification']}";
 					echo "<br>";
 					echo "<label for='selectBox'>Movie Format:</label>";
 					echo "<select id='selectBox'>";
