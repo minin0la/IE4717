@@ -11,6 +11,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 // session_start();
 include 'db.php'; // Include the database connection
 
+
 $available_seats = array(
   array("A1", "A2", "A3", "A4"),
   array("B1", "B2", "B3", "B4"),
@@ -19,17 +20,42 @@ $available_seats = array(
   array("E1", "E2", "E3", "E4")
 );
 
+$movie_title = $_GET['movie_title'];
+$movie_date = $_GET['movie_date'];
+$movie_time = $_GET['movie_time'];
+
+$connection = mysqli_connect("localhost", "root", "", "goldenneighbour");
+
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+$query = "SELECT selected_seat FROM transactions WHERE movie_title='$movie_title' AND movie_date='$movie_date' AND movie_time='$movie_time'";
+$result = mysqli_query($connection, $query);
+
+// Create an array to store the taken seats
+$taken_seats = array();
+
+if ($result) {
+  while ($row = mysqli_fetch_assoc($result)) {
+    $selected_seats = explode(",", $row['selected_seat']);
+    $taken_seats = array_merge($taken_seats, $selected_seats);
+  }
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["selected_seat"])) {
     $selected_seats = $_POST["selected_seat"];
+    $theater_id = $_POST["theater_id"];
     $movie_title = $_POST["movie_title"];
     $qty = $_POST["qty"];
     $price = $_POST["price"];
-    $date = date('Y-m-d');
-    $time = date('H:i:s');
+    $date = $_POST["showtime_date"];
+    $time = $_POST["start_time"];
 
     // foreach ($selected_seats as $seat) {
-    $sql = "INSERT INTO cart (selected_seat, email, movie_title, qty, price, movie_date, movie_time) VALUES ('$selected_seats', '{$_SESSION['email']}', '$movie_title', '$qty', '$price', '$date', '$time')";
+    $sql = "INSERT INTO cart (selected_seat, email, theater_id, movie_title, qty, price, movie_date, movie_time) VALUES ('$selected_seats', '{$_SESSION['email']}', '$theater_id', '$movie_title', '$qty', '$price', '$date', '$time')";
     if ($conn->query($sql) === TRUE) {
       echo "Seat $seat added to cart successfully.";
       header("Location: ../cart/index.php");
@@ -74,7 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       totalPrice.textContent = selectedSeatsValue.length * 10;
       qty.value = selectedSeatsValue.length;
       price.value = selectedSeatsValue.length * 10;
-
       // }
     }
   </script>
@@ -134,14 +159,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="seat-map">
               <?php
+
+
               foreach ($available_seats as $row) {
                 echo " <div class='seat-row'>";
                 foreach ($row as $seat) {
-                  // $checked = in_array($seat, $_SESSION["selected_seats"]) ? "selected" : "";
-                  echo "<div class='seat' data-seat='$seat' onclick='toggleSeat(this)' style='text-indent: 0px'>$seat</div>";
+                  $is_taken = in_array($seat, $taken_seats);
+                  $disable_click = $is_taken ? " onclick='return false;'" : "onclick='toggleSeat(this)'";
+                  $disable_seat = $is_taken ? "X" : "$seat";
+
+
+                  echo "<div class='seat' data-seat='$seat' $disable_click style='text-indent: 0px'>$disable_seat</div>";
                 }
                 echo "</div>";
               }
+              // foreach ($available_seats as $row) {
+              //   echo " <div class='seat-row'>";
+              //   foreach ($row as $seat) {
+              //     // $checked = in_array($seat, $_SESSION["selected_seats"]) ? "selected" : "";
+              //     echo "<div class='seat' data-seat='$seat' onclick='toggleSeat(this)' style='text-indent: 0px'>$seat</div>";
+              //   }
+              //   echo "</div>";
+              // }
               ?>
               <br>
               <input type="hidden" id="selected_seats" name="selected_seat" value="">
@@ -149,6 +188,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <input type="hidden" id="qtys" name="qty" value="">
 
               <input type="hidden" id="prices" name="price" value="">
+              <?php
+              foreach ($showtime_array as $showtime) {
+                if ($showtime['showtime_id'] == $_GET['showtime_id']) {
+                  $matchingShowtime = $showtime;
+                  echo '<input type="hidden" id="showtime_date" name="showtime_date" value="' . $matchingShowtime["showtime_date"] . '">';
+                  echo '<input type="hidden" id="start_time" name="start_time" value="' . $matchingShowtime["start_time"] . '">';
+                  echo '<input type="hidden" id="theater_id" name="theater_id" value="' . $matchingShowtime["theater_id"] . '">';
+                }
+              }
+              ?>
               <?php
               echo
                 '<input type="hidden" id="movie_titles" name="movie_title" value=' . $matchingMovies['title'] . '>';

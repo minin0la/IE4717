@@ -5,7 +5,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT showtime_id, movie_id, theater_id, showtime_date, start_time, end_time FROM showtimes";
+$sql = "SELECT showtime_id, movie_id, movie_title, theater_id, showtime_date, start_time, end_time FROM showtimes";
 $result = mysqli_query($conn, $sql);
 
 if ($result === FALSE) {
@@ -14,14 +14,14 @@ if ($result === FALSE) {
 
 $showtime_array = $result->fetch_all(MYSQLI_ASSOC);
 
-$sql = "SELECT id, title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, file_classification FROM movies";
-$result = mysqli_query($conn, $sql);
+// $sql = "SELECT id, title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, flim_classification,  assigned_cinema FROM movies";
+// $result = mysqli_query($conn, $sql);
 
-if ($result === FALSE) {
-    die("Error executing query: " . $conn->error);
-}
+// if ($result === FALSE) {
+//     die("Error executing query: " . $conn->error);
+// }
 
-$movie_array = $result->fetch_all(MYSQLI_ASSOC);
+// $movie_array = $result->fetch_all(MYSQLI_ASSOC);
 
 
 mysqli_close($conn);
