@@ -89,7 +89,7 @@ session_start();
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
-					
+
 					// Calculate the number of filled stars and the fraction based on the rating
 					$rating = $movie['rating'];
 					$filledStars = floor($rating);
@@ -97,13 +97,13 @@ session_start();
 
 					echo "<p>Rating: ";
 					for ($i = 1; $i <= 5; $i++) {
-					if ($i <= $filledStars) {
-						echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
-					} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
-						echo "★"; // White star
-					} else {
-						echo "☆"; // Empty star
-					}
+						if ($i <= $filledStars) {
+							echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
+						} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
+							echo "★"; // White star
+						} else {
+							echo "☆"; // Empty star
+						}
 					}
 					echo " ({$movie['rating']}/5)";
 					echo "<br> Film Classification: {$movie['file_classification']}";
@@ -147,24 +147,7 @@ session_start();
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
-					
-					// Calculate the number of filled stars and the fraction based on the rating
-					$rating = $movie['rating'];
-					$filledStars = floor($rating);
-					$fraction = $rating - $filledStars;
-
-					echo "<p>Rating: ";
-					for ($i = 1; $i <= 5; $i++) {
-					if ($i <= $filledStars) {
-						echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
-					} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
-						echo "★"; // White star
-					} else {
-						echo "☆"; // Empty star
-					}
-					}
-					echo " ({$movie['rating']}/5)";
-
+					echo "<br> Rating: {$movie['rating']}/5";
 					echo "<br> Film Classification: {$movie['file_classification']}";
 					echo "<br>";
 					echo "<label for='selectBox'>Movie Format:</label>";
