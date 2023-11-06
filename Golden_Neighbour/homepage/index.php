@@ -81,48 +81,52 @@ session_start();
 		<div class="parent">
 			<h1> Now Showing </h1>
 			<div id="movie">
+				
 				<!-- Movies -->
 				<?php
 				$count = 0;
 				//shuffle $result_array
-				foreach ($result_array as $movie) {
-					echo "<div class='division'>";
-					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
-					echo "<p>{$movie['title']}";
-					
-					// Calculate the number of filled stars and the fraction based on the rating
-					$rating = $movie['rating'];
-					$filledStars = floor($rating);
-					$fraction = $rating - $filledStars;
+				
+					foreach ($result_array as $movie) 
+					{
+						echo "<div class='division'>";
+						echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
+						echo "<p>{$movie['title']}";
+						
+						// Calculate the number of filled stars and the fraction based on the rating
+						$rating = $movie['rating'];
+						$filledStars = floor($rating);
+						$fraction = $rating - $filledStars;
 
-					echo "<p>Rating: ";
-					for ($i = 1; $i <= 5; $i++) {
-					if ($i <= $filledStars) {
-						echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
-					} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
-						echo "★"; // White star
-					} else {
-						echo "☆"; // Empty star
+						echo "<p>Rating: ";
+						for ($i = 1; $i <= 5; $i++) {
+						if ($i <= $filledStars) {
+							echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
+						} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
+							echo "★"; // White star
+						} else {
+							echo "☆"; // Empty star
+						}
+						}
+						echo " ({$movie['rating']}/5)";
+						echo "<br> Film Classification: {$movie['file_classification']}";
+						echo "<br>";
+						echo "<label for='selectBox'>Movie Format:</label>";
+						echo "<select id='selectBox'>";
+						echo "<option value='option1'>Digital</option>";
+						echo "<option value='option2'>3D</option>";
+						echo "</select>";
+						echo "</p>";
+						echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
+						echo "</div>";
+						$count++;
+						if ($count > 3) {
+							break;
+						}
 					}
-					}
-					echo " ({$movie['rating']}/5)";
-					echo "<br> Film Classification: {$movie['file_classification']}";
-					echo "<br>";
-					echo "<label for='selectBox'>Movie Format:</label>";
-					echo "<select id='selectBox'>";
-					echo "<option value='option1'>Digital</option>";
-					echo "<option value='option2'>3D</option>";
-					echo "</select>";
-					echo "</p>";
-					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
-					echo "</div>";
-					$count++;
-					if ($count > 3) {
-						break;
-					}
-				}
-				?>
-			</div>
+					?>
+				</div>
+			
 		</div>
 		<!-- Expand -->
 		<div class="showmore_button">
