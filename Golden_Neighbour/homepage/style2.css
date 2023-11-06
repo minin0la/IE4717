@@ -235,7 +235,6 @@ h1
 {
     flex: 1;
     max-width: calc(25% - 10px); /* 25% of the container width minus the gap */
-    border: 1px solid #ccc; /* Optional: Add a border to each image container for illustration */
   }
 
 #movie img {
