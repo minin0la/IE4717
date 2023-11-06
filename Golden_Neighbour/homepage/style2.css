@@ -122,6 +122,8 @@ footer
 	align-items: space-between;
 	justify-content:center;
 	position:relative;
+	
+	
 }	
 
 
@@ -221,3 +223,22 @@ h1
 {
 	color: #FFD700; /* Color of filled stars (gold/yellow) */
 }
+
+#movie
+{
+	display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Set the desired spacing between images */
+}
+
+#movie > div 
+{
+    flex: 1;
+    max-width: calc(25% - 10px); /* 25% of the container width minus the gap */
+    border: 1px solid #ccc; /* Optional: Add a border to each image container for illustration */
+  }
+
+#movie img {
+    max-width: 100%;
+    max-height: 100%;
+  }

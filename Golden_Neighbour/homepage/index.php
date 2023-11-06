@@ -81,10 +81,12 @@ session_start();
 		<div class="parent">
 			<h1> Now Showing </h1>
 			<div id="movie">
+
 				<!-- Movies -->
 				<?php
 				$count = 0;
 				//shuffle $result_array
+				
 				foreach ($result_array as $movie) {
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
@@ -123,6 +125,7 @@ session_start();
 				}
 				?>
 			</div>
+
 		</div>
 		<!-- Expand -->
 		<div class="showmore_button">
