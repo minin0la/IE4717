@@ -93,9 +93,13 @@ footer
 	background-color: green;
 }
 
-#parent 
+.parent 
 {
-	width: 100%;
+	border: 1rem solid beige;
+	margin: 0rem;
+	padding: 1rem 1rem;
+	background-color: grey;
+
 }
 
 #timing
@@ -160,10 +164,19 @@ h1
 	color:white;
 }
 
-.indented-video 
+.video-container 
 {
-    text-indent: 20px; /* Adjust the indentation as needed */
-    padding: 10px;
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+}
+
+.video 
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .nineam-slot, .twelvepm-slot, .threepm-slot, .fivepm-slot, .sevenpm-slot, .ninepm-slot, .elevenpm-slot 
@@ -181,10 +194,14 @@ h1
 }
 
 .selection_container {
+	border: 1rem solid beige;
+	margin: 0rem;
+	padding: 1rem 1rem;
+	background-color: grey;
+
 	display: flex;
 	align-items: center;
-	border: 1px solid #000; /* Add your border styles here */
-	padding: 10px; /* Add padding as needed */
+	
   }
   
   .selection_date, .selection_format {
@@ -211,3 +228,59 @@ h1
     padding: 10px; /* Adjust the padding value as needed */
     text-align: left;
 }
+
+#movie
+{
+	display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Set the desired spacing between images */
+}
+
+#movie > div 
+{
+    flex: 1;
+    max-width: calc(50% - 40px); /* 50% of the container width minus the gap */
+}
+
+#movie img 
+{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#showtimesContainer
+{
+	border: 1rem solid beige;
+	margin: 0rem;
+	padding: 1rem 1rem;
+	background-color: grey;
+}
+
+#showtimesList 
+{
+    display:flex;
+}
+
+/* Apply 20px spacing between list items */
+#showtimesList button 
+{
+    margin-right: 30px;
+	background-color: black;
+	color: white;
+	transition: 0.5s;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 14px;
+}
+
+#showtimesList button:hover
+{
+	background-color: blueviolet;
+}
+
+/* #showtimesList button:last-child 
+{
+    margin-right: 0;
+} //unless there are 3 buttons or more 
+*/
