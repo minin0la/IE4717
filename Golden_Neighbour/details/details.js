@@ -1,6 +1,6 @@
 // Function to navigate to signup.html
 function navigateToSignup() {
-  window.location.href = "../signup/signup.html";
+  window.location.href = "../signup";
 }
 
 // Function to handle the "Sign Up" button click event

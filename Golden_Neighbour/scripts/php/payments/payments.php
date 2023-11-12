@@ -1,4 +1,5 @@
 <?php
+$email = $_SESSION['email'];
 $cart_id = $_POST['cart_id'];
 $movie_title = $_POST['movie_title'];
 $theater_id = $_POST['theater_id'];
@@ -9,7 +10,7 @@ $movie_time = $_POST['movie_time'];
 $qty = $_POST['qty'];
 $price = $_POST['price'];
 
-$to = "test@localhost"; // Replace with the recipient's email address
+$to = $email;
 $subject = "You have booked a movie!";
 $message = "You have booked a movie! Here are the details: \n\nMovie Title: $movie_title \nSelected Seat: $selected_seat \nCinema: $theater_id \nEmail: $email \nMovie Date: $movie_date \nMovie Time: $movie_time \nQuantity: $qty \nPrice: $price";
 $headers = "From: manager@localhost"; // Replace with your email address

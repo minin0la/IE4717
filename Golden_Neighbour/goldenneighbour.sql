@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2023 at 10:25 PM
+-- Generation Time: Nov 12, 2023 at 10:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -316,8 +316,8 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`booking_id`, `theater_id`, `movie_title`, `selected_seat`, `email`, `movie_date`, `movie_time`, `qty`, `price`) VALUES
-(5, 3, 'Barbie', 'C1,C2', 'test@test.com', '2023-11-06', '10:00:00', 2, 20),
-(6, 3, 'Barbie', 'B1,B2', 'test@test.com', '2023-11-06', '15:22:00', 2, 20);
+(5, 3, 'Barbie', 'C1,C2', 'test@localhost', '2023-11-06', '10:00:00', 2, 20),
+(6, 3, 'Barbie', 'B1,B2', 'test@localhost', '2023-11-06', '15:22:00', 2, 20);
 
 -- --------------------------------------------------------
 
@@ -328,15 +328,19 @@ INSERT INTO `transactions` (`booking_id`, `theater_id`, `movie_title`, `selected
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
   `email` text NOT NULL,
-  `password` text NOT NULL
+  `password` text NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `permission` varchar(50) NOT NULL,
+  `join_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`ID`, `email`, `password`) VALUES
-(10, 'test@test.com', '$argon2i$v=19$m=65536,t=4,p=1$WllGMGtuRngzT1MxY05vZQ$aUf7fa3HGYOCt3W02CdUYjF2oDUR/9wqacsc93ppO60');
+INSERT INTO `users` (`ID`, `email`, `password`, `firstname`, `lastname`, `permission`, `join_date`) VALUES
+(10, 'test@localhost', '$argon2i$v=19$m=65536,t=4,p=1$N0hzWEN4MndIcDZYS2xxaQ$ufE9jZGGLIkc71bmu8GK8hSBYCbo2KefVJWGV6+I0ac', 'test', 'testerman', 'admin', '2023-11-01');
 
 --
 -- Indexes for dumped tables
