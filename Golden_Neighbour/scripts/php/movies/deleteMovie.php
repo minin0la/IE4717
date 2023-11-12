@@ -12,6 +12,18 @@ if ($result->num_rows > 0) {
     // Movie ID is valid, proceed with deletion
     $delete_sql = "DELETE FROM movies WHERE id = $movie_id";
     if ($conn->query($delete_sql) === TRUE) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting movie: " . $conn->error;
+    }
+    $delete_sql = "DELETE FROM cart WHERE movie_id = $movie_id";
+    if ($conn->query($delete_sql) === TRUE) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting movie: " . $conn->error;
+    }
+    $delete_sql = "DELETE FROM showtimes WHERE movie_id = $movie_id";
+    if ($conn->query($delete_sql) === TRUE) {
         header("Location: ../../../admin/index.php");
     } else {
         echo "Error deleting movie: " . $conn->error;

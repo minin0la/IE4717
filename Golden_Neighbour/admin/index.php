@@ -3,6 +3,9 @@ session_start();
 if (!isset($_SESSION['email'])) {
     header("Location: ../login/index.html");
 }
+if ($_SESSION['permission'] != 'admin') {
+    header("Location: ../homepage/index.php");
+}
 include "..\scripts\php\movies\getMovies.php";
 include "..\scripts\php\showtimes\getShowtime.php"
     ?>
@@ -88,6 +91,10 @@ include "..\scripts\php\showtimes\getShowtime.php"
                         required></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="genre">Image URL:</label>
+                    <input id="image_url" name="image_url" required />
+                </div>
+                <div class="form-group">
                     <label for="movie_language">Language:</label>
                     <select id="movie_language" name="movie_language" required>
                         <option value="English">English</option>
@@ -123,35 +130,31 @@ include "..\scripts\php\showtimes\getShowtime.php"
                         placeholder="Enter other Genre">
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="Venue">Venue:</label>
                     <select id="venue" name="venue" required>
-                        <?php
+                        <!-- <?php
                         echo '<option value="None" selected>Unassigned</option>';
                         foreach ($unassigned_theaters as $theater_id) {
                             echo '<option value="' . $theater_id . '">Hall ' . $theater_id . '</option>';
                         }
 
-                        ?>
-                        <!-- <option value="1">Hall 1</option>
+                        ?> -->
+                <!-- <option value="1">Hall 1</option>
                         <option value="2">Hall 2</option>
                         <option value="3">Hall 3</option>
                         <option value="4">Hall 4</option>
                         <option value="5">Hall 5</option>
                         <option value="6">Hall 6</option> -->
-                    </select>
-                </div>
+                </select>
+        </div> -->
 
-                <div>
-                    <label for="image">Upload Movie Poster</label>
-                    <input type="file" name="image" id="image">
-                </div>
 
-                <div class="button-container">
-                    <button type="submit" class="login-button">Add</button>
-                </div>
-            </form>
+        <div class="button-container">
+            <button type="submit" class="login-button">Add</button>
         </div>
+        </form>
+    </div>
     </div>
     <div class="parent">
         <div class="panel-container">

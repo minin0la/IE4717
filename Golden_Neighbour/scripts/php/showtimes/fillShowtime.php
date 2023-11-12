@@ -63,6 +63,14 @@ if ($assigning_theaters == "None") {
         echo "Error updating record: " . $conn->error;
     }
 
+    $sql = "DELETE FROM cart WHERE movie_id = $assigning_movie_id";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting record: " . $conn->error;
+    }
+
+
 } else {
 
     if (!in_array($assigning_theaters, $assigned_theaters)) {
