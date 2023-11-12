@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 10:17 PM
+-- Generation Time: Nov 12, 2023 at 10:40 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -79,6 +79,7 @@ CREATE TABLE `movies` (
   `rating` decimal(3,1) DEFAULT NULL,
   `movie_language` varchar(50) DEFAULT NULL,
   `flim_classification` varchar(12) DEFAULT NULL,
+  `image_url` varchar(100) NOT NULL,
   `assigned_cinema` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -86,14 +87,8 @@ CREATE TABLE `movies` (
 -- Dumping data for table `movies`
 --
 
-INSERT INTO `movies` (`id`, `title`, `release_date`, `genre`, `director`, `cast`, `movie_description`, `runtime_minutes`, `rating`, `movie_language`, `flim_classification`, `assigned_cinema`) VALUES
-(1, 'Barbie', '0000-00-00', 'Fantasy', 'Cynthy Plaister', 'Marlene Downing', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 161, 7.9, 'Persian', 'Confidential', 3),
-(2, 'Cobweb', '0000-00-00', 'Sci-Fi', 'Lauryn Duckham', 'Oliviero McIndrew', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 162, 3.3, 'Swati', 'Private', 0),
-(3, 'The Equalizer 3', '0000-00-00', 'Sci-Fi', 'Harmonia Whitters', 'Katy McKoy', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.\n\nVestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', 158, 2.7, 'Bengali', 'Private', 0),
-(4, 'A Haunting In Venice', '0000-00-00', 'Thriller', 'Heddi Dudney', 'Farand Katzmann', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.\n\nVestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', 155, 1.3, 'Bislama', 'Confidential', 0),
-(5, 'Hopeless', '0000-00-00', 'Thriller', 'Suzette Conn', 'Cyb Jean', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n\nVestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 254, 1.8, 'Somali', 'Private', 0),
-(6, 'Mission Impossible', '0000-00-00', 'Thriller', 'Tiffie Sein', 'Brennan McGuckin', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\n\nQuisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.\n\nVestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', 250, 4.0, 'Quechua', 'Public', 0),
-(7, 'Oppenheimer', '0000-00-00', 'Fantasy', 'Charo Hamilton', 'Natka Whines', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n\nVestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 46, 6.2, 'Icelandic', 'Confidential', 0);
+INSERT INTO `movies` (`id`, `title`, `release_date`, `genre`, `director`, `cast`, `movie_description`, `runtime_minutes`, `rating`, `movie_language`, `flim_classification`, `image_url`, `assigned_cinema`) VALUES
+(1, 'Barbie', '2023-07-20', 'Comedy', 'Greta Gerwig', 'Margot Robbie', 'Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.', 114, 3.6, 'English', 'PG13', '', 3);
 
 -- --------------------------------------------------------
 
