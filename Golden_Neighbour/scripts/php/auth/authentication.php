@@ -24,6 +24,10 @@ if (mysqli_num_rows($result) == 1) {
     if (password_verify($password, $hashed_password)) {
         // Authentication successful
         $_SESSION['email'] = $email;
+        $_SESSION['firstname'] = $row['firstname'];
+        $_SESSION['lastname'] = $row['lastname'];
+        $_SESSION['permission'] = $row['permission'];
+        $_SESSION['join_date'] = $row['join_date'];
         header("Location: ../../../homepage/index.php");
     } else {
         // Authentication failed

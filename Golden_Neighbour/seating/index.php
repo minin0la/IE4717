@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					<a href='../login/index.html' class='button-link'> Login </a>
 					</div>
 					<div class='my-profile-button-link'>
-						<a href='../signup/signup.html' class='button-link'>Sign Up</a>
+						<a href='../signup' class='button-link'>Sign Up</a>
 					</div>
 					";
         }

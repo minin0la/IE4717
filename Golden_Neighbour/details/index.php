@@ -43,7 +43,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 					<a href='../login/index.html' class='button-link'> Login </a>
 					</div>
 					<div class='my-profile-button-link'>
-						<a href='../signup/signup.html' class='button-link'>Sign Up</a>
+						<a href='../signup' class='button-link'>Sign Up</a>
 					</div>
 					";
 				}
@@ -109,9 +109,9 @@ include "..\scripts\php\showtimes\getShowtime.php";
 
 				<div class="video-container">
 					<video class="video" controls class="mp-player">
-					<source src="../movie/barbie.mp4" type="video/mp4">
+						<source src="../movie/barbie.mp4" type="video/mp4">
 					</video>
-     		</div>
+				</div>
 			</div>
 		</div>
 	</div>

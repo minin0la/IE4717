@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['email'])) {
 	header("Location: ../login/index.html");
 }
+include "../scripts/php/transactions/getTransactions.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@ if (!isset($_SESSION['email'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./profilepage.css">
-	<script src="./profilepage.js"></script>
+	<!-- <script src="./profilepage.js"></script> -->
 	<title>Profile Page</title>
 </head>
 
@@ -41,14 +42,17 @@ if (!isset($_SESSION['email'])) {
 		<div class="profile-header">
 			<h1>My Profile</h1>
 			<div class="action-buttons">
-				<a href="" class="change-password-button">Change Password</a>
+				<a href="../changepw" class="change-password-button">Change Password</a>
 				<!-- <button id="logout-button">Logout</button> -->
 				<a href="../scripts/php/auth/logout.php" class="logout-button">Logout</a>
 			</div>
 		</div>
 		<p class="profile-details">
-			Name: John Doe<br>
-			Joined: October 22, 2023
+			Name:
+			<?php echo ucfirst($_SESSION['firstname']) . " " . ucfirst($_SESSION['lastname']) ?><br>
+			Joined:
+			<?php echo $_SESSION['join_date'] ?><br>
+			<!-- Joined: October 22, 2023 -->
 		</p>
 	</div>
 
@@ -56,7 +60,22 @@ if (!isset($_SESSION['email'])) {
 
 	<div class="booking-history">
 		<h1>Booking History</h1>
-		<!-- Card elements will be dynamically generated here -->
+		<?php
+		foreach ($transaction_array as $transaction) {
+			echo "<div class='card'>";
+			echo "<h2>Booking #" . $transaction['booking_id'] . "</h2>";
+			echo "<p>User ID: " . $transaction['email'] . "</p>";
+			echo "<p>Title: " . $transaction['movie_title'] . "</p>";
+			echo "<p>Seat: " . $transaction['selected_seat'] . "</p>";
+			echo "<p>Cinema: " . $transaction['theater_id'] . "</p>";
+			echo "<p>Date: " . $transaction['movie_date'] . "</p>";
+			echo "<p>Time: " . $transaction['movie_time'] . "</p>";
+			echo "<p>Quantity: " . $transaction['qty'] . "</p>";
+			echo "<p>Price: $" . $transaction['price'] . "</p>";
+
+			echo "</div>";
+		}
+		?>
 	</div>
 
 

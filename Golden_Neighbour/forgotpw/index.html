@@ -7,13 +7,14 @@
     <script src="./login.js"></script>
     <title>Login Page</title>
   </head>
+
   <body>
     <div id="wrapper">
       <!-- Header -->
       <header>
         <div id="goldenhead">
           <img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo"
-          class="logo" style="width:125px"; "height:115px"; >
+          class="logo" style="width:125px" ; "height:115px" ;>
           <div id="left-header-button-link">
             <a href="../homepage/#movie" class="button-link"> Movies</a>
           </div>
@@ -22,7 +23,7 @@
             <a href="../login/index.html" class="button-link"> Login </a>
           </div>
           <div class="my-profile-button-link">
-            <a href="../signup/signup.html" class="button-link">Sign Up</a>
+            <a href="../signup" class="button-link">Sign Up</a>
           </div>
         </div>
       </header>
@@ -32,7 +33,7 @@
     <div class="parent">
       <div class="login-container">
         <h1>Forgot Password</h1>
-        <form>
+        <form action="../scripts/php/auth/forgetpassword.php" method="POST">
           <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required />
@@ -49,7 +50,7 @@
     <!-- Footer -->
     <footer>
       <img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo"
-      class="logo" style="width:150px"; "height:150px"; >
+      class="logo" style="width:150px" ; "height:150px" ;>
       <hr />
       <p>&copy;2023 Privacy-Terms</p>
     </footer>
