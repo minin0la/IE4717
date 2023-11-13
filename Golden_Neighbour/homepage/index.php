@@ -79,15 +79,22 @@ session_start();
 
 	<div id="wrapper">
 		<div class="parent">
-			<h1> Now Showing </h1>
-			<div id="movie">
+		<h1> Now Showing </h1>
+		<!-- Search Bar -->
+		<input 
+			type="text" 
+			id="searchBar" 
+			onkeyup="searchMovies()" 
+			placeholder="Search for movies...">
+		</input>
+		<!-- Movies -->
 
-				<!-- Movies -->
+			<div id="movie">
 				<?php
 				$count = 0;
 				//shuffle $result_array
 				
-				foreach ($result_array as $movie) {
+				foreach ($result_array as $movie) {			
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
