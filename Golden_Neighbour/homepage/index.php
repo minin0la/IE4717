@@ -64,37 +64,33 @@ session_start();
 			<!--feature -->
 			<h1>Feature Movie</h1>
 			<div class="left">
-				<?php echo "<h1><Strong>{$result_array[4]['title']}</Strong></h1>" ?>
+				<?php echo "<h1><Strong>{$result_array[0]['title']}</Strong></h1>" ?>
 
-				<!-- <?php echo "<p><strong>{$result_array[4]['movie_description']}</strong></p>" ?> -->
+				<!-- <?php echo "<p><strong>{$result_array[0]['movie_description']}</strong></p>" ?> -->
 
-				<?php echo "<a href='../details?id={$result_array[4]['id']}' class='buy_button'>Buy Ticket</a>" ?>
+				<?php echo "<a href='../details?id={$result_array[0]['id']}' class='buy_button'>Buy Ticket</a>" ?>
 			</div>
 
 			<div class="right">
-				<?php echo "<img src='../src/img/movie_posters/{$result_array[4]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
+				<?php echo "<img src='../src/img/movie_posters/{$result_array[0]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
 			</div>
 		</div>
 	</div>
 
 	<div id="wrapper">
 		<div class="parent">
-		<h1> Now Showing </h1>
-		<!-- Search Bar -->
-		<input 
-			type="text" 
-			id="searchBar" 
-			onkeyup="searchMovies()" 
-			placeholder="Search for movies...">
-		</input>
-		<!-- Movies -->
+			<h1> Now Showing </h1>
+			<!-- Search Bar -->
+			<input type="text" id="searchBar" onkeyup="searchMovies()" placeholder="Search for movies...">
+			</input>
+			<!-- Movies -->
 
 			<div id="movie">
 				<?php
 				$count = 0;
 				//shuffle $result_array
 				
-				foreach ($result_array as $movie) {			
+				foreach ($result_array as $movie) {
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
