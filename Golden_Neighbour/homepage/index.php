@@ -64,15 +64,15 @@ session_start();
 			<!--feature -->
 			<h1>Feature Movie</h1>
 			<div class="left">
-				<?php echo "<h1><Strong>{$result_array[4]['title']}</Strong></h1>" ?>
+				<?php echo "<h1><Strong>{$result_array[0]['title']}</Strong></h1>" ?>
 
-				<!-- <?php echo "<p><strong>{$result_array[4]['movie_description']}</strong></p>" ?> -->
+				<!-- <?php echo "<p><strong>{$result_array[0]['movie_description']}</strong></p>" ?> -->
 
-				<?php echo "<a href='../details?id={$result_array[4]['id']}' class='buy_button'>Buy Ticket</a>" ?>
+				<?php echo "<a href='../details?id={$result_array[0]['id']}' class='buy_button'>Buy Ticket</a>" ?>
 			</div>
 
 			<div class="right">
-				<?php echo "<img src='../src/img/movie_posters/{$result_array[4]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
+				<?php echo "<img src='../src/img/movie_posters/{$result_array[0]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
 			</div>
 		</div>
 	</div>
@@ -80,9 +80,12 @@ session_start();
 	<div id="wrapper">
 		<div class="parent">
 			<h1> Now Showing </h1>
-			<div id="movie">
+			<!-- Search Bar -->
+			<input type="text" id="searchBar" onkeyup="searchMovies()" placeholder="Search for movies...">
+			</input>
+			<!-- Movies -->
 
-				<!-- Movies -->
+			<div id="movie">
 				<?php
 				$count = 0;
 				//shuffle $result_array

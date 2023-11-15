@@ -48,3 +48,27 @@ const maxStars = 5; // Total number of stars
     }
 
     generateStarRating();
+
+  
+  function searchMovies() {
+    // Get input value and convert to lowercase for case-insensitive search
+    var input = document.getElementById("searchBar").value.toLowerCase();
+    
+    // Get all movie divisions
+    var movies = document.getElementsByClassName("division");
+  
+    // Loop through each movie division
+    for (var i = 0; i < movies.length; i++) {
+      // Get the movie title from the current division and convert to lowercase
+      var title = movies[i].getElementsByTagName("p")[0].innerHTML.toLowerCase();
+      
+      // Check if the input string is found in the movie title
+      if (title.includes(input)) {
+        movies[i].style.display = "";  // Show the movie division
+      } else {
+        movies[i].style.display = "none";  // Hide the movie division
+      }
+    }
+  }
+  
+  
