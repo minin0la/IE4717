@@ -91,8 +91,12 @@ include "..\scripts\php\showtimes\getShowtime.php"
                         required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="genre">Image URL:</label>
+                    <label for="image_url">Image URL:</label>
                     <input id="image_url" name="image_url" required />
+                </div>
+                <div class="form-group">
+                    <label for="price">Image URL:</label>
+                    <input id="price" name="price" required />
                 </div>
                 <div class="form-group">
                     <label for="movie_language">Language:</label>
@@ -119,12 +123,39 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 <div class="form-group">
                     <label for="genre">Genre:</label>
                     <select id="genre" name="genre" required>
-                        <option value="action">Action</option>
-                        <option value="comedy">Comedy</option>
-                        <option value="drama">Drama</option>
-                        <option value="horror">Horror</option>
-                        <option value="sci-fi">Science Fiction</option>
-                        <option value="other">Other</option>
+
+                        <option value="Comedy">Comedy</option>
+                        <option value="Action">Action</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Thriller">Thriller </option>
+                        <option value="Romance">Romance</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Family">Family</option>
+                        <option value="Biography">Biography</option>
+                        <option value="History">History</option>
+                        <option value="War">War</option>
+                        <option value="Music">Music</option>
+                        <option value="Musical">Musical</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Western">Western</option>
+                        <option value="Documentary">Documentary</option>
+                        <option value="Film-Noir">Film-Noir</option>
+                        <option value="Short">Short</option>
+                        <option value="News">News</option>
+                        <option value="Talk-Show">Talk-Show</option>
+                        <option value="Reality-TV">Reality-TV</option>
+                        <option value="Game-Show">Game-Show</option>
+                        <option value="Adult">Adult</option>
+
+
+
+                        <!-- <option value="other">Other</option> -->
                     </select>
                     <input type="text" id="otherGenre" name="otherGenre" style="display: none;"
                         placeholder="Enter other Genre">

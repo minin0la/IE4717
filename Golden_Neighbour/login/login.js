@@ -5,7 +5,7 @@ function navigateToSignup() {
 
 // Function to navigate to forgotpw.html
 function navigateToForgetPw() {
-  window.location.href = "../forgotpw/forgotpw.html";
+  window.location.href = "../forgotpw";
 }
 
 // Function to handle the "Sign Up" button click event

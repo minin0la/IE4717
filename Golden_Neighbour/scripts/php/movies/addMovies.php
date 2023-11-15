@@ -16,13 +16,15 @@ $movie_description = $_POST['movie_description'];
 $rating = $_POST['rating'];
 $flim_classification = $_POST['flim_classification'];
 $movie_language = $_POST['movie_language'];
+$image_url = $_POST['image_url'];
+$price = $_POST['price'];
 
 if ($movie_language == "other") {
     $movie_language = $_POST['otherLanguage'];
 }
 // SQL INSERT statement
-$sql = "INSERT INTO movies (title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, flim_classification) 
-        VALUES ('$title', '$release_date', '$genre', '$director', '$cast', '$movie_description', $runtime_minutes, $rating, '$movie_language', '$flim_classification')";
+$sql = "INSERT INTO movies (title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, flim_classification, image_url, price) 
+        VALUES ('$title', '$release_date', '$genre', '$director', '$cast', '$movie_description', $runtime_minutes, $rating, '$movie_language', '$flim_classification', '$image_url', $price)";
 
 if (mysqli_query($conn, $sql)) {
     echo "Record added successfully";
