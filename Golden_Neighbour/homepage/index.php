@@ -64,15 +64,15 @@ session_start();
 			<!--feature -->
 			<h1>Feature Movie</h1>
 			<div class="left">
-				<?php echo "<h1><Strong>{$result_array[4]['title']}</Strong></h1>" ?>
+				<?php echo "<h1><Strong>{$result_array[0]['title']}</Strong></h1>" ?>
 
-				<!-- <?php echo "<p><strong>{$result_array[4]['movie_description']}</strong></p>" ?> -->
+				<!-- <?php echo "<p><strong>{$result_array[0]['movie_description']}</strong></p>" ?> -->
 
-				<?php echo "<a href='../details?id={$result_array[4]['id']}' class='buy_button'>Buy Ticket</a>" ?>
+				<?php echo "<a href='../details?id={$result_array[0]['id']}' class='buy_button'>Buy Ticket</a>" ?>
 			</div>
 
 			<div class="right">
-				<?php echo "<img src='../src/img/movie_posters/{$result_array[4]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
+				<?php echo "<img src='../src/img/movie_posters/{$result_array[0]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
 			</div>
 		</div>
 	</div>
@@ -81,18 +81,14 @@ session_start();
 		<div class="parent">
 			<h1> Now Showing </h1>
 			<!-- Search Bar -->
-			<input 
-				type="text" 
-				id="searchBar" 
-				onkeyup="searchMovies()" 
-				placeholder="Search for movies...">
+			<input type="text" id="searchBar" onkeyup="searchMovies()" placeholder="Search for movies...">
 			</input>
 			<label for="genreDropdown">Genre:</label>
 			<select id="genreDropdown" name="genre" onchange="searchGenre()">
 				<option value=""></option>
 				<option value="Genre: Fantasy">Fantasy</option>
 				<option value="Genre: Sci-Fi">Sci-Fi</option>
-				<option value="Genre: Thriller">Thriller	</option>
+				<option value="Genre: Thriller">Thriller </option>
 				<!-- Add more options as needed -->
 			</select>
 			<label for="classificationDropdown">Film Classification:</label>
@@ -103,15 +99,15 @@ session_start();
 				<option value="Film Classification: Public">Public</option>
 				<!-- Add more options as needed -->
 			</select>
-				
+
 			<!-- Movies -->
 			<div id="movie">
 				<?php
 				$count = 0;
 				//shuffle $result_array
 				
-				foreach ($result_array as $movie) {	
-							
+				foreach ($result_array as $movie) {
+
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
@@ -132,7 +128,7 @@ session_start();
 						}
 					}
 					echo " ({$movie['rating']}/5)";
-					
+
 					echo "<p>Film Classification: {$movie['flim_classification']}";
 					// echo "<label for='selectBox'>Movie Format:</label>";
 					// echo "<select id='selectBox'>";
@@ -155,7 +151,7 @@ session_start();
 		<div class="showmore_button">
 			<button class="collapisble-button" onClick="toggleCollapsible()"> Show More</button>
 		</div>
-		
+
 		<div class="collapsible-content" id="collapsibleContent">
 			<div class="parent">
 
@@ -164,10 +160,10 @@ session_start();
 				$count = 0;
 				$start_count = 0;
 				foreach ($result_array as $movie) {
-						if ($count < 4) {
-							$count++;
-							continue;
-						}
+					if ($count < 4) {
+						$count++;
+						continue;
+					}
 					if ($start_count == 0) {
 						echo "<div id='movie'>";
 					}
@@ -191,7 +187,7 @@ session_start();
 						}
 					}
 					echo " ({$movie['rating']}/5)";
-					
+
 					echo "<p>Film Classification: {$movie['flim_classification']}";
 					// echo "<label for='selectBox'>Movie Format:</label>";
 					// echo "<select id='selectBox'>";
