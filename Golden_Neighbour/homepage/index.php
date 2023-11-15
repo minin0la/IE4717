@@ -62,18 +62,26 @@ session_start();
 
 			?>
 			<!--feature -->
-			<h1>Feature Movie</h1>
-			<div class="left">
-				<?php echo "<h1><Strong>{$result_array[0]['title']}</Strong></h1>" ?>
-
-				<!-- <?php echo "<p><strong>{$result_array[0]['movie_description']}</strong></p>" ?> -->
-
-				<?php echo "<a href='../details?id={$result_array[0]['id']}' class='buy_button'>Buy Ticket</a>" ?>
-			</div>
-
-			<div class="right">
-				<?php echo "<img src='../src/img/movie_posters/{$result_array[0]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
-			</div>
+			<?php
+			if ($result_array == []) {
+				echo "<h1>Feature Movie</h1>";
+				echo "<div class='left'>";
+				echo "<h1><Strong>Coming Soon</Strong></h1>";
+				echo "</div>";
+				echo "<div class='right'>";
+				// echo "<img src='../src/img/movie_posters/comingsoon.jpg' alt='barbie' class='Movie' style='width:300px'>";
+				echo "</div>";
+			} else {
+				echo "<h1>Feature Movie</h1>";
+				echo "<div class='left'>";
+				echo "<h1><Strong>{$result_array[0]['title']}</Strong></h1>";
+				echo "<a href='../details?id={$result_array[0]['id']}' class='buy_button'>Buy Ticket</a>";
+				echo "</div>";
+				echo "<div class='right'>";
+				echo "<img src='{$result_array[0]['image_url']}' alt='{$result_array[0]['title']}' class='Movie' style='width:300px'>";
+				echo "</div>";
+			}
+			?>
 		</div>
 	</div>
 
@@ -136,7 +144,7 @@ session_start();
 				foreach ($result_array as $movie) {
 
 					echo "<div class='division'>";
-					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
+					echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
 
 					// Calculate the number of filled stars and the fraction based on the rating

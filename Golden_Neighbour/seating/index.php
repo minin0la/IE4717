@@ -20,7 +20,6 @@ $available_seats = array(
   array("E1", "E2", "E3", "E4")
 );
 
-$movie_title = $_GET['movie_title'];
 $movie_date = $_GET['movie_date'];
 $movie_time = $_GET['movie_time'];
 
@@ -29,7 +28,12 @@ $connection = mysqli_connect("localhost", "root", "", "goldenneighbour");
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-
+foreach ($result_array as $movie) {
+  if ($movie['id'] == $_GET['movie_id']) {
+    $matchingMovies = $movie;
+    $movie_title = mysqli_real_escape_string($connection, $matchingMovies['title']);
+  }
+}
 $query = "SELECT selected_seat FROM transactions WHERE movie_title='$movie_title' AND movie_date='$movie_date' AND movie_time='$movie_time'";
 $result = mysqli_query($connection, $query);
 
@@ -48,14 +52,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["selected_seat"])) {
     $selected_seats = $_POST["selected_seat"];
     $theater_id = $_POST["theater_id"];
-    $movie_title = $_POST["movie_title"];
+    $movie_title = mysqli_real_escape_string($connection, $_POST["movie_title"]);
     $qty = $_POST["qty"];
     $price = $_POST["price"];
     $date = $_POST["showtime_date"];
     $time = $_POST["start_time"];
+    $movie_id = $_POST['movie_id'];
 
     // foreach ($selected_seats as $seat) {
-    $sql = "INSERT INTO cart (selected_seat, email, theater_id, movie_title, qty, price, movie_date, movie_time) VALUES ('$selected_seats', '{$_SESSION['email']}', '$theater_id', '$movie_title', '$qty', '$price', '$date', '$time')";
+    $sql = "INSERT INTO cart (selected_seat, email, theater_id, movie_title, qty, price, movie_date, movie_time, movie_id) VALUES ('$selected_seats', '{$_SESSION['email']}', '$theater_id', '$movie_title', '$qty', '$price', '$date', '$time', '$movie_id')";
     if ($conn->query($sql) === TRUE) {
       echo "Seat $seat added to cart successfully.";
       header("Location: ../cart/index.php");
@@ -150,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $matchingMovies = $movie;
             }
           }
-          echo "<img src='../src/img/movie_posters/{$matchingMovies['id']}.jpg' alt='Movie Poster'  class='Movie' style='width:400px;'>";
+          echo "<img src='{$matchingMovies['image_url']}' alt='Movie Poster'  class='Movie' style='width:400px;'>";
           ?>
 
         </div>
@@ -186,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <input type="hidden" id="selected_seats" name="selected_seat" value="">
 
               <input type="hidden" id="qtys" name="qty" value="">
-              <input type="hidden" id="each_price" name="qty" value=<?php echo $matchingMovies['price'] ?>>
+              <input type="hidden" id="each_price" name="each_price" value=<?php echo $matchingMovies['price'] ?>>
               <input type="hidden" id="prices" name="price" value="">
               <?php
               foreach ($showtime_array as $showtime) {
@@ -200,7 +205,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               ?>
               <?php
               echo
-                '<input type="hidden" id="movie_titles" name="movie_title" value=' . $matchingMovies['title'] . '>';
+                '<input type="hidden" id="movie_id" name="movie_id" value="' . $matchingMovies['id'] . '">';
+              echo '<input type="hidden" id="movie_titles" name="movie_title" value="' . $matchingMovies['title'] . '">';
 
               ?>
               <!-- <input type="submit" value="Select Seats"> -->

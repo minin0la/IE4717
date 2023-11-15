@@ -1,7 +1,6 @@
 <?php
 $email = $_SESSION['email'];
 $cart_id = $_POST['cart_id'];
-$movie_title = $_POST['movie_title'];
 $theater_id = $_POST['theater_id'];
 $selected_seat = $_POST['selected_seat'];
 $email = $_POST['email'];
@@ -22,6 +21,7 @@ if (mail($to, $subject, $message, $headers)) {
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
+    $movie_title = mysqli_real_escape_string($conn, $_POST['movie_title']);
     $sql = "INSERT INTO transactions (movie_title, selected_seat, theater_id, email, movie_date, movie_time, qty, price) VALUES ('$movie_title', '$selected_seat', '$theater_id','$email', '$movie_date', '$movie_time', '$qty', '$price')";
     $result = mysqli_query($conn, $sql);
 

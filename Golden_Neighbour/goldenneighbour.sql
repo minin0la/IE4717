@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 10:40 PM
+-- Generation Time: Nov 15, 2023 at 08:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,8 +36,16 @@ CREATE TABLE `cart` (
   `movie_date` date NOT NULL,
   `movie_time` time NOT NULL,
   `qty` int(11) NOT NULL,
-  `price` float NOT NULL
+  `price` float NOT NULL,
+  `movie_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `theater_id`, `selected_seat`, `email`, `movie_title`, `movie_date`, `movie_time`, `qty`, `price`, `movie_id`) VALUES
+(81, 1, 'D3,D4', 'test@localhost', 'Marvel Studios\' The Marvels', '2023-11-17', '10:00:00', 2, 26, 18);
 
 -- --------------------------------------------------------
 
@@ -80,15 +88,18 @@ CREATE TABLE `movies` (
   `movie_language` varchar(50) DEFAULT NULL,
   `flim_classification` varchar(12) DEFAULT NULL,
   `image_url` varchar(100) NOT NULL,
-  `assigned_cinema` int(11) NOT NULL
+  `trailer_url` varchar(100) NOT NULL,
+  `assigned_cinema` int(11) NOT NULL,
+  `price` float NOT NULL,
+  `movie_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `movies`
 --
 
-INSERT INTO `movies` (`id`, `title`, `release_date`, `genre`, `director`, `cast`, `movie_description`, `runtime_minutes`, `rating`, `movie_language`, `flim_classification`, `image_url`, `assigned_cinema`) VALUES
-(1, 'Barbie', '2023-07-20', 'Comedy', 'Greta Gerwig', 'Margot Robbie', 'Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.', 114, 3.6, 'English', 'PG13', '', 3);
+INSERT INTO `movies` (`id`, `title`, `release_date`, `genre`, `director`, `cast`, `movie_description`, `runtime_minutes`, `rating`, `movie_language`, `flim_classification`, `image_url`, `trailer_url`, `assigned_cinema`, `price`, `movie_id`) VALUES
+(18, 'Marvel Studios\' The Marvels', '2023-11-09', 'Action', 'Nia DaCosta', 'Brie Larson, Samuel L. Jackson, Iman Vellani, Teyo', 'In Marvel Studios\' \"The Marvels,\" Carol Danvers aka Captain Marvel has reclaimed her identity from the tyrannical Kree and taken revenge on the Supreme Intelligence. But unintended consequences see Carol shouldering the burden of a destabilized universe. When her duties send her to an anomalous wormhole linked to a Kree revolutionary, her powers become entangled with that of Jersey City super-fan Kamala Khan, aka Ms. Marvel, and Carol\'s estranged niece, now S.A.B.E.R. astronaut Captain Monica Rambeau. Together, this unlikely trio must team up and learn to work in concert to save the universe as \"The Marvels.\"', 105, 3.0, 'English', 'PG-13', 'https://media.gv.com.sg/imagesresize/img4386.jpg', 'https://www.youtube.com/watch?v=uwmDH12MAA4&t=1s', 1, 13, 0);
 
 -- --------------------------------------------------------
 
@@ -281,12 +292,12 @@ CREATE TABLE `showtimes` (
 --
 
 INSERT INTO `showtimes` (`showtime_id`, `movie_id`, `movie_title`, `theater_id`, `showtime_date`, `start_time`, `end_time`) VALUES
-(9, 1, 'Barbie', 3, '2023-11-06', '10:00:00', '12:41:00'),
-(10, 1, 'Barbie', 3, '2023-11-06', '15:22:00', '20:44:00'),
-(11, 1, 'Barbie', 3, '2023-11-07', '10:00:00', '12:41:00'),
-(12, 1, 'Barbie', 3, '2023-11-07', '15:22:00', '20:44:00'),
-(13, 1, 'Barbie', 3, '2023-11-08', '10:00:00', '12:41:00'),
-(14, 1, 'Barbie', 3, '2023-11-08', '15:22:00', '20:44:00');
+(29, 18, 'Marvel Studios\' The Marvels', 1, '2023-11-16', '10:00:00', '11:45:00'),
+(30, 18, 'Marvel Studios\' The Marvels', 1, '2023-11-16', '13:30:00', '17:00:00'),
+(31, 18, 'Marvel Studios\' The Marvels', 1, '2023-11-17', '10:00:00', '11:45:00'),
+(32, 18, 'Marvel Studios\' The Marvels', 1, '2023-11-17', '13:30:00', '17:00:00'),
+(33, 18, 'Marvel Studios\' The Marvels', 1, '2023-11-18', '10:00:00', '11:45:00'),
+(34, 18, 'Marvel Studios\' The Marvels', 1, '2023-11-18', '13:30:00', '17:00:00');
 
 -- --------------------------------------------------------
 
@@ -311,8 +322,7 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`booking_id`, `theater_id`, `movie_title`, `selected_seat`, `email`, `movie_date`, `movie_time`, `qty`, `price`) VALUES
-(5, 3, 'Barbie', 'C1,C2', 'test@localhost', '2023-11-06', '10:00:00', 2, 20),
-(6, 3, 'Barbie', 'B1,B2', 'test@localhost', '2023-11-06', '15:22:00', 2, 20);
+(9, 1, 'Marvel Studios\' The Marvels', 'B1,D2', 'test@localhost', '2023-11-17', '10:00:00', 13, 26);
 
 -- --------------------------------------------------------
 
@@ -335,7 +345,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `email`, `password`, `firstname`, `lastname`, `permission`, `join_date`) VALUES
-(10, 'test@localhost', '$argon2i$v=19$m=65536,t=4,p=1$N0hzWEN4MndIcDZYS2xxaQ$ufE9jZGGLIkc71bmu8GK8hSBYCbo2KefVJWGV6+I0ac', 'test', 'testerman', 'admin', '2023-11-01');
+(12, 'manager@localhost', '$argon2i$v=19$m=65536,t=4,p=1$aS4yYUFUNGQwTm90SVZqYg$s8yySwl1zSDkttDXraYNI1SDSdXooTBiCmYvsNgQvLs', 'The', 'Manager', 'admin', '2023-11-15'),
+(13, 'test@localhost', '$argon2i$v=19$m=65536,t=4,p=1$Y0JNQTV4RlpMbXBmR1E4bA$OVdf6zFnzfRpeHVocmwXLgEqw070tcPwE+eOvEHUGuM', 'Test', 'Customer', 'users', '2023-11-15');
 
 --
 -- Indexes for dumped tables
@@ -391,7 +402,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `cinema`
@@ -403,25 +414,25 @@ ALTER TABLE `cinema`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `showtimes`
 --
 ALTER TABLE `showtimes`
-  MODIFY `showtime_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `showtime_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
