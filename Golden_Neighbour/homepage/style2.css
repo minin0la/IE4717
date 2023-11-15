@@ -122,8 +122,6 @@ footer
 	align-items: space-between;
 	justify-content:center;
 	position:relative;
-	
-	
 }	
 
 
@@ -208,11 +206,15 @@ h1
 {
 	background-color:goldenrod;
 }
-
+/* 
 #collapsibleContent {
     max-height: 0; 
 	overflow: hidden; 
 	transition: max-height 0.5s ease;
+} */
+
+.collapsible-content {
+    display: none;
 }
 
 .rating 

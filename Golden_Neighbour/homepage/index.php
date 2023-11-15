@@ -79,22 +79,39 @@ session_start();
 
 	<div id="wrapper">
 		<div class="parent">
-		<h1> Now Showing </h1>
-		<!-- Search Bar -->
-		<input 
-			type="text" 
-			id="searchBar" 
-			onkeyup="searchMovies()" 
-			placeholder="Search for movies...">
-		</input>
-		<!-- Movies -->
-
+			<h1> Now Showing </h1>
+			<!-- Search Bar -->
+			<input 
+				type="text" 
+				id="searchBar" 
+				onkeyup="searchMovies()" 
+				placeholder="Search for movies...">
+			</input>
+			<label for="genreDropdown">Genre:</label>
+			<select id="genreDropdown" name="genre" onchange="searchGenre()">
+				<option value=""></option>
+				<option value="Genre: Fantasy">Fantasy</option>
+				<option value="Genre: Sci-Fi">Sci-Fi</option>
+				<option value="Genre: Thriller">Thriller	</option>
+				<!-- Add more options as needed -->
+			</select>
+			<label for="classificationDropdown">Film Classification:</label>
+			<select id="classificationDropdown" name="Film_Classification" onchange="filmClassification()">
+				<option value=""></option>
+				<option value="Film Classification: Confidential">Confidential</option>
+				<option value="Film Classification: Private">Private</option>
+				<option value="Film Classification: Public">Public</option>
+				<!-- Add more options as needed -->
+			</select>
+				
+			<!-- Movies -->
 			<div id="movie">
 				<?php
 				$count = 0;
 				//shuffle $result_array
 				
-				foreach ($result_array as $movie) {			
+				foreach ($result_array as $movie) {	
+							
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
@@ -115,13 +132,14 @@ session_start();
 						}
 					}
 					echo " ({$movie['rating']}/5)";
-					echo "<br> Film Classification: {$movie['flim_classification']}";
-					echo "<br>";
-					echo "<label for='selectBox'>Movie Format:</label>";
-					echo "<select id='selectBox'>";
-					echo "<option value='option1'>Digital</option>";
-					echo "<option value='option2'>3D</option>";
-					echo "</select>";
+					
+					echo "<p>Film Classification: {$movie['flim_classification']}";
+					// echo "<label for='selectBox'>Movie Format:</label>";
+					// echo "<select id='selectBox'>";
+					// echo "<option value='option1'>Digital</option>";
+					// echo "<option value='option2'>3D</option>";
+					// echo "</select>";
+					echo "<p>Genre: {$movie['genre']}";
 					echo "</p>";
 					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
 					echo "</div>";
@@ -132,13 +150,12 @@ session_start();
 				}
 				?>
 			</div>
-
 		</div>
 		<!-- Expand -->
 		<div class="showmore_button">
 			<button class="collapisble-button" onClick="toggleCollapsible()"> Show More</button>
 		</div>
-
+		
 		<div class="collapsible-content" id="collapsibleContent">
 			<div class="parent">
 
@@ -147,16 +164,17 @@ session_start();
 				$count = 0;
 				$start_count = 0;
 				foreach ($result_array as $movie) {
-					if ($count < 4) {
-						$count++;
-						continue;
-					}
+						if ($count < 4) {
+							$count++;
+							continue;
+						}
 					if ($start_count == 0) {
 						echo "<div id='movie'>";
 					}
 					echo "<div class='division'>";
 					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
+
 					// Calculate the number of filled stars and the fraction based on the rating
 					$rating = $movie['rating'];
 					$filledStars = floor($rating);
@@ -173,29 +191,22 @@ session_start();
 						}
 					}
 					echo " ({$movie['rating']}/5)";
-					echo "<br> Film Classification: {$movie['flim_classification']}";
-					echo "<br>";
-					echo "<label for='selectBox'>Movie Format:</label>";
-					echo "<select id='selectBox'>";
-					echo "<option value='option1'>Digital</option>";
-					echo "<option value='option2'>3D</option>";
-					echo "</select>";
+					
+					echo "<p>Film Classification: {$movie['flim_classification']}";
+					// echo "<label for='selectBox'>Movie Format:</label>";
+					// echo "<select id='selectBox'>";
+					// echo "<option value='option1'>Digital</option>";
+					// echo "<option value='option2'>3D</option>";
+					// echo "</select>";
+					echo "<p>Genre: {$movie['genre']}";
 					echo "</p>";
 					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
 					echo "</div>";
 					$start_count++;
 					$count++;
-					if ($start_count == 4) {
-						echo "</div>";
-						$start_count = 0;
-					}
-
 				}
 				?>
-
-
 			</div>
-
 		</div>
 	</div>
 	<!-- Footer -->
