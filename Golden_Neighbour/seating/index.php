@@ -83,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       const totalSelectedSeats = document.getElementById("total-selected-seats");
       const totalPrice = document.getElementById("total-price");
       const qty = document.getElementById("qtys");
+      const each_price = document.getElementById("each_price");
       const price = document.getElementById("prices");
       if (seat.classList.contains('selected')) {
         if (selectedSeatsValue[0] === "") {
@@ -97,9 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
       selectedSeats.value = selectedSeatsValue.join(",");
       totalSelectedSeats.textContent = selectedSeatsValue.join(",");
-      totalPrice.textContent = selectedSeatsValue.length * 10;
+      totalPrice.textContent = selectedSeatsValue.length * each_price.value;
       qty.value = selectedSeatsValue.length;
-      price.value = selectedSeatsValue.length * 10;
+      price.value = selectedSeatsValue.length * each_price.value;
       // }
     }
   </script>
@@ -185,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <input type="hidden" id="selected_seats" name="selected_seat" value="">
 
               <input type="hidden" id="qtys" name="qty" value="">
-
+              <input type="hidden" id="each_price" name="qty" value=<?php echo $matchingMovies['price'] ?>>
               <input type="hidden" id="prices" name="price" value="">
               <?php
               foreach ($showtime_array as $showtime) {

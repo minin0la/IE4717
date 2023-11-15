@@ -86,17 +86,44 @@ session_start();
 			<label for="genreDropdown">Genre:</label>
 			<select id="genreDropdown" name="genre" onchange="searchGenre()">
 				<option value=""></option>
+				<option value="Genre: Comedy">Comedy</option>
+				<option value="Genre: Action">Action</option>
+				<option value="Genre: Drama">Drama</option>
+				<option value="Genre: Horror">Horror</option>
 				<option value="Genre: Fantasy">Fantasy</option>
 				<option value="Genre: Sci-Fi">Sci-Fi</option>
 				<option value="Genre: Thriller">Thriller </option>
+				<option value="Genre: Romance">Romance</option>
+				<option value="Genre: Adventure">Adventure</option>
+				<option value="Genre: Crime">Crime</option>
+				<option value="Genre: Mystery">Mystery</option>
+				<option value="Genre: Animation">Animation</option>
+				<option value="Genre: Family">Family</option>
+				<option value="Genre: Biography">Biography</option>
+				<option value="Genre: History">History</option>
+				<option value="Genre: War">War</option>
+				<option value="Genre: Music">Music</option>
+				<option value="Genre: Musical">Musical</option>
+				<option value="Genre: Sport">Sport</option>
+				<option value="Genre: Western">Western</option>
+				<option value="Genre: Documentary">Documentary</option>
+				<option value="Genre: Film-Noir">Film-Noir</option>
+				<option value="Genre: Short">Short</option>
+				<option value="Genre: News">News</option>
+				<option value="Genre: Talk-Show">Talk-Show</option>
+				<option value="Genre: Reality-TV">Reality-TV</option>
+				<option value="Genre: Game-Show">Game-Show</option>
+				<option value="Genre: Adult">Adult</option>
 				<!-- Add more options as needed -->
 			</select>
 			<label for="classificationDropdown">Film Classification:</label>
 			<select id="classificationDropdown" name="Film_Classification" onchange="filmClassification()">
 				<option value=""></option>
-				<option value="Film Classification: Confidential">Confidential</option>
-				<option value="Film Classification: Private">Private</option>
-				<option value="Film Classification: Public">Public</option>
+				<option value="Film Classification: G">G</option>
+				<option value="Film Classification: PG">PG</option>
+				<option value="Film Classification: PG-13">PG-13</option>
+				<option value="Film Classification: R">R</option>
+				<option value="Film Classification: NC-17">NC-17</option>
 				<!-- Add more options as needed -->
 			</select>
 
