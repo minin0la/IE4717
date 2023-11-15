@@ -25,7 +25,19 @@ session_start();
 					; "height:115px" ;>
 				<div id="left-header-button-link">
 					<a href="#movie" class="button-link"> Movies</a>
+					<?php
+				// Start the session
+			
+
+				// Check if the user is logged in and has the role "admin"
+				if (isset($_SESSION['permission']) && $_SESSION['permission'] === 'admin') {
+				// The user is an admin, show the button
+				echo "<a href='../admin' class='admin-button'>Administrator</a>";				
+				} 
+				?>
 				</div>
+			
+
 				<!-- <div id="right-header-button-link">
 					<a href="../login/index.html" class="button-link"> Login </a>
 				</div>
