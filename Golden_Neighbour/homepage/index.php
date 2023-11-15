@@ -78,7 +78,7 @@ session_start();
 				echo "<a href='../details?id={$result_array[0]['id']}' class='buy_button'>Buy Ticket</a>";
 				echo "</div>";
 				echo "<div class='right'>";
-				echo "<img src='../src/img/movie_posters/{$result_array[0]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>";
+				echo "<img src='{$result_array[0]['image_url']}' alt='{$result_array[0]['title']}' class='Movie' style='width:300px'>";
 				echo "</div>";
 			}
 			?>
@@ -144,7 +144,7 @@ session_start();
 				foreach ($result_array as $movie) {
 
 					echo "<div class='division'>";
-					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
+					echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
 
 					// Calculate the number of filled stars and the fraction based on the rating

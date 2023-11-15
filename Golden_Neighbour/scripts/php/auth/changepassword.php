@@ -30,6 +30,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "UPDATE users SET password='$hashed_password' WHERE email='$email'";
             $result = mysqli_query($conn, $sql);
 
+            if (!$result) {
+                return "Error updating password";
+            }
+            mysqli_close($conn);
+
+            $subject = "Password changed successfully";
+            $message = "If this is not you, please contact us immediately.";
+            $headers = "From: manager@localhost";
+
+            if (!mail($email, $subject, $message, $headers)) {
+                return "Error sending email";
+            }
+            session_destroy();
+
+            echo "Password updated successfully. Click <a href='../../../login/index.html'>here</a> to login.";
         } else {
             echo "Invalid password. Click <a href='../../../changepw'>here</a> to try again.";
         }
@@ -38,20 +53,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid email or password";
     }
 
-    if (!$result) {
-        return "Error updating password";
-    }
-    mysqli_close($conn);
-
-    $subject = "Password changed successfully";
-    $message = "If this is not you, please contact us immediately.";
-    $headers = "From: manager@localhost";
-
-    if (!mail($email, $subject, $message, $headers)) {
-        return "Error sending email";
-    }
-    session_destroy();
-
-    echo "Password updated successfully. Click <a href='../../../login/index.html'>here</a> to login.";
 }
 ?>

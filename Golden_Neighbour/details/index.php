@@ -64,7 +64,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 			?>
 			<!--feature -->
 			<div class="left">
-				<?php echo "<img src='../src/img/movie_posters/{$matchingMovies['id']}.jpg' alt='barbie' class='Movie' style='width:400px;'>" ?>
+				<?php echo "<img src='{$matchingMovies['image_url']}' alt='{$matchingMovies['title']}' class='Movie' style='width:400px;'>" ?>
 			</div>
 
 			<div class="right">
@@ -106,12 +106,16 @@ include "..\scripts\php\showtimes\getShowtime.php";
 						<?php echo "{$matchingMovies['movie_description']}" ?>
 					</label>
 				</div>
+				<h2>Trailer</h2>
+				<?php
+				echo '<a href="' . $matchingMovies['trailer_url'] . '">Watch Trailer here</a>'
+					?>
 
-				<div class="video-container">
+				<!-- <div class="video-container">
 					<video class="video" controls class="mp-player">
 						<source src="../movie/barbie.mp4" type="video/mp4">
 					</video>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -155,13 +159,13 @@ include "..\scripts\php\showtimes\getShowtime.php";
 			</select>
 		</div>
 
-		<div class="selection_format">
+		<!-- <div class="selection_format">
 			<label for="selectFormat">Select Movie Format:</label>
 			<select id="selectFormat">
 				<option value="option1">Digital</option>
 				<option value="option2">3D</option>
 			</select>
-		</div>
+		</div> -->
 	</div>
 	</div>
 
@@ -172,7 +176,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 			foreach ($showtime_array as $showtime) {
 				if ($showtime['movie_id'] == $_GET['id']) {
 					$matchingShowtime = $showtime;
-					echo "<a href='../seating/?showtime_id={$matchingShowtime['showtime_id']}&theater_id={$matchingShowtime['theater_id']}&movie_id={$matchingShowtime['movie_id']}&movie_title={$matchingShowtime['movie_title']}&movie_date={$matchingShowtime['showtime_date']}&movie_time={$matchingShowtime['start_time']}' class='slot' data-showtime-date='{$matchingShowtime['showtime_date']}'><button>{$matchingShowtime['start_time']}</button></a>";
+					echo "<a href='../seating/?showtime_id={$matchingShowtime['showtime_id']}&theater_id={$matchingShowtime['theater_id']}&movie_id={$matchingShowtime['movie_id']}&movie_date={$matchingShowtime['showtime_date']}&movie_time={$matchingShowtime['start_time']}' class='slot' data-showtime-date='{$matchingShowtime['showtime_date']}'><button>{$matchingShowtime['start_time']}</button></a>";
 				}
 			}
 			?>

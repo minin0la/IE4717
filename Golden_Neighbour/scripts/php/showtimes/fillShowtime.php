@@ -27,7 +27,7 @@ $movie_array = $result->fetch_all(MYSQLI_ASSOC);
 
 $assigning_theaters = $_POST['venue'];
 $assigning_movie_id = $_POST['movie_id'];
-$assigning_movie_title = $_POST['movie_title'];
+$assigning_movie_title = mysqli_real_escape_string($conn, $_POST['movie_title']);
 $assigning_runtime_minutes = $_POST['runtime_minutes'];
 $assigning_date = $_POST['showtime_date'];
 $assigning_date_count = $_POST['showtime_date_count'];
