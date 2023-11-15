@@ -95,8 +95,12 @@ include "..\scripts\php\showtimes\getShowtime.php"
                     <input id="image_url" name="image_url" required />
                 </div>
                 <div class="form-group">
-                    <label for="price">Image URL:</label>
+                    <label for="price">Price:</label>
                     <input id="price" name="price" required />
+                </div>
+                <div>
+                    <label for="testlabel">testlabel</label>
+                    <input type="text" id="testlabel" name="testlabel" required />
                 </div>
                 <div class="form-group">
                     <label for="movie_language">Language:</label>
@@ -123,7 +127,6 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 <div class="form-group">
                     <label for="genre">Genre:</label>
                     <select id="genre" name="genre" required>
-
                         <option value="Comedy">Comedy</option>
                         <option value="Action">Action</option>
                         <option value="Drama">Drama</option>
@@ -152,10 +155,6 @@ include "..\scripts\php\showtimes\getShowtime.php"
                         <option value="Reality-TV">Reality-TV</option>
                         <option value="Game-Show">Game-Show</option>
                         <option value="Adult">Adult</option>
-
-
-
-                        <!-- <option value="other">Other</option> -->
                     </select>
                     <input type="text" id="otherGenre" name="otherGenre" style="display: none;"
                         placeholder="Enter other Genre">

@@ -62,18 +62,26 @@ session_start();
 
 			?>
 			<!--feature -->
-			<h1>Feature Movie</h1>
-			<div class="left">
-				<?php echo "<h1><Strong>{$result_array[0]['title']}</Strong></h1>" ?>
-
-				<!-- <?php echo "<p><strong>{$result_array[0]['movie_description']}</strong></p>" ?> -->
-
-				<?php echo "<a href='../details?id={$result_array[0]['id']}' class='buy_button'>Buy Ticket</a>" ?>
-			</div>
-
-			<div class="right">
-				<?php echo "<img src='../src/img/movie_posters/{$result_array[0]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>" ?>
-			</div>
+			<?php
+			if ($result_array == []) {
+				echo "<h1>Feature Movie</h1>";
+				echo "<div class='left'>";
+				echo "<h1><Strong>Coming Soon</Strong></h1>";
+				echo "</div>";
+				echo "<div class='right'>";
+				// echo "<img src='../src/img/movie_posters/comingsoon.jpg' alt='barbie' class='Movie' style='width:300px'>";
+				echo "</div>";
+			} else {
+				echo "<h1>Feature Movie</h1>";
+				echo "<div class='left'>";
+				echo "<h1><Strong>{$result_array[0]['title']}</Strong></h1>";
+				echo "<a href='../details?id={$result_array[0]['id']}' class='buy_button'>Buy Ticket</a>";
+				echo "</div>";
+				echo "<div class='right'>";
+				echo "<img src='../src/img/movie_posters/{$result_array[0]['id']}.jpg' alt='barbie' class='Movie' style='width:300px'>";
+				echo "</div>";
+			}
+			?>
 		</div>
 	</div>
 

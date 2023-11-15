@@ -24,7 +24,7 @@ if ($movie_language == "other") {
 }
 // SQL INSERT statement
 $sql = "INSERT INTO movies (title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, flim_classification, image_url, price) 
-        VALUES ('$title', '$release_date', '$genre', '$director', '$cast', '$movie_description', $runtime_minutes, $rating, '$movie_language', '$flim_classification', '$image_url', $price)";
+        VALUES ('$title', '$release_date', '$genre', '$director', '$cast', '$movie_description', $runtime_minutes, $rating, '$movie_language', '$flim_classification', '$image_url', '$price')";
 
 if (mysqli_query($conn, $sql)) {
     echo "Record added successfully";
