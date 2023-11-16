@@ -24,7 +24,7 @@ include "../scripts/php/transactions/getTransactions.php";
 				<img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
 					; "height:115px" ;>
 				<div id="left-header-button-link">
-					<a href="#movie" class="button-link"> Movies</a>
+					<a href="../homepage" class="button-link"> Movies</a>
 					<?php
 					// Check if the user is logged in and has the role "admin"
 					if (isset($_SESSION['permission']) && $_SESSION['permission'] === 'admin') {
