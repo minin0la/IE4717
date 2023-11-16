@@ -10,22 +10,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT email FROM users WHERE email='$email'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    $to = $row['email'];
 
-    if (!$to) {
-        return "Error sending email: email not found";
+    if (!$row) {
+        mysqli_close($conn);
+        echo "Invalid Email. Click <a href='../../../forgotpw'>here</a> to try again.";
+        // header("Location: forgot_password.php?error=email_not_found");
+        exit;
     }
+
+    $to = $row['email'];
 
     $password = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 10);
     $hashed_password = password_hash($password, PASSWORD_ARGON2I);
 
-    $sql = "UPDATE users SET password='$hashed_password' WHERE email='$email'";
-    $result = mysqli_query($conn, $sql);
-    mysqli_close($conn);
+    $update_sql = "UPDATE users SET password='$hashed_password' WHERE email='$email'";
+    $update_result = mysqli_query($conn, $update_sql);
 
-    if (!$result) {
-        return "Error updating password";
+    if (!$update_result) {
+        mysqli_close($conn);
+        header("Location: forgot_password.php?error=update_failed");
+        exit;
     }
+
+    mysqli_close($conn);
 
     // Send new password to user's email
     $subject = "Password changed successfully";
@@ -33,9 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers = "From: manager@localhost";
 
     if (!mail($to, $subject, $message, $headers)) {
-        return "Error sending email";
+        header("Location: forgot_password.php?error=email_not_sent");
+        exit;
     }
 
-    echo "Password updated successfully and new password sent to email, Check your email for new password. Click <a href='../../../login'>here</a> to login.";
+    header("Location: forgot_password.php?success=true");
+    exit;
 }
 ?>
