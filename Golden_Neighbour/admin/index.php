@@ -87,14 +87,15 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 </div>
                 <div class="form-group">
                     <label for="movie_description">Description:</label>
-                    <textarea rows="8" cols="100" type="text" id="movie_description" name="movie_description"
+                    <textarea rows="8" cols="77" type="text" id="movie_description" name="movie_description"
                         required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="image_url">Image URL:</label>
                     <input id="image_url" name="image_url" required />
+                </div>
                     <div class="form-group">
-                        <label for="trailer_url">Trailer URL:</label>
+                        <label for="trailer_url"    >Trailer URL:</label>
                         <input id="trailer_url" name="trailer_url" required />
                     </div>
                     <div class="form-group">
