@@ -154,7 +154,7 @@ session_start();
 				$count = 0;
 				//shuffle $result_array
 				
-				foreach ($result_array as $movie) {
+				foreach (array_slice($result_array, 0, 4) as $movie) {
 
 					echo "<div class='division'>";
 					echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
@@ -187,10 +187,7 @@ session_start();
 					echo "</p>";
 					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
 					echo "</div>";
-					$count++;
-					if ($count > 3) {
-						break;
-					}
+					
 				}
 				?>
 			</div>
@@ -201,22 +198,19 @@ session_start();
 		</div>
 
 		<div class="collapsible-content" id="collapsibleContent">
-			<div class="parent">
 
 				<!-- Movies -->
 				<?php
-				$count = 0;
-				$start_count = 0;
-				foreach ($result_array as $movie) {
-					if ($count < 4) {
-						$count++;
-						continue;
-					}
-					if ($start_count == 0) {
-						echo "<div id='movie'>";
-					}
+				$max_length = count($result_array);
+				
+				$increment = 4;
+				$start = 4;
+				$length = $start + $increment;
+
+				foreach (array_slice($result_array, $start, $max_length) as $movie) {
+					echo "<div class='parent'>";
 					echo "<div class='division'>";
-					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
+					echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 					echo "<p>{$movie['title']}";
 
 					// Calculate the number of filled stars and the fraction based on the rating
@@ -246,9 +240,8 @@ session_start();
 					echo "</p>";
 					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
 					echo "</div>";
-					$start_count++;
-					$count++;
 				}
+			
 				?>
 			</div>
 		</div>
