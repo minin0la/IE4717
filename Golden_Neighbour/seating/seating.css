@@ -144,7 +144,7 @@ footer
 }
 
 .selected {
-    background-color: green;
+    background-color:  #b2ff59;
     color: white;
     border: 1px solid rgb(8, 33, 8); /* Border for selected seats */
 }
@@ -246,7 +246,43 @@ h2
 	text-decoration:none; /* Remove the default unerline on the link */
 	cursor: pointer;
 }
+.legend {
+	display: flex;
+	margin-bottom: 10px;
+}
 
+.legend-item {
+	display: flex;
+	align-items: center;
+	margin-right: 20px;
+}
+
+.seat1 {
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	border: 1px solid #000;
+	display: inline-block;
+}
+
+.available-legend { background-color: #b2ff59; }
+.selected-legend { background-color: #ff8a80; }
+.unavailable-legend { background-color: #e0e0e0; }
+
+.screen {
+    margin: 10px;
+    height: auto;
+    border-top-color: #fc8609;
+    border-top-style: solid;
+    border-top-width: 5px;
+    color: #fff;
+    width: 94%;
+    width: calc(36% - 10px);
+    width: -webkit-calc(36% - 00px);
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+}
  .right{
 
 	background: rgba(0, 0, 0, 0.2);
