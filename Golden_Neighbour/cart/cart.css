@@ -20,7 +20,8 @@ body
 	width: 90%;
 	margin: auto;
 	margin-top: 10px;
-	box-shadow: 7px 7px 5px black;
+	/* box-shadow: 7px 7px 5px black; */
+
 }
 
 footer
@@ -109,7 +110,7 @@ footer
 /* My Profile */
 .cart-info {
     padding: 20px;
-	background-color: grey;
+	/* background-color: grey; */
 	color: white;
 	line-height: 50px;
 }
@@ -246,7 +247,7 @@ h1
 {
 	min-height: 200px;
 	text-align:left;
-	background-color:grey;
+	/* background-color:grey; */
 }
 
 .selected-seats
@@ -294,7 +295,7 @@ h1
 {
 	float:right;
 	padding-right: 100px;
-	color: black;
+	/* color: black; */
 }
 
 .close-box {
@@ -304,9 +305,9 @@ h1
 
 #movie-cart
 {
-	background-color: grey;
+	/* background-color: grey; */
 	color: white;
-	border: 1em solid beige;
+	/* border: 1em solid beige; */
 	border-radius: 5px; /* Rounded corner */
 }
 #final-pricing
@@ -320,4 +321,15 @@ h1
 	color: #ffffff; /* White */
 	text-decoration:none; /* Remove the default unerline on the link */
 	cursor: pointer;
+}
+
+
+#movie-cart{
+
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 16px;
+	/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 0px solid rgba(255, 255, 255, 0.3);
 }
