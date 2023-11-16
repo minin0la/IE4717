@@ -15,7 +15,7 @@ $movie_description = mysqli_real_escape_string($conn, $_POST['movie_description'
 $runtime_minutes = $_POST['runtime_minutes'];
 $rating = $_POST['rating'];
 $movie_language = mysqli_real_escape_string($conn, $_POST['movie_language']);
-$flim_classification = $_POST['flim_classification'];
+$film_classification = $_POST['film_classification'];
 $image_url = mysqli_real_escape_string($conn, $_POST['image_url']);
 $trailer_url = mysqli_real_escape_string($conn, $_POST['trailer_url']);
 $price = $_POST['price'];
@@ -25,8 +25,8 @@ if ($movie_language == "other") {
     $movie_language = $_POST['otherLanguage'];
 }
 // SQL INSERT statement
-$sql = "INSERT INTO movies (title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, flim_classification, image_url, trailer_url, price) 
-        VALUES ('$title', '$release_date', '$genre', '$director', '$cast', '$movie_description', $runtime_minutes, $rating, '$movie_language', '$flim_classification', '$image_url','$trailer_url', $price)";
+$sql = "INSERT INTO movies (title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, film_classification, image_url, trailer_url, price) 
+        VALUES ('$title', '$release_date', '$genre', '$director', '$cast', '$movie_description', $runtime_minutes, $rating, '$movie_language', '$film_classification', '$image_url','$trailer_url', $price)";
 
 if (mysqli_query($conn, $sql)) {
     echo "Record added successfully";

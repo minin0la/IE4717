@@ -14,7 +14,7 @@ if ($result === FALSE) {
 
 $showtime_array = $result->fetch_all(MYSQLI_ASSOC);
 
-// $sql = "SELECT id, title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, flim_classification,  assigned_cinema FROM movies";
+// $sql = "SELECT id, title, release_date, genre, director, cast, movie_description, runtime_minutes, rating, movie_language, film_classification,  assigned_cinema FROM movies";
 // $result = mysqli_query($conn, $sql);
 
 // if ($result === FALSE) {

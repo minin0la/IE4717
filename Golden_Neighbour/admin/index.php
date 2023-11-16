@@ -30,7 +30,7 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 <img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
                     ; "height:115px" ;>
                 <div id="left-header-button-link">
-                    <a href="#movie" class="button-link"> Movies</a>
+                    <a href="../homepage" class="button-link"> Movies</a>
                     <?php
                     // Check if the user is logged in and has the role "admin"
                     if (isset($_SESSION['permission']) && $_SESSION['permission'] === 'admin') {
@@ -123,8 +123,8 @@ include "..\scripts\php\showtimes\getShowtime.php"
 
                 </div>
                 <div class="form-group">
-                    <label for="flim_classification">Classification:</label>
-                    <select id="flim_classification" name="flim_classification" required>
+                    <label for="film_classification">Classification:</label>
+                    <select id="film_classification" name="film_classification" required>
                         <option value="G">G (General Audience)</option>
                         <option value="PG">PG (Parental Guidance Suggested)</option>
                         <option value="PG-13">PG-13 (Parents Strongly Cautioned)</option>
