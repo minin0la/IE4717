@@ -258,7 +258,7 @@ h1
 
 .admin-button
 {
-	padding-left:200px;
+	padding-left:10px;
 	display: inline-block; 
 	color: #ffffff; /* White */
 	text-decoration:none; /* Remove the default unerline on the link */
