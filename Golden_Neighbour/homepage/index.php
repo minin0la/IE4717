@@ -151,7 +151,7 @@ session_start();
 			<!-- Movies -->
 			<div id="movie">
 				<?php
-				$count = 0;
+				
 				//shuffle $result_array
 				
 				foreach (array_slice($result_array, 0, 4) as $movie) {
@@ -198,28 +198,29 @@ session_start();
 		</div>
 
 		<div class="collapsible-content" id="collapsibleContent">
+			<div class='parent'>
+				<div id="movie">
+					<!-- Movies -->
+					<?php
+						$max_length = count($result_array);
+							
+						$increment = 4;
+						$start = 4;
+						$length = $start + $increment;
 
-				<!-- Movies -->
-				<?php
-				$max_length = count($result_array);
-				
-				$increment = 4;
-				$start = 4;
-				$length = $start + $increment;
+						foreach (array_slice($result_array, $start, $length) as $movie) {
+							
+						echo "<div class='division'>";
+						echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
+						echo "<p>{$movie['title']}";
 
-				foreach (array_slice($result_array, $start, $max_length) as $movie) {
-					echo "<div class='parent'>";
-					echo "<div class='division'>";
-					echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
-					echo "<p>{$movie['title']}";
+						// Calculate the number of filled stars and the fraction based on the rating
+						$rating = $movie['rating'];
+						$filledStars = floor($rating);
+						$fraction = $rating - $filledStars;
 
-					// Calculate the number of filled stars and the fraction based on the rating
-					$rating = $movie['rating'];
-					$filledStars = floor($rating);
-					$fraction = $rating - $filledStars;
-
-					echo "<p>Rating: ";
-					for ($i = 1; $i <= 5; $i++) {
+						echo "<p>Rating: ";
+						for ($i = 1; $i <= 5; $i++) {
 						if ($i <= $filledStars) {
 							echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
 						} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
@@ -227,22 +228,23 @@ session_start();
 						} else {
 							echo "☆"; // Empty star
 						}
-					}
-					echo " ({$movie['rating']}/5)";
+						}
+						echo " ({$movie['rating']}/5)";
 
-					echo "<p>Film Classification: {$movie['flim_classification']}";
-					// echo "<label for='selectBox'>Movie Format:</label>";
-					// echo "<select id='selectBox'>";
-					// echo "<option value='option1'>Digital</option>";
-					// echo "<option value='option2'>3D</option>";
-					// echo "</select>";
-					echo "<p>Genre: {$movie['genre']}";
-					echo "</p>";
-					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
-					echo "</div>";
-				}
-			
-				?>
+						echo "<p>Film Classification: {$movie['flim_classification']}";
+						// echo "<label for='selectBox'>Movie Format:</label>";
+						// echo "<select id='selectBox'>";
+						// echo "<option value='option1'>Digital</option>";
+						// echo "<option value='option2'>3D</option>";
+						// echo "</select>";
+						echo "<p>Genre: {$movie['genre']}";
+						echo "</p>";
+						echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
+						echo "</div>";
+						}
+				
+					?>
+				</div>
 			</div>
 		</div>
 	</div>
