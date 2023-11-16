@@ -134,6 +134,7 @@ session_start();
 				<option value="Genre: Reality-TV">Reality-TV</option>
 				<option value="Genre: Game-Show">Game-Show</option>
 				<option value="Genre: Adult">Adult</option>
+				<option value="Genre: Concert">Concert</option>
 				<!-- Add more options as needed -->
 			</select>
 			<label for="classificationDropdown">Film Classification:</label>

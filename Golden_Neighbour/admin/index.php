@@ -79,7 +79,7 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 </div>
                 <div class="form-group">
                     <label for="genre">Rating:</label>
-                    <input type="number" id="rating" name="rating" required />
+                    <input type="number" id="rating" name="rating" step="0.1"  oninput="validateDecimal(this)" required />
                 </div>
                 <div class="form-group">
                     <label for="release_date">Release Date:</label>
@@ -155,6 +155,7 @@ include "..\scripts\php\showtimes\getShowtime.php"
                             <option value="Reality-TV">Reality-TV</option>
                             <option value="Game-Show">Game-Show</option>
                             <option value="Adult">Adult</option>
+                            <option value="Concert">Concert</option>
                         </select>
                         <input type="text" id="otherGenre" name="otherGenre" style="display: none;"
                             placeholder="Enter other Genre">

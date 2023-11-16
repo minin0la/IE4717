@@ -109,6 +109,17 @@ function filmClassification() {
   }
 }
 
+function validateDecimal(input) {
+  // Remove any non-numeric characters and keep up to one decimal place
+  input.value = input.value.replace(/[^0-9.]/g, '');
+  
+  // Allow only one decimal place
+  var parts = input.value.split('.');
+  if (parts.length > 1) {
+      input.value = parts[0] + '.' + parts[1].slice(0, 1);
+  }
+}
+
 function searchGenre() {
 
   // Get the selected value from the Film Classification dropdown
