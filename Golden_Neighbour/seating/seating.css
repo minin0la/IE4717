@@ -144,7 +144,7 @@ footer
 }
 
 .selected {
-    background-color:  #b2ff59;
+    background-color:  #64b00e;
     color: white;
     border: 1px solid rgb(8, 33, 8); /* Border for selected seats */
 }
@@ -261,9 +261,9 @@ h2
 	display: inline-block;
 }
 
-.available-legend { background-color: #b2ff59; }
-.selected-legend { background-color: #ff8a80; }
-.unavailable-legend { background-color: #e0e0e0; }
+.available-legend { background-color: #e0e0e0; }
+.selected-legend { background-color: #64b00e; }
+.unavailable-legend { background-color: #ff8a80; }
 
 .screen {
     margin: 10px;
