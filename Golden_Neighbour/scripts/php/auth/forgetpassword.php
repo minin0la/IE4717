@@ -36,6 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return "Error sending email";
     }
 
-    echo "Password updated successfully and new password sent to email, Check your email for new password. Click <a href='../../../login/index.html'>here</a> to login.";
+    echo "Password updated successfully and new password sent to email, Check your email for new password. Click <a href='../../../login'>here</a> to login.";
 }
 ?>

@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             session_destroy();
 
-            echo "Password updated successfully. Click <a href='../../../login/index.html'>here</a> to login.";
+            echo "Password updated successfully. Click <a href='../../../login'>here</a> to login.";
         } else {
             echo "Invalid password. Click <a href='../../../changepw'>here</a> to try again.";
         }

@@ -313,3 +313,11 @@ h1
 {
 	margin-bottom: 10px;
 }
+.admin-button
+{
+	padding-left:10px;
+	display: inline-block; 
+	color: #ffffff; /* White */
+	text-decoration:none; /* Remove the default unerline on the link */
+	cursor: pointer;
+}

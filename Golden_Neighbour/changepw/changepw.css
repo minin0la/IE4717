@@ -165,3 +165,12 @@ input[type="password"]
     background-color: #2980b9;
 	transition: 0.5s
 }
+
+.admin-button
+{
+	padding-left:10px;
+	display: inline-block; 
+	color: #ffffff; /* White */
+	text-decoration:none; /* Remove the default unerline on the link */
+	cursor: pointer;
+}
