@@ -26,24 +26,13 @@ session_start();
 				<div id="left-header-button-link">
 					<a href="#movie" class="button-link"> Movies</a>
 					<?php
-				// Start the session
-			
-
-				// Check if the user is logged in and has the role "admin"
-				if (isset($_SESSION['permission']) && $_SESSION['permission'] === 'admin') {
-				// The user is an admin, show the button
-				echo "<a href='../admin' class='admin-button'>Administrator</a>";				
-				} 
-				?>
+					// Check if the user is logged in and has the role "admin"
+					if (isset($_SESSION['permission']) && $_SESSION['permission'] === 'admin') {
+						// The user is an admin, show the button
+						echo "<a href='../admin' class='admin-button'>Administrator</a>";
+					}
+					?>
 				</div>
-			
-
-				<!-- <div id="right-header-button-link">
-					<a href="../login/index.html" class="button-link"> Login </a>
-				</div>
-				<div class="my-profile-button-link">
-					<a href="../signup" class="button-link">Sign Up</a>
-				</div> -->
 				<?php
 				if (isset($_SESSION['email'])) {
 					echo "<div id='right-header-button-link'>";
@@ -55,7 +44,7 @@ session_start();
 				} else {
 					echo "
 					<div id='right-header-button-link'>
-					<a href='../login/index.html' class='button-link'> Login </a>
+					<a href='../login' class='button-link'> Login </a>
 					</div>
 					<div class='my-profile-button-link'>
 						<a href='../signup' class='button-link'>Sign Up</a>
@@ -151,7 +140,7 @@ session_start();
 			<!-- Movies -->
 			<div id="movie">
 				<?php
-				
+
 				//shuffle $result_array
 				
 				foreach (array_slice($result_array, 0, 4) as $movie) {
@@ -187,7 +176,7 @@ session_start();
 					echo "</p>";
 					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
 					echo "</div>";
-					
+
 				}
 				?>
 			</div>
@@ -202,14 +191,14 @@ session_start();
 				<div id="movie">
 					<!-- Movies -->
 					<?php
-						$max_length = count($result_array);
-							
-						$increment = 4;
-						$start = 4;
-						$length = $start + $increment;
+					$max_length = count($result_array);
 
-						foreach (array_slice($result_array, $start, $length) as $movie) {
-							
+					$increment = 4;
+					$start = 4;
+					$length = $start + $increment;
+
+					foreach (array_slice($result_array, $start, $length) as $movie) {
+
 						echo "<div class='division'>";
 						echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
 						echo "<p>{$movie['title']}";
@@ -221,13 +210,13 @@ session_start();
 
 						echo "<p>Rating: ";
 						for ($i = 1; $i <= 5; $i++) {
-						if ($i <= $filledStars) {
-							echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
-						} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
-							echo "★"; // White star
-						} else {
-							echo "☆"; // Empty star
-						}
+							if ($i <= $filledStars) {
+								echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
+							} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
+								echo "★"; // White star
+							} else {
+								echo "☆"; // Empty star
+							}
 						}
 						echo " ({$movie['rating']}/5)";
 
@@ -241,8 +230,8 @@ session_start();
 						echo "</p>";
 						echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
 						echo "</div>";
-						}
-				
+					}
+
 					?>
 				</div>
 			</div>

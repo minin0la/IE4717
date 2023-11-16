@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['email'])) {
-	header("Location: ../login/index.html");
+	header("Location: ../login");
 }
 include "..\scripts\php\cart\getCart.php";
 include "..\scripts\php\movies\getMovies.php";
@@ -25,15 +25,34 @@ include "..\scripts\php\movies\getMovies.php";
 				<img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
 					; "height:115px" ;>
 				<div id="left-header-button-link">
-					<a href="../homepage/#movie" class="button-link"> Movies</a>
+					<a href="#movie" class="button-link"> Movies</a>
+					<?php
+					// Check if the user is logged in and has the role "admin"
+					if (isset($_SESSION['permission']) && $_SESSION['permission'] === 'admin') {
+						// The user is an admin, show the button
+						echo "<a href='../admin' class='admin-button'>Administrator</a>";
+					}
+					?>
 				</div>
-
-				<div id="right-header-button-link">
-					<a href="../cart" class="button-link"> Cart </a>
-				</div>
-				<div class="my-profile-button-link">
-					<a href="../profilepage/index.php" class="button-link">My Profile</a>
-				</div>
+				<?php
+				if (isset($_SESSION['email'])) {
+					echo "<div id='right-header-button-link'>";
+					echo "<a href='../scripts/php/auth/logout.php' class='button-link'>Logout</a>";
+					echo "</div>";
+					echo "<div class='my-profile-button-link'>";
+					echo "<a href='../profilepage/index.php' class='button-link'>My Profile</a>";
+					echo "</div>";
+				} else {
+					echo "
+					<div id='right-header-button-link'>
+					<a href='../login' class='button-link'> Login </a>
+					</div>
+					<div class='my-profile-button-link'>
+						<a href='../signup' class='button-link'>Sign Up</a>
+					</div>
+					";
+				}
+				?>
 			</div>
 		</header>
 	</div>

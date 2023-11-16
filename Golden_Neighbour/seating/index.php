@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['email'])) {
-  header("Location: ../login/index.html");
+  header("Location: ../login");
 }
 include "..\scripts\php\movies\getMovies.php";
 include "..\scripts\php\showtimes\getShowtime.php";
@@ -117,10 +117,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Header -->
     <header>
       <div id="goldenhead">
-        <img src="../src/img/Logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
+        <img src="../src/img/logo/bird.png" alt="Golden_Neighbour_logo" class="logo" style="width:125px"
           ; "height:115px" ;>
         <div id="left-header-button-link">
-          <a href="../homepage/#movie" class="button-link"> Movies</a>
+          <a href="#movie" class="button-link"> Movies</a>
+          <?php
+          // Check if the user is logged in and has the role "admin"
+          if (isset($_SESSION['permission']) && $_SESSION['permission'] === 'admin') {
+            // The user is an admin, show the button
+            echo "<a href='../admin' class='admin-button'>Administrator</a>";
+          }
+          ?>
         </div>
         <?php
         if (isset($_SESSION['email'])) {
@@ -133,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
           echo "
 					<div id='right-header-button-link'>
-					<a href='../login/index.html' class='button-link'> Login </a>
+					<a href='../login' class='button-link'> Login </a>
 					</div>
 					<div class='my-profile-button-link'>
 						<a href='../signup' class='button-link'>Sign Up</a>
