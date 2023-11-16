@@ -167,11 +167,6 @@ session_start();
 					echo " ({$movie['rating']}/5)";
 
 					echo "<p>Film Classification: {$movie['flim_classification']}";
-					// echo "<label for='selectBox'>Movie Format:</label>";
-					// echo "<select id='selectBox'>";
-					// echo "<option value='option1'>Digital</option>";
-					// echo "<option value='option2'>3D</option>";
-					// echo "</select>";
 					echo "<p>Genre: {$movie['genre']}";
 					echo "</p>";
 					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
@@ -221,11 +216,6 @@ session_start();
 						echo " ({$movie['rating']}/5)";
 
 						echo "<p>Film Classification: {$movie['flim_classification']}";
-						// echo "<label for='selectBox'>Movie Format:</label>";
-						// echo "<select id='selectBox'>";
-						// echo "<option value='option1'>Digital</option>";
-						// echo "<option value='option2'>3D</option>";
-						// echo "</select>";
 						echo "<p>Genre: {$movie['genre']}";
 						echo "</p>";
 						echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
