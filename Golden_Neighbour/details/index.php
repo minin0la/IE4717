@@ -101,7 +101,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 							<?php echo "{$matchingMovies['movie_language']}" ?>
 						</div>
 						<div class="form-group">Film Classification:
-							<?php echo "{$matchingMovies['flim_classification']}" ?>
+							<?php echo "{$matchingMovies['film_classification']}" ?>
 						</div>
 					</div>
 				</div>

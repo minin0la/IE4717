@@ -1,6 +1,34 @@
 <?php
 include "..\scripts\php\movies\getMovies.php";
 session_start();
+$genres = array_unique(array_column($result_array, 'genre'));
+$classifications = array_unique(array_column($result_array, 'film_classification'));
+
+if (isset($_GET['genre']) && $_GET['genre'] !== 'all') {
+	$selectedGenre = $_GET['genre'];
+	$filteredMovies = array_filter($result_array, function ($movie) use ($selectedGenre) {
+		return $movie['genre'] === $selectedGenre;
+	});
+} else {
+	$filteredMovies = $result_array;
+}
+
+if (isset($_GET['classification']) && $_GET['classification'] !== 'all') {
+	$selectedClassification = $_GET['classification'];
+	$filteredMovies = array_filter($filteredMovies, function ($movie) use ($selectedClassification) {
+		return $movie['film_classification'] === $selectedClassification;
+	});
+}
+
+if (isset($_GET['search'])) {
+	$searchQuery = strtolower($_GET['search']);
+	$filteredMovies = array_filter($filteredMovies, function ($movie) use ($searchQuery) {
+		$title = strtolower($movie['title']);
+		$classification = strtolower($movie['film_classification']);
+		return strpos($title, $searchQuery) !== false || strpos($classification, $searchQuery) !== false;
+	});
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +92,12 @@ session_start();
 			?>
 			<!--feature -->
 			<?php
+			if (!empty($result_array)) {
+				$sample_movie = $result_array[0]; // Assuming there's at least one movie
+				echo '<pre>';
+				echo '</pre>';
+				echo '</pre>';
+			}
 			if ($result_array == []) {
 				echo "<h1>Feature Movie</h1>";
 				echo "<div class='left'>";
@@ -90,51 +124,31 @@ session_start();
 		<div class="parent">
 			<h1> Now Showing </h1>
 			<!-- Search Bar -->
-			<input type="text" id="searchBar" onkeyup="searchMovies()" placeholder="Search for movies...">
-			</input>
+			<form action="" method="get">
+				<label for="search">Search by Movie Name</label>
+				<input type="text" id="searchBar" name="search">
+				<input type="submit" value="Search">
+			</form>
 			<label for="genreDropdown">Genre:</label>
-			<select id="genreDropdown" name="genre" onchange="searchGenre()">
-				<option value=""></option>
-				<option value="Genre: Comedy">Comedy</option>
-				<option value="Genre: Action">Action</option>
-				<option value="Genre: Drama">Drama</option>
-				<option value="Genre: Horror">Horror</option>
-				<option value="Genre: Fantasy">Fantasy</option>
-				<option value="Genre: Sci-Fi">Sci-Fi</option>
-				<option value="Genre: Thriller">Thriller </option>
-				<option value="Genre: Romance">Romance</option>
-				<option value="Genre: Adventure">Adventure</option>
-				<option value="Genre: Crime">Crime</option>
-				<option value="Genre: Mystery">Mystery</option>
-				<option value="Genre: Animation">Animation</option>
-				<option value="Genre: Family">Family</option>
-				<option value="Genre: Biography">Biography</option>
-				<option value="Genre: History">History</option>
-				<option value="Genre: War">War</option>
-				<option value="Genre: Music">Music</option>
-				<option value="Genre: Musical">Musical</option>
-				<option value="Genre: Sport">Sport</option>
-				<option value="Genre: Western">Western</option>
-				<option value="Genre: Documentary">Documentary</option>
-				<option value="Genre: Film-Noir">Film-Noir</option>
-				<option value="Genre: Short">Short</option>
-				<option value="Genre: News">News</option>
-				<option value="Genre: Talk-Show">Talk-Show</option>
-				<option value="Genre: Reality-TV">Reality-TV</option>
-				<option value="Genre: Game-Show">Game-Show</option>
-				<option value="Genre: Adult">Adult</option>
-				<option value="Genre: Concert">Concert</option>
-				<!-- Add more options as needed -->
+			<select id="genreDropdown" name="genre" onchange="filterMovies()">
+				<option value="all">All</option>
+				<?php
+				foreach ($genres as $genre) {
+					$selected = (isset($_GET['genre']) && $_GET['genre'] === $genre) ? 'selected' : '';
+					echo "<option value='$genre' $selected>$genre</option>";
+				}
+				?>
 			</select>
+
 			<label for="classificationDropdown">Film Classification:</label>
-			<select id="classificationDropdown" name="Film_Classification" onchange="filmClassification()">
-				<option value=""></option>
-				<option value="Film Classification: G">G</option>
-				<option value="Film Classification: PG">PG</option>
-				<option value="Film Classification: PG-13">PG-13</option>
-				<option value="Film Classification: R">R</option>
-				<option value="Film Classification: NC-17">NC-17</option>
-				<!-- Add more options as needed -->
+			<select id="classificationDropdown" name="film_Classification" onchange="filterMovies()">
+				<option value="all">All</option>
+				<?php
+				foreach ($classifications as $classification) {
+					$selected = (isset($_GET['classification']) && $_GET['classification'] === $classification) ? 'selected' : '';
+					echo "<option value='$classification' $selected>$classification</option>";
+				}
+				?>
 			</select>
 
 			<!-- Movies -->
@@ -143,7 +157,7 @@ session_start();
 
 				//shuffle $result_array
 				
-				foreach (array_slice($result_array, 0, 4) as $movie) {
+				foreach (array_slice($filteredMovies, 0, 4) as $movie) {
 
 					echo "<div class='division'>";
 					echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
@@ -166,7 +180,7 @@ session_start();
 					}
 					echo " ({$movie['rating']}/5)";
 
-					echo "<p>Film Classification: {$movie['flim_classification']}";
+					echo "<p>Film Classification: {$movie['film_classification']}";
 					echo "<p>Genre: {$movie['genre']}";
 					echo "</p>";
 					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
@@ -186,13 +200,13 @@ session_start();
 				<div id="movie">
 					<!-- Movies -->
 					<?php
-					$max_length = count($result_array);
+					$max_length = count($filteredMovies);
 
 					$increment = 4;
 					$start = 4;
 					$length = $start + $increment;
 
-					foreach (array_slice($result_array, $start, $length) as $movie) {
+					foreach (array_slice($filteredMovies, $start, $length) as $movie) {
 
 						echo "<div class='division'>";
 						echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
@@ -215,7 +229,7 @@ session_start();
 						}
 						echo " ({$movie['rating']}/5)";
 
-						echo "<p>Film Classification: {$movie['flim_classification']}";
+						echo "<p>Film Classification: {$movie['film_classification']}";
 						echo "<p>Genre: {$movie['genre']}";
 						echo "</p>";
 						echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";

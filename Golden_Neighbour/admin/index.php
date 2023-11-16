@@ -123,8 +123,8 @@ include "..\scripts\php\showtimes\getShowtime.php"
 
                 </div>
                 <div class="form-group">
-                    <label for="flim_classification">Classification:</label>
-                    <select id="flim_classification" name="flim_classification" required>
+                    <label for="film_classification">Classification:</label>
+                    <select id="film_classification" name="film_classification" required>
                         <option value="G">G (General Audience)</option>
                         <option value="PG">PG (Parental Guidance Suggested)</option>
                         <option value="PG-13">PG-13 (Parents Strongly Cautioned)</option>
