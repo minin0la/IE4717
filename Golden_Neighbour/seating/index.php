@@ -213,7 +213,7 @@ if ($result) {
                   $is_taken = in_array($seat, $taken_seats);
                   $disable_click = $is_taken ? " onclick='return false;'" : "onclick='toggleSeat(this)'";
                   $disable_seat = $is_taken ? "X" : "$seat";
-                  $disable_color = $is_taken ? "backgroundColor = '#ff8a80';'" : "";
+                  $disable_color = $is_taken ? "background-color: #ff8a80;" : "";
                   echo "<div class='seat' data-seat='$seat' $disable_click style='text-indent: 0px; $disable_color'>$disable_seat</div>";
                 }
                 echo "</div>";
