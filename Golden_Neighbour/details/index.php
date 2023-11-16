@@ -114,7 +114,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 				</div>
 				<h2>Trailer</h2>
 				<?php
-				echo '<a href="' . $matchingMovies['trailer_url'] . '">Watch Trailer here</a>'
+				echo '<a href="' . $matchingMovies['trailer_url'] . '" style="color: red;">Watch Trailer here</a>'
 					?>
 
 				<!-- <div class="video-container">
@@ -182,7 +182,7 @@ include "..\scripts\php\showtimes\getShowtime.php";
 			foreach ($showtime_array as $showtime) {
 				if ($showtime['movie_id'] == $_GET['id']) {
 					$matchingShowtime = $showtime;
-					echo "<a href='../seating/?showtime_id={$matchingShowtime['showtime_id']}&theater_id={$matchingShowtime['theater_id']}&movie_id={$matchingShowtime['movie_id']}&movie_date={$matchingShowtime['showtime_date']}&movie_time={$matchingShowtime['start_time']}' class='slot' data-showtime-date='{$matchingShowtime['showtime_date']}'><button>{$matchingShowtime['start_time']}</button></a>";
+					echo "<a href='../seating/?showtime_id={$matchingShowtime['showtime_id']}' class='slot' data-showtime-date='{$matchingShowtime['showtime_date']}'><button>{$matchingShowtime['start_time']}</button></a>";
 				}
 			}
 			?>
