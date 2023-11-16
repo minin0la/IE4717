@@ -170,17 +170,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <h1>Seat Selection</h1>
 
           <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <div class="seat-map">
+          <div id="screen" class="screen">Screen</div>
+            <div class="seat-map">              
               <?php
-
-
               foreach ($available_seats as $row) {
                 echo " <div class='seat-row'>";
                 foreach ($row as $seat) {
                   $is_taken = in_array($seat, $taken_seats);
                   $disable_click = $is_taken ? " onclick='return false;'" : "onclick='toggleSeat(this)'";
                   $disable_seat = $is_taken ? "X" : "$seat";
-                  $disable_color = $is_taken ? "background-color: red;'" : "";
+                  $disable_color = $is_taken ? "backgroundColor = '#ff8a80';'" : "";
                   echo "<div class='seat' data-seat='$seat' $disable_click style='text-indent: 0px; $disable_color'>$disable_seat</div>";
                 }
                 echo "</div>";
@@ -194,6 +193,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               //   echo "</div>";
               // }
               ?>
+              <div class="legend">
+                <div class="legend-item">
+                  <div class="seat1 available-legend"></div>
+                  <span>Available</span>
+                </div>
+                <div class="legend-item">
+                  <div class="seat1 selected-legend"></div>
+                  <span>Selected</span>
+                </div>
+                <div class="legend-item">
+                  <div class="seat1 unavailable-legend"></div>
+                  <span>Unavailable</span>
+                </div>
+              </div>
               <br>
               <input type="hidden" id="selected_seats" name="selected_seat" value="">
 
@@ -234,25 +247,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </form>
         </div>
       </div>
-      <!DOCTYPE html>
-      <html>
-
-      <head>
-        <title>Select Seats</title>
-        <style>
-          /* Your CSS styles here */
-        </style>
-      </head>
-
-      <body>
-
-
-
-
-      </body>
-
-      </html>
-
     </div>
 
     <div class="moviedetails"></div>
