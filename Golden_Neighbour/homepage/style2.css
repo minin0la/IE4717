@@ -255,3 +255,12 @@ h1
 	border: 1px solid rgba(192, 178, 178, 1);
 	
 }
+
+.admin-button
+{
+	padding-left:10px;
+	display: inline-block; 
+	color: #ffffff; /* White */
+	text-decoration:none; /* Remove the default unerline on the link */
+	cursor: pointer;
+}

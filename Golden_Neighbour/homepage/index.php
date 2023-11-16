@@ -25,7 +25,19 @@ session_start();
 					; "height:115px" ;>
 				<div id="left-header-button-link">
 					<a href="#movie" class="button-link"> Movies</a>
+					<?php
+				// Start the session
+			
+
+				// Check if the user is logged in and has the role "admin"
+				if (isset($_SESSION['permission']) && $_SESSION['permission'] === 'admin') {
+				// The user is an admin, show the button
+				echo "<a href='../admin' class='admin-button'>Administrator</a>";				
+				} 
+				?>
 				</div>
+			
+
 				<!-- <div id="right-header-button-link">
 					<a href="../login/index.html" class="button-link"> Login </a>
 				</div>
@@ -122,6 +134,7 @@ session_start();
 				<option value="Genre: Reality-TV">Reality-TV</option>
 				<option value="Genre: Game-Show">Game-Show</option>
 				<option value="Genre: Adult">Adult</option>
+				<option value="Genre: Concert">Concert</option>
 				<!-- Add more options as needed -->
 			</select>
 			<label for="classificationDropdown">Film Classification:</label>
@@ -138,10 +151,10 @@ session_start();
 			<!-- Movies -->
 			<div id="movie">
 				<?php
-				$count = 0;
+				
 				//shuffle $result_array
 				
-				foreach ($result_array as $movie) {
+				foreach (array_slice($result_array, 0, 4) as $movie) {
 
 					echo "<div class='division'>";
 					echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
@@ -174,10 +187,7 @@ session_start();
 					echo "</p>";
 					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
 					echo "</div>";
-					$count++;
-					if ($count > 3) {
-						break;
-					}
+					
 				}
 				?>
 			</div>
@@ -188,31 +198,29 @@ session_start();
 		</div>
 
 		<div class="collapsible-content" id="collapsibleContent">
-			<div class="parent">
+			<div class='parent'>
+				<div id="movie">
+					<!-- Movies -->
+					<?php
+						$max_length = count($result_array);
+							
+						$increment = 4;
+						$start = 4;
+						$length = $start + $increment;
 
-				<!-- Movies -->
-				<?php
-				$count = 0;
-				$start_count = 0;
-				foreach ($result_array as $movie) {
-					if ($count < 4) {
-						$count++;
-						continue;
-					}
-					if ($start_count == 0) {
-						echo "<div id='movie'>";
-					}
-					echo "<div class='division'>";
-					echo "<img src='../src/img/movie_posters/{$movie['id']}.jpg' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
-					echo "<p>{$movie['title']}";
+						foreach (array_slice($result_array, $start, $length) as $movie) {
+							
+						echo "<div class='division'>";
+						echo "<img src='{$movie['image_url']}' alt='{$movie['title']}' class='Movie' style='width:250px' ; 'height:115px' ;>";
+						echo "<p>{$movie['title']}";
 
-					// Calculate the number of filled stars and the fraction based on the rating
-					$rating = $movie['rating'];
-					$filledStars = floor($rating);
-					$fraction = $rating - $filledStars;
+						// Calculate the number of filled stars and the fraction based on the rating
+						$rating = $movie['rating'];
+						$filledStars = floor($rating);
+						$fraction = $rating - $filledStars;
 
-					echo "<p>Rating: ";
-					for ($i = 1; $i <= 5; $i++) {
+						echo "<p>Rating: ";
+						for ($i = 1; $i <= 5; $i++) {
 						if ($i <= $filledStars) {
 							echo "<span style='color: #FFD700;'>★</span>"; // Full-filled star with gold/yellow color
 						} elseif ($i == $filledStars + 1 && $fraction >= 0.5) {
@@ -220,23 +228,23 @@ session_start();
 						} else {
 							echo "☆"; // Empty star
 						}
-					}
-					echo " ({$movie['rating']}/5)";
+						}
+						echo " ({$movie['rating']}/5)";
 
-					echo "<p>Film Classification: {$movie['flim_classification']}";
-					// echo "<label for='selectBox'>Movie Format:</label>";
-					// echo "<select id='selectBox'>";
-					// echo "<option value='option1'>Digital</option>";
-					// echo "<option value='option2'>3D</option>";
-					// echo "</select>";
-					echo "<p>Genre: {$movie['genre']}";
-					echo "</p>";
-					echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
-					echo "</div>";
-					$start_count++;
-					$count++;
-				}
-				?>
+						echo "<p>Film Classification: {$movie['flim_classification']}";
+						// echo "<label for='selectBox'>Movie Format:</label>";
+						// echo "<select id='selectBox'>";
+						// echo "<option value='option1'>Digital</option>";
+						// echo "<option value='option2'>3D</option>";
+						// echo "</select>";
+						echo "<p>Genre: {$movie['genre']}";
+						echo "</p>";
+						echo "<a href='../details?id={$movie['id']}' class='buy_button'>Buy Ticket</a>";
+						echo "</div>";
+						}
+				
+					?>
+				</div>
 			</div>
 		</div>
 	</div>

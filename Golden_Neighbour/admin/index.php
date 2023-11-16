@@ -79,7 +79,7 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 </div>
                 <div class="form-group">
                     <label for="genre">Rating:</label>
-                    <input type="number" id="rating" name="rating" required />
+                    <input type="number" id="rating" name="rating" step="0.1"  oninput="validateDecimal(this)" required />
                 </div>
                 <div class="form-group">
                     <label for="release_date">Release Date:</label>
@@ -87,14 +87,15 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 </div>
                 <div class="form-group">
                     <label for="movie_description">Description:</label>
-                    <textarea rows="8" cols="100" type="text" id="movie_description" name="movie_description"
+                    <textarea rows="8" cols="77" type="text" id="movie_description" name="movie_description"
                         required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="image_url">Image URL:</label>
                     <input id="image_url" name="image_url" required />
+                </div>
                     <div class="form-group">
-                        <label for="trailer_url">Trailer URL:</label>
+                        <label for="trailer_url"    >Trailer URL:</label>
                         <input id="trailer_url" name="trailer_url" required />
                     </div>
                     <div class="form-group">
@@ -155,6 +156,7 @@ include "..\scripts\php\showtimes\getShowtime.php"
                             <option value="Reality-TV">Reality-TV</option>
                             <option value="Game-Show">Game-Show</option>
                             <option value="Adult">Adult</option>
+                            <option value="Concert">Concert</option>
                         </select>
                         <input type="text" id="otherGenre" name="otherGenre" style="display: none;"
                             placeholder="Enter other Genre">
