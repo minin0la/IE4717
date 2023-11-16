@@ -36,7 +36,7 @@ include "../scripts/php/transactions/getTransactions.php";
 				<?php
 				if (isset($_SESSION['email'])) {
 					echo "<div id='right-header-button-link'>";
-					echo "<a href='../scripts/php/auth/logout.php' class='button-link'>Logout</a>";
+					echo "<a href='../cart' class='button-link'> Cart </a>";
 					echo "</div>";
 					echo "<div class='my-profile-button-link'>";
 					echo "<a href='../profilepage/index.php' class='button-link'>My Profile</a>";

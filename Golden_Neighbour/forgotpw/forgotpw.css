@@ -20,7 +20,7 @@ body
 	width: 90%;
 	margin: auto;
 	margin-top: 10px;
-	box-shadow: 7px 7px 5px black;
+	/* box-shadow: 7px 7px 5px black; */
 }
 
 footer
@@ -164,4 +164,13 @@ input[type="email"]
 {
     background-color: #2980b9;
 	transition: 0.5s
+}
+.login-container{
+
+	background: rgba(255,255,255, 0.2);
+	/* border-radius: 16px; */
+	/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 0px solid rgba(255, 255, 255, 0.3);
 }

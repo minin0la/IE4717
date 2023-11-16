@@ -20,18 +20,67 @@ $available_seats = array(
   array("E1", "E2", "E3", "E4")
 );
 
-$movie_date = $_GET['movie_date'];
-$movie_time = $_GET['movie_time'];
+// $movie_date = $_GET['movie_date'];
+// $movie_time = $_GET['movie_time'];
 
 $connection = mysqli_connect("localhost", "root", "", "goldenneighbour");
 
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-foreach ($result_array as $movie) {
-  if ($movie['id'] == $_GET['movie_id']) {
-    $matchingMovies = $movie;
-    $movie_title = mysqli_real_escape_string($connection, $matchingMovies['title']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (isset($_POST["selected_seat"])) {
+    $selected_seats = $_POST["selected_seat"];
+    $theater_id = $_POST["theater_id"];
+    $movie_title = mysqli_real_escape_string($connection, $_POST["movie_title"]);
+    $qty = $_POST["qty"];
+    $price = $_POST["price"];
+    $date = $_POST["showtime_date"];
+    $time = $_POST["start_time"];
+    $movie_id = $_POST['movie_id'];
+    $showtime_id = $_POST['showtime_id'];
+
+    // foreach ($selected_seats as $seat) {
+    $sql = "SELECT * FROM showtimes 
+        WHERE showtime_id = $showtime_id
+        AND theater_id = $theater_id 
+        AND movie_id = $movie_id 
+        AND showtime_date = '$date' 
+        AND start_time = '$time'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+      // Showtime exists, proceed with your logic here
+      echo "Showtime exists!";
+
+      $sql = "INSERT INTO cart (selected_seat, email, theater_id, movie_title, qty, price, movie_date, movie_time, movie_id) VALUES ('$selected_seats', '{$_SESSION['email']}', '$theater_id', '$movie_title', '$qty', '$price', '$date', '$time', '$movie_id')";
+      if ($conn->query($sql) === TRUE) {
+        echo "Seat $seat added to cart successfully.";
+        header("Location: ../cart/index.php");
+      } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+    } else {
+      // Show an error message
+      echo "Error: Showtime not found.";
+    }
+    // }
+  }
+}
+foreach ($showtime_array as $showtime) {
+  if ($showtime['showtime_id'] == $_GET['showtime_id']) {
+    $showtime_id = $showtime['showtime_id'];
+    $movie_date = $showtime['showtime_date'];
+    $theater_id = $showtime['theater_id'];
+    $movie_id = $showtime['movie_id'];
+    $movie_time = $showtime['start_time'];
+    foreach ($result_array as $movie) {
+      if ($movie['id'] == $movie_id) {
+        $matchingMovies = $movie;
+        $movie_title = mysqli_real_escape_string($connection, $matchingMovies['title']);
+      }
+    }
   }
 }
 $query = "SELECT selected_seat FROM transactions WHERE movie_title='$movie_title' AND movie_date='$movie_date' AND movie_time='$movie_time'";
@@ -48,28 +97,6 @@ if ($result) {
 }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_POST["selected_seat"])) {
-    $selected_seats = $_POST["selected_seat"];
-    $theater_id = $_POST["theater_id"];
-    $movie_title = mysqli_real_escape_string($connection, $_POST["movie_title"]);
-    $qty = $_POST["qty"];
-    $price = $_POST["price"];
-    $date = $_POST["showtime_date"];
-    $time = $_POST["start_time"];
-    $movie_id = $_POST['movie_id'];
-
-    // foreach ($selected_seats as $seat) {
-    $sql = "INSERT INTO cart (selected_seat, email, theater_id, movie_title, qty, price, movie_date, movie_time, movie_id) VALUES ('$selected_seats', '{$_SESSION['email']}', '$theater_id', '$movie_title', '$qty', '$price', '$date', '$time', '$movie_id')";
-    if ($conn->query($sql) === TRUE) {
-      echo "Seat $seat added to cart successfully.";
-      header("Location: ../cart/index.php");
-    } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-    // }
-  }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -157,16 +184,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div id="parent" class="clearfix">
         <div class="left">
           <?php
-          foreach ($result_array as $movie) {
-            if ($movie['id'] == $_GET['movie_id']) {
-              $matchingMovies = $movie;
-            }
-          }
+          // foreach ($result_array as $movie) {
+          //   if ($movie['id'] == $_GET['movie_id']) {
+          //     $matchingMovies = $movie;
+          //   }
+          // }
           echo "<img src='{$matchingMovies['image_url']}' alt='Movie Poster'  class='Movie' style='width:400px;'>";
           ?>
 
         </div>
         <div class="right">
+          <h1>
+            <?php echo $matchingMovies['title'] ?>
+
+          </h1>
+          <h2>
+            <?php echo "Hall {$matchingMovies['assigned_cinema']} on {$movie_date} @ {$movie_time}" ?>
+          </h2>
           <h1>Seat Selection</h1>
 
           <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -184,14 +218,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 echo "</div>";
               }
-              // foreach ($available_seats as $row) {
-              //   echo " <div class='seat-row'>";
-              //   foreach ($row as $seat) {
-              //     // $checked = in_array($seat, $_SESSION["selected_seats"]) ? "selected" : "";
-              //     echo "<div class='seat' data-seat='$seat' onclick='toggleSeat(this)' style='text-indent: 0px'>$seat</div>";
-              //   }
-              //   echo "</div>";
-              // }
               ?>
               <div class="legend">
                 <div class="legend-item">
@@ -227,6 +253,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               echo
                 '<input type="hidden" id="movie_id" name="movie_id" value="' . $matchingMovies['id'] . '">';
               echo '<input type="hidden" id="movie_titles" name="movie_title" value="' . $matchingMovies['title'] . '">';
+              echo '<input type="hidden" id="showtime_id" name="showtime_id" value="' . $_GET['showtime_id'] . '">';
 
               ?>
               <!-- <input type="submit" value="Select Seats"> -->
