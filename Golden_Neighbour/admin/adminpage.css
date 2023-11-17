@@ -96,6 +96,7 @@ footer
 /* Login Page */
 .panel-container 
 {
+	width: 70%;
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
