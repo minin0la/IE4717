@@ -131,18 +131,20 @@ include "..\scripts\php\showtimes\getShowtime.php";
 			<label for="selectDate">Select Date:</label>
 			<select id="selectDate" onchange="updateShowtimes()">
 				<?php
+				$today = strtotime('today');
 				$unique_dates_by_movie = array();
 
 				foreach ($showtime_array as $showtime) {
 					$movie_id = $showtime['movie_id'];
 					$showtime_date = $showtime['showtime_date'];
+					if ($showtime_date >= $today) {
+						if (!isset($unique_dates_by_movie[$movie_id])) {
+							$unique_dates_by_movie[$movie_id] = array();
+						}
 
-					if (!isset($unique_dates_by_movie[$movie_id])) {
-						$unique_dates_by_movie[$movie_id] = array();
-					}
-
-					if (!in_array($showtime_date, $unique_dates_by_movie[$movie_id])) {
-						$unique_dates_by_movie[$movie_id][] = $showtime_date;
+						if (!in_array($showtime_date, $unique_dates_by_movie[$movie_id])) {
+							$unique_dates_by_movie[$movie_id][] = $showtime_date;
+						}
 					}
 				}
 

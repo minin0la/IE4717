@@ -62,57 +62,60 @@ include "..\scripts\php\movies\getMovies.php";
 	<ul id="movie-cart">
 		<?php
 		foreach ($cart_array as $cart) {
+			if ($cart['email'] == $_SESSION['email']) {
+				$userCart = $cart;
+			}
 			// $quantity = count($cart['selected_seat']);
 			echo '
 		<div class="cart-info">
-		<span class="close-box" onclick="deleteCart(' . $cart['cart_id'] . ')">X</span>
-		<form id="deleteCart-' . $cart['cart_id'] . '" action="../scripts/php/cart/deleteCart.php" method="post">
-        <input type="hidden" id="cart_id" name="cart_id" value="' . $cart['cart_id'] . '">
+		<span class="close-box" onclick="deleteCart(' . $userCart['cart_id'] . ')">X</span>
+		<form id="deleteCart-' . $userCart['cart_id'] . '" action="../scripts/php/cart/deleteCart.php" method="post">
+        <input type="hidden" id="cart_id" name="cart_id" value="' . $userCart['cart_id'] . '">
     </form>
 		<div id="movieheader">
-			<label class="movieheader">Movie Title: ' . $cart['movie_title'] . '</label>
-			<label class="cartid">Cart ID: ' . $cart['cart_id'] . '</label>
+			<label class="movieheader">Movie Title: ' . $userCart['movie_title'] . '</label>
+			<label class="cartid">Cart ID: ' . $userCart['cart_id'] . '</label>
 		</div>
 
 		<div id="dateheader">
-			<label class="dateheader">Date: ' . $cart['movie_date'] . '
+			<label class="dateheader">Date: ' . $userCart['movie_date'] . '
 		</div></label>
 
 		<div id="timeheader">
-			<label class="timeheader">Time: ' . $cart['movie_time'] . '
+			<label class="timeheader">Time: ' . $userCart['movie_time'] . '
 			</label>
 		</div>
 
 		<div id="transaction-border">
 
 			<div id="selected-seats">
-				<label class="selected-seats">Selected Seats: ' . $cart['selected_seat'] . '</label>
+				<label class="selected-seats">Selected Seats: ' . $userCart['selected_seat'] . '</label>
 			</div>
 
 			<div id="qty">
-				<label class="qty">Quantity: ' . $cart['qty'] . '</label>
+				<label class="qty">Quantity: ' . $userCart['qty'] . '</label>
 			</div>
 
 			<div id="ticket-price">
-				<label class="ticket-price">Ticket Price: $' . $cart['price'] . '</label>
+				<label class="ticket-price">Ticket Price: $' . $userCart['price'] . '</label>
 			</div>
 
 		</div>
 
 		<div id="final-pricing" class="clearfix">
-			<label class="total-price">Total: $' . $cart['price'] . '</label>
+			<label class="total-price">Total: $' . $userCart['price'] . '</label>
 			</div>
 			<div class="action-button" class="clearfix">
 			<form action="../scripts/php/payments/payments.php" method="post">
-			<input type="hidden" id="cart_id" name="cart_id" value="' . $cart['cart_id'] . '">
-			<input type="hidden" id="movie_title" name="movie_title" value="' . $cart['movie_title'] . '">
-			<input type="hidden" id="theater_id" name="theater_id" value="' . $cart['theater_id'] . '">
-			<input type="hidden" id="selected_seat" name="selected_seat" value="' . $cart['selected_seat'] . '">
-			<input type="hidden" id="email" name="email" value="' . $cart['email'] . '">
-			<input type="hidden" id="movie_date" name="movie_date" value="' . $cart['movie_date'] . '">
-			<input type="hidden" id="movie_time" name="movie_time" value="' . $cart['movie_time'] . '">
-			<input type="hidden" id="qty" name="qty" value="' . $cart['qty'] . '">
-			<input type="hidden" id="price" name="price" value="' . $cart['price'] . '">
+			<input type="hidden" id="cart_id" name="cart_id" value="' . $userCart['cart_id'] . '">
+			<input type="hidden" id="movie_title" name="movie_title" value="' . $userCart['movie_title'] . '">
+			<input type="hidden" id="theater_id" name="theater_id" value="' . $userCart['theater_id'] . '">
+			<input type="hidden" id="selected_seat" name="selected_seat" value="' . $userCart['selected_seat'] . '">
+			<input type="hidden" id="email" name="email" value="' . $userCart['email'] . '">
+			<input type="hidden" id="movie_date" name="movie_date" value="' . $userCart['movie_date'] . '">
+			<input type="hidden" id="movie_time" name="movie_time" value="' . $userCart['movie_time'] . '">
+			<input type="hidden" id="qty" name="qty" value="' . $userCart['qty'] . '">
+			<input type="hidden" id="price" name="price" value="' . $userCart['price'] . '">
 			<button type="submit" class="paynow-button">Pay Now</button>
 			</form>
 			</div>

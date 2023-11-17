@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!$update_result) {
         mysqli_close($conn);
-        header("Location: forgot_password.php?error=update_failed");
+        echo "Failed to update password. Click <a href='../../../forgotpw'>here</a> to try again.";
         exit;
     }
 
@@ -40,11 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers = "From: manager@localhost";
 
     if (!mail($to, $subject, $message, $headers)) {
-        header("Location: forgot_password.php?error=email_not_sent");
+        echo "Email failed to send. Click <a href='../../../forgotpw'>here</a> to try again.";
         exit;
     }
 
-    header("Location: forgot_password.php?success=true");
+    echo "Your new password has been seat. Click <a href='../../../login'>here</a> to login.";
     exit;
 }
 ?>
