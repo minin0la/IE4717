@@ -94,7 +94,7 @@ include "..\scripts\php\showtimes\getShowtime.php"
                 </div>
                 <div class="form-group">
                     <label for="movie_description">Description:</label>
-                    <textarea rows="8" cols="77" type="text" id="movie_description" name="movie_description"
+                    <textarea rows="8" cols="66%" type="text" id="movie_description" name="movie_description"
                         required></textarea>
                 </div>
                 <div class="form-group">
