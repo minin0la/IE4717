@@ -109,10 +109,20 @@ footer
 
 /* My Profile */
 .cart-info {
-    padding: 20px;
+    padding: 30px;
 	/* background-color: grey; */
 	color: white;
 	line-height: 50px;
+	width: 40%;
+    margin: 0 auto;
+	
+	background: rgba(255,255,255, 0.2);
+	/* border-radius: 16px; */
+	/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 0px solid rgba(255, 255, 255, 0.3);
 }
 
 
@@ -136,6 +146,10 @@ footer
 	color: white;
 	border-radius: 5px; /* Rounded corner */
 	transition: 0.5s;
+
+	float: left;
+    width: 60%;
+    font-size: 15px;
 }
 
 .paynow-button:hover
@@ -208,7 +222,7 @@ h1
 .cartid
 {
 	float:right;
-	width:25%;
+	padding-right: 10px;
 	font-size: 15px;
 }
 
@@ -264,7 +278,7 @@ h1
 .qty
 {
 	float:right;
-	width:10%;
+	padding-right=10px;
 	font-size: 15px;
 }
 
@@ -293,9 +307,9 @@ h1
 
 .total-price
 {
-	float:right;
-	padding-right: 100px;
-	/* color: black; */
+	float: right;
+    width: 35%;
+    font-size: 15px;
 }
 
 .close-box {
